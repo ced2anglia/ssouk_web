@@ -120,7 +120,8 @@ Done. :)
 Git is your friend
 ==================
 
-Check out the doc for git under the docs folder.
+Check out the doc for git under the docs folder
+https://github.com/ssouk/ssouk_web/blob/master/docs/How_to_merge_with_git.md
 
 
 
