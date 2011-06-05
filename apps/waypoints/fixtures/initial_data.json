@@ -1,0 +1,1498 @@
+[
+    {
+        "pk": 1,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.1480870000000039 -38.4625470000000007)",
+            "name": "Akatarewa Stream"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.8526999999999987 -42.5191999999999979)",
+            "name": "ALPINE HOL"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.9141830000000084 -43.4518559999999994)",
+            "name": "ALPVIEWS"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (170.6286130000000014 -43.1691649999999996)",
+            "name": "Amethyst Hot Springs"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.7821299999999951 -37.0085699999999989)",
+            "name": "AUCKLAND"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.9077800000000025 -35.2584799999999987)",
+            "name": "BAYOFISLAN"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.3694999999999879 -44.9402290000000022)",
+            "name": "BENDIGO"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (168.4395939999999996 -45.0235020000000006)",
+            "name": "BENITBLUFF"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (168.5093860000000063 -45.0695240000000013)",
+            "name": "BOBS COVE"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.1686880000000031 -44.3515549999999976)",
+            "name": "BOUNDERYCK"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.3428000000000111 -38.4531670000000005)",
+            "name": "BUTCHERS-P"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.0718099999999993 -38.6441799999999986)",
+            "name": "C-MOON"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (171.7232710000000111 -43.2326649999999972)",
+            "name": "CASTLEHILL"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (171.1500890000000084 -42.9637979999999970)",
+            "name": "Cedar Flat Hot Springs"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.5339999999999918 -43.4859200000000001)",
+            "name": "CHRISTCHUR"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.4706400000000031 -36.2395899999999997)",
+            "name": "CLARIS"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (171.6300610000000120 -42.8328599999999966)",
+            "name": "Deception River Hot Springs"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (171.5762719999999888 -42.8017699999999977)",
+            "name": "DOC-AC"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.1893330000000049 -44.6785819999999987)",
+            "name": "DOC-AL"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.7393230000000131 -37.1050219999999982)",
+            "name": "DOC-BH"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.3327030000000093 -39.3847719999999981)",
+            "name": "DOC-CA"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.2869349999999997 -44.1611529999999988)",
+            "name": "DOC-CF"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.3271400000000142 -36.5240599999999986)",
+            "name": "DOC-FA"
+        }
+    },
+    {
+        "pk": 24,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.3898370000000000 -36.4773849999999982)",
+            "name": "DOC-FB"
+        }
+    },
+    {
+        "pk": 25,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (167.4567619999999977 -46.0075379999999967)",
+            "name": "DOC-FI"
+        }
+    },
+    {
+        "pk": 26,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (171.5906620000000089 -42.9842379999999977)",
+            "name": "DOC-GR"
+        }
+    },
+    {
+        "pk": 27,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (177.3859520000000032 -38.2911569999999983)",
+            "name": "DOC-H2"
+        }
+    },
+    {
+        "pk": 28,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (167.3819870000000094 -45.9889950000000027)",
+            "name": "DOC-HA"
+        }
+    },
+    {
+        "pk": 29,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.4842130000000111 -40.9060679999999977)",
+            "name": "DOC-HO"
+        }
+    },
+    {
+        "pk": 30,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (177.0631349999999884 -38.7103419999999971)",
+            "name": "DOC-HP"
+        }
+    },
+    {
+        "pk": 31,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.2581800000000101 -44.4406979999999976)",
+            "name": "DOC-KB"
+        }
+    },
+    {
+        "pk": 32,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.1171919999999886 -41.1738679999999988)",
+            "name": "DOC-KE"
+        }
+    },
+    {
+        "pk": 33,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.3279049999999870 -39.3934399999999982)",
+            "name": "DOC-KU"
+        }
+    },
+    {
+        "pk": 34,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.0495119999999929 -41.7956470000000024)",
+            "name": "DOC-LY"
+        }
+    },
+    {
+        "pk": 35,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.4063419999999951 -34.8298720000000017)",
+            "name": "DOC-MA"
+        }
+    },
+    {
+        "pk": 36,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.4257220000000075 -35.4434820000000030)",
+            "name": "DOC-MI"
+        }
+    },
+    {
+        "pk": 37,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (168.1704569999999990 -45.2760000000000034)",
+            "name": "DOC-ML"
+        }
+    },
+    {
+        "pk": 38,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.2266500000000065 -42.3460180000000008)",
+            "name": "DOC-MR"
+        }
+    },
+    {
+        "pk": 39,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (171.5188599999999894 -42.4049369999999968)",
+            "name": "DOC-NC"
+        }
+    },
+    {
+        "pk": 40,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.1462799999999902 -38.9419850000000025)",
+            "name": "DOC-OH"
+        }
+    },
+    {
+        "pk": 41,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.1261869999999874 -39.7141170000000017)",
+            "name": "DOC-OM"
+        }
+    },
+    {
+        "pk": 42,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.2204979999999921 -40.8798069999999996)",
+            "name": "DOC-OT"
+        }
+    },
+    {
+        "pk": 43,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.5727149999999881 -41.2976770000000002)",
+            "name": "DOC-PE"
+        }
+    },
+    {
+        "pk": 44,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.3437849999999969 -36.4831750000000028)",
+            "name": "DOC-PJ"
+        }
+    },
+    {
+        "pk": 45,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.0828229999999905 -34.7250599999999991)",
+            "name": "DOC-RA"
+        }
+    },
+    {
+        "pk": 46,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.4969780000000128 -38.2849679999999992)",
+            "name": "DOC-RE"
+        }
+    },
+    {
+        "pk": 47,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.3551170000000070 -35.3649079999999998)",
+            "name": "DOC-RR"
+        }
+    },
+    {
+        "pk": 48,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (171.7919919999999934 -42.1562330000000003)",
+            "name": "DOC-SL"
+        }
+    },
+    {
+        "pk": 49,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.8625549999999862 -34.4264319999999984)",
+            "name": "DOC-SP"
+        }
+    },
+    {
+        "pk": 50,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.4241100000000131 -36.5124920000000017)",
+            "name": "DOC-ST"
+        }
+    },
+    {
+        "pk": 51,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.4949870000000089 -46.4592019999999977)",
+            "name": "DOC-TA"
+        }
+    },
+    {
+        "pk": 52,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.7153230000000121 -34.4399119999999996)",
+            "name": "DOC-TP"
+        }
+    },
+    {
+        "pk": 53,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.6526029999999992 -35.7216650000000016)",
+            "name": "DOC-TR"
+        }
+    },
+    {
+        "pk": 54,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.8951380000000029 -39.2340719999999976)",
+            "name": "DOC-TU"
+        }
+    },
+    {
+        "pk": 55,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.4557450000000074 -35.9361430000000013)",
+            "name": "DOC-UR"
+        }
+    },
+    {
+        "pk": 56,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.1685919999999896 -44.3516520000000014)",
+            "name": "DOC-WA"
+        }
+    },
+    {
+        "pk": 57,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.5551470000000052 -35.6524319999999975)",
+            "name": "DOC-WF"
+        }
+    },
+    {
+        "pk": 58,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (171.1543049999999937 -44.0019550000000024)",
+            "name": "DOC-WG"
+        }
+    },
+    {
+        "pk": 59,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.5354879999999866 -36.6056820000000016)",
+            "name": "DOC-WK"
+        }
+    },
+    {
+        "pk": 60,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (171.5885920000000056 -43.0034100000000024)",
+            "name": "DOC-WR"
+        }
+    },
+    {
+        "pk": 61,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.1337550000000078 -46.6233720000000034)",
+            "name": "DOC-WV"
+        }
+    },
+    {
+        "pk": 62,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (170.1984999999999957 -45.9286299999999983)",
+            "name": "DUNEDIN"
+        }
+    },
+    {
+        "pk": 63,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (170.1812999999999931 -43.3725999999999985)",
+            "name": "FRANZ JOSE"
+        }
+    },
+    {
+        "pk": 64,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.8468599999999924 -42.7756309999999971)",
+            "name": "FUEL CULDE"
+        }
+    },
+    {
+        "pk": 65,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (170.0173819999999978 -43.4660689999999974)",
+            "name": "FUEL FOX"
+        }
+    },
+    {
+        "pk": 66,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.0439990000000137 -43.8594280000000012)",
+            "name": "FUEL HAAST"
+        }
+    },
+    {
+        "pk": 67,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.3958379999999977 -41.2137329999999977)",
+            "name": "FUEL HIRA"
+        }
+    },
+    {
+        "pk": 68,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.7656100000000094 -41.2765869999999993)",
+            "name": "FUEL HLOCK"
+        }
+    },
+    {
+        "pk": 69,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.8588159999999903 -41.2892900000000012)",
+            "name": "FUEL LINKW"
+        }
+    },
+    {
+        "pk": 70,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.2313880000000097 -44.2316390000000013)",
+            "name": "FUEL MAKAR"
+        }
+    },
+    {
+        "pk": 71,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.3249859999999956 -41.7999110000000016)",
+            "name": "FUEL MURCH"
+        }
+    },
+    {
+        "pk": 72,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.9636050000000012 -44.4880220000000008)",
+            "name": "FUEL OMA"
+        }
+    },
+    {
+        "pk": 73,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.5828919999999869 -41.2282370000000000)",
+            "name": "FUEL RAIVL"
+        }
+    },
+    {
+        "pk": 74,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (171.2464940000000126 -42.4022450000000006)",
+            "name": "FUEL RNGA"
+        }
+    },
+    {
+        "pk": 75,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (170.8169919999999991 -42.8988209999999981)",
+            "name": "FUEL ROSS"
+        }
+    },
+    {
+        "pk": 76,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.1821950000000072 -42.3350239999999971)",
+            "name": "FUEL SPNGJ"
+        }
+    },
+    {
+        "pk": 77,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.8472289999999987 -41.8016819999999996)",
+            "name": "FUEL STARD"
+        }
+    },
+    {
+        "pk": 78,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.4118819999999914 -44.8368400000000022)",
+            "name": "FUEL TARRA"
+        }
+    },
+    {
+        "pk": 79,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.7057590000000005 -42.9704029999999975)",
+            "name": "FUEL WAIKE"
+        }
+    },
+    {
+        "pk": 80,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (170.3588589999999954 -43.2617449999999977)",
+            "name": "FUEL WHATO"
+        }
+    },
+    {
+        "pk": 81,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (177.9777899999999988 -38.6599999999999966)",
+            "name": "GISBORNE"
+        }
+    },
+    {
+        "pk": 82,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.9346690000000137 -45.0037700000000029)",
+            "name": "GOLDENPROG"
+        }
+    },
+    {
+        "pk": 83,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.3815089999999941 -44.0411029999999997)",
+            "name": "GTS HAAST"
+        }
+    },
+    {
+        "pk": 84,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.3279899999999998 -37.8631999999999991)",
+            "name": "HAMILTON"
+        }
+    },
+    {
+        "pk": 85,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (171.7730359999999905 -42.6601100000000031)",
+            "name": "Haupiri River Hot Springs"
+        }
+    },
+    {
+        "pk": 86,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.8668399999999963 -39.4689499999999995)",
+            "name": "HAWKESBAY"
+        }
+    },
+    {
+        "pk": 87,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.9038749999999993 -45.0107700000000008)",
+            "name": "HAYS WORKS"
+        }
+    },
+    {
+        "pk": 88,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.2877119999999991 -38.0852519999999970)",
+            "name": "Hinemoas Pool"
+        }
+    },
+    {
+        "pk": 89,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (167.9895579999999882 -44.7646450000000016)",
+            "name": "HOMER TNNL"
+        }
+    },
+    {
+        "pk": 90,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.4875869999999907 -42.5896010000000018)",
+            "name": "Horseshoe Hot Springs"
+        }
+    },
+    {
+        "pk": 91,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (170.6530659999999955 -43.1964609999999993)",
+            "name": "Hot Springs Flat"
+        }
+    },
+    {
+        "pk": 92,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (170.6536099999999863 -43.1992720000000006)",
+            "name": "Hot Springs Flat #2"
+        }
+    },
+    {
+        "pk": 93,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.0466010000000097 -42.6944370000000006)",
+            "name": "Hurunui River"
+        }
+    },
+    {
+        "pk": 94,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.0574829999999906 -42.7443049999999971)",
+            "name": "Hurunui River South Hot Springs"
+        }
+    },
+    {
+        "pk": 95,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (168.3092300000000137 -46.4123999999999981)",
+            "name": "INVERCARGI"
+        }
+    },
+    {
+        "pk": 96,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.8149899999999946 -35.4535800000000023)",
+            "name": "KAIKOHE"
+        }
+    },
+    {
+        "pk": 97,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.2774100000000033 -35.0714299999999994)",
+            "name": "KAITAIA"
+        }
+    },
+    {
+        "pk": 98,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.4265279999999905 -36.2216790000000017)",
+            "name": "Kaitoke Hot Springs"
+        }
+    },
+    {
+        "pk": 99,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.3863800000000026 -38.3343220000000002)",
+            "name": "KERO-CREEK"
+        }
+    },
+    {
+        "pk": 100,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.3733110000000011 -38.3221010000000035)",
+            "name": "Lake Rotowhero"
+        }
+    },
+    {
+        "pk": 101,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.8464630000000000 -41.8068049999999971)",
+            "name": "LAKEVIEWST"
+        }
+    },
+    {
+        "pk": 102,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.2470480000000066 -44.5088859999999968)",
+            "name": "LK HAWEA"
+        }
+    },
+    {
+        "pk": 103,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.2169639999999902 -44.4499730000000000)",
+            "name": "LK HAWEA 2"
+        }
+    },
+    {
+        "pk": 104,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.1944959999999867 -44.4375410000000031)",
+            "name": "LK WANAKA"
+        }
+    },
+    {
+        "pk": 105,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.1852880000000141 -44.4108319999999992)",
+            "name": "LK WANAKA2"
+        }
+    },
+    {
+        "pk": 106,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.7831470000000138 -41.2673789999999983)",
+            "name": "LOOKOUTPNT"
+        }
+    },
+    {
+        "pk": 107,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.0451390000000060 -42.6571349999999967)",
+            "name": "Mackenzie Stream Hot Springs"
+        }
+    },
+    {
+        "pk": 108,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.3976030000000037 -39.1651090000000011)",
+            "name": "Mangatainoka Hot Springs"
+        }
+    },
+    {
+        "pk": 109,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.7381699999999967 -37.7360100000000003)",
+            "name": "MATAMATA"
+        }
+    },
+    {
+        "pk": 110,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.7962909999999965 -36.3021680000000018)",
+            "name": "MATHESONS"
+        }
+    },
+    {
+        "pk": 111,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.8212200000000109 -38.7462450000000018)",
+            "name": "Maungatanuiwha Hot Springs"
+        }
+    },
+    {
+        "pk": 112,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.0449950000000001 -37.8069569999999970)",
+            "name": "MCLAREN"
+        }
+    },
+    {
+        "pk": 113,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (168.0113360000000000 -45.0284499999999994)",
+            "name": "MIRRORLAKE"
+        }
+    },
+    {
+        "pk": 114,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.4715830000000096 -36.4686829999999986)",
+            "name": "MTAUCK"
+        }
+    },
+    {
+        "pk": 115,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.1955570000000080 -45.0672959999999989)",
+            "name": "MTB C HILL"
+        }
+    },
+    {
+        "pk": 116,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (168.3760770000000093 -44.7238279999999975)",
+            "name": "MTB CNBLUF"
+        }
+    },
+    {
+        "pk": 117,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.2534039999999891 -44.9825719999999976)",
+            "name": "MTB DEVCRK"
+        }
+    },
+    {
+        "pk": 118,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.4385120000000029 -44.9695030000000031)",
+            "name": "MTB MTMOKA"
+        }
+    },
+    {
+        "pk": 119,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (171.1859990000000096 -43.0322010000000006)",
+            "name": "Mungo River Hot Springs"
+        }
+    },
+    {
+        "pk": 120,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.2195199999999886 -41.2961299999999980)",
+            "name": "NELSON"
+        }
+    },
+    {
+        "pk": 121,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.1690700000000049 -39.0050600000000003)",
+            "name": "NEW PLYMOU"
+        }
+    },
+    {
+        "pk": 122,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (171.0855599999999868 -44.9678899999999970)",
+            "name": "OAMARU"
+        }
+    },
+    {
+        "pk": 123,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.3776400000000137 -40.2034799999999990)",
+            "name": "OHAKEA AIR"
+        }
+    },
+    {
+        "pk": 124,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.5551849999999945 -39.0458920000000020)",
+            "name": "Ohane Stream Hot Springs"
+        }
+    },
+    {
+        "pk": 125,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.5899039999999900 -45.1105560000000025)",
+            "name": "OPHIR BRG"
+        }
+    },
+    {
+        "pk": 126,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (171.7067270000000008 -42.8017779999999988)",
+            "name": "Otehake River Hot Springs"
+        }
+    },
+    {
+        "pk": 127,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.6106699999999989 -40.3227400000000031)",
+            "name": "PALMERSTON"
+        }
+    },
+    {
+        "pk": 128,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.1560650000000123 -38.4527950000000018)",
+            "name": "Paradise"
+        }
+    },
+    {
+        "pk": 129,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.4330530000000010 -36.2113650000000007)",
+            "name": "Peach Tree Hot Springs"
+        }
+    },
+    {
+        "pk": 130,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.0031590000000108 -41.2833820000000031)",
+            "name": "PICT VIEW"
+        }
+    },
+    {
+        "pk": 131,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.7704369999999869 -40.8479430000000008)",
+            "name": "PUPU"
+        }
+    },
+    {
+        "pk": 132,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (168.6638989999999865 -45.0326840000000033)",
+            "name": "QTN PRKING"
+        }
+    },
+    {
+        "pk": 133,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (168.7418600000000026 -45.0208500000000029)",
+            "name": "QUEENSTOWN"
+        }
+    },
+    {
+        "pk": 134,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.3347829999999874 -45.1945740000000029)",
+            "name": "RAIL TRAIL"
+        }
+    },
+    {
+        "pk": 135,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.9437629999999899 -35.2183139999999995)",
+            "name": "RAINBOWFLL"
+        }
+    },
+    {
+        "pk": 136,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.5566560000000038 -36.7103230000000025)",
+            "name": "Riverhead1"
+        }
+    },
+    {
+        "pk": 137,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.5559039999999982 -36.6993849999999995)",
+            "name": "Riverhead2"
+        }
+    },
+    {
+        "pk": 138,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.3120800000000088 -38.1032099999999971)",
+            "name": "ROTORUA"
+        }
+    },
+    {
+        "pk": 139,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.3645089999999982 -38.3559380000000019)",
+            "name": "SECRET-SPO"
+        }
+    },
+    {
+        "pk": 140,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.1447970000000112 -45.0777560000000008)",
+            "name": "SLUCINGS"
+        }
+    },
+    {
+        "pk": 141,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (170.8467430000000036 -43.2085030000000003)",
+            "name": "Smythe Hut Hot Springs"
+        }
+    },
+    {
+        "pk": 142,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.0286959999999965 -40.8938320000000033)",
+            "name": "SOUTHWOOD"
+        }
+    },
+    {
+        "pk": 143,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.3867170000000044 -42.4903440000000003)",
+            "name": "SYLVFLAHOS"
+        }
+    },
+    {
+        "pk": 144,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.2399249999999995 -41.2842869999999991)",
+            "name": "TAHUNACAMP"
+        }
+    },
+    {
+        "pk": 145,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (171.4263510000000110 -42.8954370000000011)",
+            "name": "Taipo River Hot Springs"
+        }
+    },
+    {
+        "pk": 146,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.0880799999999908 -38.7383700000000033)",
+            "name": "TAUPO"
+        }
+    },
+    {
+        "pk": 147,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.1900400000000104 -37.6738500000000016)",
+            "name": "TAURANGA"
+        }
+    },
+    {
+        "pk": 148,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.6179600000000107 -37.4735999999999976)",
+            "name": "TE AROHA A"
+        }
+    },
+    {
+        "pk": 149,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.9081639999999993 -39.7021870000000021)",
+            "name": "TE MATA"
+        }
+    },
+    {
+        "pk": 150,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.4337339999999870 -38.2437669999999983)",
+            "name": "Te Rata Bay"
+        }
+    },
+    {
+        "pk": 151,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.9708349999999939 -41.2171990000000008)",
+            "name": "TEMAHIABAY"
+        }
+    },
+    {
+        "pk": 152,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.7636850000000095 -41.1166369999999972)",
+            "name": "TENNYSON"
+        }
+    },
+    {
+        "pk": 153,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.1519279999999981 -38.4887760000000014)",
+            "name": "The Tubs"
+        }
+    },
+    {
+        "pk": 154,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.3667480000000012 -44.0372699999999995)",
+            "name": "THNDRFALLS"
+        }
+    },
+    {
+        "pk": 155,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.1435180000000003 -42.5889659999999992)",
+            "name": "Top Hope Hot Springs"
+        }
+    },
+    {
+        "pk": 156,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.9022679999999923 -41.7636309999999966)",
+            "name": "TOPHOUSE"
+        }
+    },
+    {
+        "pk": 157,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.8300889999999868 -42.5277809999999974)",
+            "name": "TT HANMER"
+        }
+    },
+    {
+        "pk": 158,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.2139799999999923 -45.0387550000000019)",
+            "name": "TT-CRO"
+        }
+    },
+    {
+        "pk": 159,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (170.8312549999999987 -44.0980599999999967)",
+            "name": "TT-FAI"
+        }
+    },
+    {
+        "pk": 160,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (171.1870720000000006 -42.4686379999999986)",
+            "name": "TT-GRE"
+        }
+    },
+    {
+        "pk": 161,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.6737249999999904 -35.7509500000000031)",
+            "name": "TT-KC"
+        }
+    },
+    {
+        "pk": 162,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.9421230000000094 -35.2293670000000034)",
+            "name": "TT-KER"
+        }
+    },
+    {
+        "pk": 163,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.0140419999999892 -41.1042869999999994)",
+            "name": "TT-MOT"
+        }
+    },
+    {
+        "pk": 164,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.8850349999999878 -40.8332520000000017)",
+            "name": "TT-POH"
+        }
+    },
+    {
+        "pk": 165,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.2398149999999930 -38.1368250000000018)",
+            "name": "TT-ROT"
+        }
+    },
+    {
+        "pk": 166,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.1260420000000124 -35.2594970000000032)",
+            "name": "TT-RUS"
+        }
+    },
+    {
+        "pk": 167,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (175.4819799999999930 -36.7355969999999985)",
+            "name": "TT-SHB"
+        }
+    },
+    {
+        "pk": 168,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (167.7091059999999914 -45.4143430000000023)",
+            "name": "TT-TEANAU"
+        }
+    },
+    {
+        "pk": 169,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.3936180000000036 -35.7682399999999987)",
+            "name": "TT-WH"
+        }
+    },
+    {
+        "pk": 170,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.3888849999999877 -34.8736999999999995)",
+            "name": "TT-WHA"
+        }
+    },
+    {
+        "pk": 171,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.9608949999999936 -41.5019479999999987)",
+            "name": "TTBLENHEIM"
+        }
+    },
+    {
+        "pk": 172,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.3592849999999999 -38.0403599999999997)",
+            "name": "Tumoana Point Hot Springs"
+        }
+    },
+    {
+        "pk": 173,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.3031829999999900 -38.3268500000000003)",
+            "name": "WAIKITE-PO"
+        }
+    },
+    {
+        "pk": 174,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.4839670000000069 -35.9949659999999980)",
+            "name": "WAIPU RIVR"
+        }
+    },
+    {
+        "pk": 175,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.4241159999999979 -38.2397300000000016)",
+            "name": "Wairoa Stream"
+        }
+    },
+    {
+        "pk": 176,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (170.7281690000000083 -43.1286380000000023)",
+            "name": "Waitaha River Hot Springs"
+        }
+    },
+    {
+        "pk": 177,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.5375500000000102 -36.8836000000000013)",
+            "name": "WAITAK1"
+        }
+    },
+    {
+        "pk": 178,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.5493999999999915 -38.0385589999999993)",
+            "name": "Waitangi Soda Springs approx"
+        }
+    },
+    {
+        "pk": 179,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.2504089999999906 -44.7243089999999981)",
+            "name": "WANAKA"
+        }
+    },
+    {
+        "pk": 180,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (169.9462680000000034 -43.6296999999999997)",
+            "name": "Welcome Flat Hot Springs"
+        }
+    },
+    {
+        "pk": 181,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.8056100000000015 -41.3295499999999976)",
+            "name": "WELLINGTON"
+        }
+    },
+    {
+        "pk": 182,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (176.9188900000000046 -37.9213200000000015)",
+            "name": "WHAKATANE"
+        }
+    },
+    {
+        "pk": 183,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.3602099999999950 -35.7704900000000023)",
+            "name": "WHANGAREI"
+        }
+    },
+    {
+        "pk": 184,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (174.6164200000000051 -36.7910200000000032)",
+            "name": "WHENUAPAI"
+        }
+    },
+    {
+        "pk": 185,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (172.5471799999999973 -43.5520100000000028)",
+            "name": "WIGRAM"
+        }
+    },
+    {
+        "pk": 186,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (173.8688329999999951 -41.5176670000000030)",
+            "name": "WOODBOURNE"
+        }
+    },
+    {
+        "pk": 187,
+        "model": "waypoints.waypoint",
+        "fields": {
+            "geometry": "POINT (171.1495140000000106 -42.9645629999999983)",
+            "name": "Wren Creek Hot Springs"
+        }
+    }
+]
