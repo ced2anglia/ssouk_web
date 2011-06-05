@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load media %}
+{% block title %}{{ username }}'s Items{% endblock %}
+
+{% block content %}
+
+<h1>{{ username }}'s Items on the ssouk</h1>
+
+
+{% include "inventory/list.snippet.html" %}
+<p> Is the same user? {{ same_user }} </p>
+{% if same_user %}
+	{% include "inventory/add_item.snippet.html" %}
+{% endif %}
+
+{% endblock %}

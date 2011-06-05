@@ -1,0 +1,13 @@
+
+<div id="inventory-list">
+{% if latest_item_list %}
+    <ul>
+    {% for item in latest_item_list %}
+        <li>{{ item.name}} {{ item.expire_date }} {{ item.price }} 
+            {{ item.quantity }} -- {{ item.user }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No item available in the SustainableSouk..</p>
+{% endif %}
+</div>

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load media %}
+{% block title %}Soustainable Souk - HomePage Test{% endblock %}
+{% block content %}
+
+<div id="map_wrapper">
+	{% include "map/map_min.html" %}
+</div>
+{% include "inventory/list.snippet.html" %}
+
+{% endblock %}

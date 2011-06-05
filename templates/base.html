@@ -1,0 +1,58 @@
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load media %}
+<html xmlns="http://www.w3.org/1999/xhtml"
+    dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}"
+    xml:lang="{% firstof LANGUAGE_CODE 'en' %}"
+    lang="{% firstof LANGUAGE_CODE 'en' %}">
+  <head>
+  	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <title>{% block title %}{% endblock %} - SSouk playground</title>
+
+    {% block css %}
+      {% include_media 'screen.css' %}
+    {% endblock %}
+
+	
+    {% block preload_js %}
+      {% include_media 'main.js' %} 
+    {% endblock %}
+    
+    
+    {% block extra-head %}{% endblock %}
+  </head>
+
+  <body id="index" class="bp container showgrid">
+    <div id="header">
+	    <h1 class="alt">Here goes the logo!</h1>
+	    <ul id="site-actions">
+	      <li><a href="#">Login</a></li>
+	      <li><a href="#">Register</a></li>
+	      <li><a href="#">About Us</a></li>
+	    </ul>      
+    </div>
+
+	<div id="content">
+        {% block content-header %}
+          {% if error %}<div class="error">{{ error }}</div>{% endif %}
+          {% if info %}<div class="info">{{ info }}</div>{% endif %}
+          {% if messages %}
+            {% for message in messages %}
+              <div class="info">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endblock %}
+
+        {% block content %}{% endblock %}
+    </div>
+    
+
+    <div id="footer">
+        <p id="legalese">Copyright &copy; 2011. All Rights Reserved.</p>
+    </div>
+
+    {% block js %}
+    {% endblock %}
+  </body>
+</html>

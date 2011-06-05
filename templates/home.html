@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load media %}
+{% block title %}It works!{% endblock %}
+
+{% block content %}
+<h1>It works!</h1>
+Hi!
+
+<p>
+This icon is integrated via the media_url template tag: 
+<img src="{% media_url 'img/django.png' %}" alt="gtalk" />
+</p>
+{% endblock %}

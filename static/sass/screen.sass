@@ -1,0 +1,51 @@
+@charset "UTF-8"
+// This import applies a global reset to any page that imports this stylesheet.
+@import blueprint/reset
+
+// To configure blueprint, edit the partials/base.sass file.
+@import partials/base
+
+// Import all the default blueprint modules so that we can access their mixins.
+@import blueprint
+
+// Combine the partials into a single screen stylesheet.
+@import partials/page
+@import partials/form
+@import partials/two_col
+
+
+
+@import "compass/utilities/lists/horizontal-list"
+
+$map-height : 500px
+
+body#index
+  //+showgrid // show the grid. comment to get rid of it
+  +container // this center the whole page.
+  #header
+    +column(24)
+    h1
+      :float left
+    #site-actions
+      :float right
+      +horizontal-list
+  #content
+    +column(24)
+  #footer
+    +column(24)
+    #legalese
+      +push(1)
+      +column(20)
+  #map
+    +push(1)
+    +column(12)
+    height: $map-height
+  #controls
+    +push(1)
+    +column(10, last)
+    
+  #inventory-list
+    +push(1)
+    +column(12)
+    
+    
