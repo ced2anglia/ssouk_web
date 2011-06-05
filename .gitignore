@@ -1,0 +1,6 @@
+*.pyc
+.gaedata
+_generated_media*
+.project
+.pydevproject*
+.sass-cache
