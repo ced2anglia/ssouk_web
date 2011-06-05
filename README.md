@@ -26,14 +26,14 @@ otherwise there is ascript that can do it for you
     sudo -u postgres sh create_template_postgis-debian.sh
 
 Ok, now we can create the user, the database and make sure we can connect
-
-    sudo -u postgres createdb -O geouser geodatabase
-
-when asked, give the password
-
-    geopassword
-
+  
+    sudo -u postgres createuser geouser
     sudo -u postgres createdb -O geouser -t template_postgis geodatabase
+    sudo -u postgres psql -c "alter user geouser with password 'geopassword';"
+
+
+
+
 
 We need be able to connect, even if our user is the one running the process..
 This is for local development, so no worries.
@@ -52,7 +52,7 @@ To
 
 and restart postgresql
 
-    sudo /etc/init.d/postegresql restart
+    sudo /etc/init.d/postgresql restart
 
 More info here http://www.depesz.com/index.php/2007/10/04/ident/
 
@@ -69,18 +69,18 @@ Required packages:
 
 If you have them install it skip, otherwise 
 
-sudo apt-get install python-pip
+    sudo apt-get install python-pip
 
 After that
 
-pip install virtualenv
-pip install virtualenvwrapper
+    sudo pip install virtualenv
+    sudo pip install virtualenvwrapper
 
 To finish up, make sure to add this two line to your bashrc (or anything that your
 shell source)
 
-export WORKON_HOME=~/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+    export WORKON_HOME=~/.virtualenvs
+    source /usr/local/bin/virtualenvwrapper.sh
 
 Creating the ssouk_env environment
 ==============================
@@ -105,7 +105,7 @@ Clone the ssouk
 
 Install all the stuff you need with
 
-    pip install --requirement googlemaps/requirements.txt
+    pip install --requirement requirements.txt
 
 Synch the tables in the database
 

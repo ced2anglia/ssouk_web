@@ -20,6 +20,9 @@ urlpatterns = patterns('',
      {'template': 'home.html'}),
     
     (r'^admin/', include(admin.site.urls)),
+    
+    
     (r'^inventory', include("apps.inventory.urls")),
     (r'^map', include("apps.map.urls")),
+    (r'^waypoints', include('apps.waypoints.urls')),
 )
