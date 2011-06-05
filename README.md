@@ -2,11 +2,11 @@
 Sustainable Souk Install 
 ========================
 
-Getting the gears
+Getting the gears 
 =================
 
-Postgresql database
--------------------
+Installing Postgresql database on Ubuntu
+----------------------------------------
 
 We will use postgresql as our database backend, therefore we need to install it
 
@@ -25,6 +25,16 @@ otherwise there is ascript that can do it for you
     wget https://docs.djangoproject.com/en/dev/_downloads/create_template_postgis-debian.sh
     sudo -u postgres sh create_template_postgis-debian.sh
 
+
+Installing Postgresql da on MAC
+-------------------------------
+
+Refer here: http://blog.apps.chicagotribune.com/2010/02/17/quick-install-pythonpostgis-geo-stack-on-snow-leopard/
+
+
+Create the development user
+---------------------------
+
 Ok, now we can create the user, the database and make sure we can connect
   
     sudo -u postgres createuser geouser
@@ -32,11 +42,8 @@ Ok, now we can create the user, the database and make sure we can connect
     sudo -u postgres psql -c "alter user geouser with password 'geopassword';"
 
 
-
-
-
 We need be able to connect, even if our user is the one running the process..
-This is for local development, so no worries.
+This is for local development, so no worries (on a MAC I have no idea were is it!)
 
 
 Now change the line on this file /etc/postgresql/8.4/main/pg_hba.conf
@@ -62,8 +69,8 @@ Python enviroment
 
 Required packages:
 
-- virtualenv http://pypi.python.org/pypi/virtualenv
 - pip http://pypi.python.org/pypi/pip
+- virtualenv http://pypi.python.org/pypi/virtualenv
 - virtualenvwrapper http://www.doughellmann.com/projects/virtualenvwrapper/
 
 
