@@ -116,3 +116,11 @@ Run it!
     python manage.py runserver
     
 Done. :)
+
+Git is your friend
+==================
+
+Check out the doc for git under the docs folder.
+
+
+

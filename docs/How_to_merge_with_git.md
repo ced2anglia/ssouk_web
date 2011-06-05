@@ -2,10 +2,9 @@
 How to merge with git
 =====================
 
-The repo is organized in two main branch:
+The repo is organized in one main branch for now:
 
- - master (production)
- - dev (develpment)
+ - master (develpment)
  
 Read this blog post http://nvie.com/posts/a-successful-git-branching-model/ 
 If not online I've saved in this directory and it's called 
@@ -17,17 +16,16 @@ a remote one. If you don't follow this, there will be pain.
 
 For example with a brand new clone you'll have
 
-    mattions@triton:ssouk(dev)$ git branch -a
-    * dev
-      remotes/origin/HEAD -> origin/dev
-      remotes/origin/dev
+    mattions@triton:ssouk_web(master)$ git branch -a
+    * master
+      remotes/origin/HEAD -> origin/master
       remotes/origin/master
 
-This means you are in the dev branch, which is tracking the origin/dev
-You _do not develop on this branch_.
+This means you are in the master branch, which is tracking the origin/master
+You _do not develop directly on this branch_.
 
 You create a my_topic_branch (call it local, if your short of name) and work 
-there and then follow the following method to bring your stuff in dev (which is 
+there and then follow the following method to bring your stuff in master (which is 
 the only one that lives on-line.)
 
 Got no time dude, just tell me how to merge
@@ -36,14 +34,14 @@ Got no time dude, just tell me how to merge
 Scenario (i): Got already the topic branch
 --------------------------------------
 
-You've done stuff and you want to merge with the dev 
+You've done stuff and you want to merge with the master 
 
 
-    git checkout dev # switch to dev branch
+    git checkout master # switch to master branch
     git pull # get the latest 
     git checkout my_topic_branch # switch to my local branch
-    git rebase dev # Adding my stuff on top of the latest dev
-    git checkout dev # Back to the dev
+    git rebase master # Adding my stuff on top of the latest master
+    git checkout master # Back to the master
     git merge my_topic_branch --no-ff # Merging and recording which branch
     git push # push everything online
 
@@ -51,15 +49,15 @@ You've done stuff and you want to merge with the dev
 Scenario (ii): Opening a new topic branch 
 --------------------------------------
 
-    git checkout dev # switch to dev branch
+    git checkout master # switch to master branch
     git pull # get the latest 
     git checkout -b my_topic_branch # create a new branch
     # hack hack hack
-    git checkout dev # Back to dev
-    git pull dev # Get always the latest before rebasing.
+    git checkout master # Back to master
+    git pull master # Get always the latest before rebasing.
     git checkout my_topic_branch # Back to my_topic_branch
-    git rebase dev # Adding my stuff on top of the latest dev
-    git checkout dev # Back to the dev
+    git rebase master # Adding my stuff on top of the latest master
+    git checkout master # Back to the master
     git merge my_topic_branch --no-ff # Merging and recording which branch
     git push # push everything online
 
@@ -70,7 +68,7 @@ Pushing local branch online
 
 Sometimes you have a local branch which has gone through a lot of new things
 and maybe you just want to push it online for backup reason, or to make it 
-available to other ppl to check it out and can't merged back into dev.
+available to other ppl to check it out and can't merged back into master.
 
 Think about this again. Ok, no merging? Right, let's push it online.
 
@@ -79,14 +77,14 @@ To do that just
     git checkout my_topic_branch
     git push origin my_topic_branch
     
-This should create a new branch under origin and now the repo should have three 
-branches: master, dev and my_topic_branch
+This should create a new branch under origin and now the repo should have two 
+branches: master and my_topic_branch
 
 To check your local branch is online just do
 
     git branch -a
     
-It's always a good idea to merge this thing back into `dev` ASAP and remove the 
+It's always a good idea to merge this thing back into `master` ASAP and remove the 
 branch from the repo.
 
 Merge following the Scenario (i) and then remove the branch online
