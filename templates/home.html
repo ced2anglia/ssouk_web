@@ -4,10 +4,16 @@
 
 {% block content %}
 <h1>It works!</h1>
-Hi!
 
-<p>
-This icon is integrated via the media_url template tag: 
-<img src="{% media_url 'img/django.png' %}" alt="gtalk" />
-</p>
+
+<h2>Temporary homepage</h2>
+
+<p>You can check the map under <a href="map">map</a>, the inventory under 
+the <a href="inventory">inventory</a> and the waypoints dummy app under 
+<a href="waypoints">waypoints</a>.</p>
+
+<p>The admin is under <a href="admin">admin</a>.</p>
+
+<p>P.S.: All this will change rather quickly, so check the urls.py to see what is active and where.</p>
+<img src="{% media_url 'img/django.png' %}" alt="django" />
 {% endblock %}
