@@ -108,7 +108,7 @@ switch to this environment
 
 Clone the ssouk
 
-    git clone git@github.com:ssouk/geodjango-googlemaps.git
+    git clone git@github.com:ssouk/ssouk_web.git
 
 Install all the stuff you need with
 
