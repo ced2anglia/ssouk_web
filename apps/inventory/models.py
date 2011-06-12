@@ -1,24 +1,44 @@
 from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User
+from apps.map.models import Location
 
 
 from util import expiring_date
 
 
-
 # Each Item in the market
 class Item(models.Model):
+    QUANTITY_TYPE = (
+                     ('Kg', 'Kilograms'),
+                     ('l', 'Liter'),
+                     ('item', 'Item')
+                     )
+    CATEGORY_TYPE = (
+                     ('V', 'Vegetables',
+                      'F', 'Fruit'
+                      'M', 'Meat'
+                      'Fi' 'Fish',
+                      'D', 'Dairy',
+                      'B', 'Beverages',
+                      'G', 'Garden',
+                      'O', 'Other' 
+                      )
+                     )
     user = models.ForeignKey(User, related_name='item_creator_set')
     name =  models.CharField(max_length=200)
+    category = models.CharField(max_length=10, choices=CATEGORY_TYPE)
+    description = models.TextField()
+    location = models.ForeignKey(Location)
     creation_date = models.DateTimeField(auto_now_add=True)
     available_from = models.DateTimeField(auto_now_add=True)
     expire_date = models.DateTimeField(default=expiring_date)
     quantity = models.CharField(max_length=50)
+    quantity_type = models.CharField(max_length=4, choices=QUANTITY_TYPE)
+    sell_individually = models.BooleanField()
     # Decimal to get the math right http://docs.python.org/library/decimal.html
-    price = models.DecimalField(max_digits=20, decimal_places=2) 
-    description = models.TextField()
-    #image = models.ImageField(upload_to='item', blank=True)
+    price = models.DecimalField(max_digits=20, decimal_places=2)
+    notes = models.TextField()
     
     def __unicode__(self):
         return self.name
