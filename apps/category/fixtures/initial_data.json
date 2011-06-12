@@ -1,0 +1,66 @@
+[
+    {
+        "pk": 1,
+        "model": "category.category",
+        "fields": {
+            "image": "",
+            "name": "Vegetables"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "category.category",
+        "fields": {
+            "image": "",
+            "name": "Fruits"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "category.category",
+        "fields": {
+            "image": "",
+            "name": "Meat"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "category.category",
+        "fields": {
+            "image": "",
+            "name": "Fish"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "category.category",
+        "fields": {
+            "image": "",
+            "name": "Dairy"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "category.category",
+        "fields": {
+            "image": "",
+            "name": "Beverages"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "category.category",
+        "fields": {
+            "image": "",
+            "name": "Garden"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "category.category",
+        "fields": {
+            "image": "",
+            "name": "Other"
+        }
+    }
+]

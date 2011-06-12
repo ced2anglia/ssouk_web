@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     # Our apps
     'apps.inventory',
     'apps.map',
+    'apps.category',
     
     # Waypoints to see how to do it
     'apps.waypoints',
