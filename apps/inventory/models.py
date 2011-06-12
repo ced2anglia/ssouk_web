@@ -2,6 +2,7 @@ from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from apps.map.models import Location
+from apps.category.models import Category 
 
 
 from util import expiring_date
@@ -14,20 +15,10 @@ class Item(models.Model):
                      ('l', 'Liter'),
                      ('item', 'Item')
                      )
-    CATEGORY_TYPE = (
-                     ('V', 'Vegetables',
-                      'F', 'Fruit'
-                      'M', 'Meat'
-                      'Fi' 'Fish',
-                      'D', 'Dairy',
-                      'B', 'Beverages',
-                      'G', 'Garden',
-                      'O', 'Other' 
-                      )
-                     )
+
     user = models.ForeignKey(User, related_name='item_creator_set')
     name =  models.CharField(max_length=200)
-    category = models.CharField(max_length=10, choices=CATEGORY_TYPE)
+    category = models.ForeignKey(Category)
     description = models.TextField()
     location = models.ForeignKey(Location)
     creation_date = models.DateTimeField(auto_now_add=True)
@@ -36,6 +27,7 @@ class Item(models.Model):
     quantity = models.CharField(max_length=50)
     quantity_type = models.CharField(max_length=4, choices=QUANTITY_TYPE)
     sell_individually = models.BooleanField()
+    swappable = models.BooleanField()
     # Decimal to get the math right http://docs.python.org/library/decimal.html
     price = models.DecimalField(max_digits=20, decimal_places=2)
     notes = models.TextField()

@@ -2,7 +2,7 @@ from django.db import models
 
 CATEGORY_TYPE = (
                  ('V', 'Vegetables',
-                  'F', 'Fruit'
+                  'F', 'Fruits'
                   'M', 'Meat'
                   'Fi' 'Fish',
                   'D', 'Dairy',
@@ -14,4 +14,7 @@ CATEGORY_TYPE = (
 # Create your models here.
 class Category(models.Model):
     name =  models.CharField(max_length=10)
-    image = Model.ImageField(blank=True)
+    image = models.ImageField(blank=True, upload_to='category')
+    
+    def __unicode__(self):
+        return self.name
