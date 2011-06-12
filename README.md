@@ -38,7 +38,7 @@ Create the development user
 Ok, now we can create the user, the database and make sure we can connect
   
     sudo -u postgres createuser geouser
-    sudo -u postgres createdb -O geouser -t template_postgis geodatabase
+    sudo -u postgres createdb -O geouser -T template_postgis geodatabase
     sudo -u postgres psql -c "alter user geouser with password 'geopassword';"
 
 
