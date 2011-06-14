@@ -4,3 +4,5 @@ _generated_media*
 .project
 .pydevproject*
 .sass-cache
+# Different for each developer.
+.gondor
