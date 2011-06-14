@@ -5,6 +5,7 @@ How to merge with git
 The repo is organized in one main branch for now:
 
  - master (develpment)
+ - production (production)
  
 Read this blog post http://nvie.com/posts/a-successful-git-branching-model/ 
 If not online I've saved in this directory and it's called 

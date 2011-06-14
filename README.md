@@ -112,7 +112,7 @@ Clone the ssouk
 
 Install all the stuff you need with
 
-    pip install --requirement requirements.txt
+    pip install --requirement requirements/project.txt
 
 Synch the tables in the database
 
