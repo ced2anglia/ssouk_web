@@ -174,6 +174,6 @@ LOGGING = {
 }
 try:
     from local_settings import *
-    DATABASES["default"]["engine"] = "django.contrib.gis.db.backends.postgis"
+    DATABASES["default"]["ENGINE"] = "django.contrib.gis.db.backends.postgis"
 except ImportError:
     pass
