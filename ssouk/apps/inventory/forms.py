@@ -8,5 +8,9 @@ class ItemForm(ModelForm):
     class Meta:
         model = Item
         exclude = ('creation_date',
-#                   'user',
+                   'user',
                    )
+    def __init__(self, user=None, *args, **kwargs):
+        self.user = user
+        super(ItemForm, self).__init__(*args, **kwargs)
+        
