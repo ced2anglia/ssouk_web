@@ -3,8 +3,8 @@
 {% if latest_item_list %}
     <ul>
     {% for item in latest_item_list %}
-        <li>{{ item.name}} {{ item.expire_date }} {{ item.price }} 
-            {{ item.quantity }} -- {{ item.user }}</li>
+        <li><a href={{ item.user }}/{{ item.pk }}>{{ item.name }}</a> {{ item.expire_date }} {{ item.price }} 
+            {{ item.quantity }} -- <a href={{ item.user }}>{{ item.user }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

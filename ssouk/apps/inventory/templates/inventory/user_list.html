@@ -8,9 +8,9 @@
 
 
 {% include "inventory/list.snippet.html" %}
-<p> Is the same user? {{ same_user }} </p>
+
 {% if same_user %}
-	{% include "inventory/add_item.snippet.html" %}
+	<a href={{username}}/new>Add Item</a>
 {% endif %}
 
 {% endblock %}

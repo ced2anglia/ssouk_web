@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load media %}
+{% block title %}{{ item.name }} from {{ username }}{% endblock %}
+
+{% block content %}
+
+<h1>{{ item.name }}</h1>
+<ul>
+	<li>Name: {{ item.name }}</li>
+	<li>Description: {{ item.description }}</li>
+	<li>Expires: {{ item.expire_date }}</li>
+	<li>Price {{ item.price }}</li>
+	<li>Location {{ item.location }}</li>
+	<li>Quantity {{ item.quantity }}</li>
+</ul>
+{% endblock %}

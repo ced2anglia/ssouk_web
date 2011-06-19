@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load media %}
+{% block title %}{{ username }}'s Items Add Item{% endblock %}
+
+{% block content %}
+
+<div id='add_item_form'>
+	<form action="/inventory/{{ username }}/new" method="post">{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Submit" />
+	</form>
+</div>
+
+{% endblock %}

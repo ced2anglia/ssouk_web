@@ -30,7 +30,7 @@ class Item(models.Model):
     swappable = models.BooleanField()
     # Decimal to get the math right http://docs.python.org/library/decimal.html
     price = models.DecimalField(max_digits=20, decimal_places=2)
-    notes = models.TextField()
+    notes = models.TextField(blank=True)
     
     def __unicode__(self):
         return self.name
