@@ -43,6 +43,9 @@ MEDIA_BUNDLES = (
         
         # Javascript for the map app
         'js/map.js',
+
+        # JS Google Maps Polygon code
+        'js/maps.google.polygon.containsLatLng.js'
     ),
 )
 
