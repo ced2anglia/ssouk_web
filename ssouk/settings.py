@@ -43,9 +43,11 @@ MEDIA_BUNDLES = (
         
         # Javascript for the map app
         'js/map.js',
-
         # JS Google Maps Polygon code
-        'js/maps.google.polygon.containsLatLng.js'
+        'js/maps.google.polygon.containsLatLng.js',
+        
+        # Inventory
+        'js/inventory_math.js',
     ),
 )
 
@@ -64,7 +66,7 @@ GLOBAL_MEDIA_DIRS = (
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Europe/London'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
