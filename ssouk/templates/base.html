@@ -14,10 +14,13 @@
       {% include_media 'screen.css' %}
     {% endblock %}
 
+    {% block preload_map_js %}
+    {% endblock %}
 	
     {% block preload_js %}
       {% include_media 'main.js' %} 
     {% endblock %}
+
     
     
     {% block extra-head %}{% endblock %}

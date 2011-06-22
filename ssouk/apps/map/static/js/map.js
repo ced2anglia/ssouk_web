@@ -47,26 +47,26 @@ $(document).ready(function() {
   */
   google.maps.Polygon.prototype.contains = google.maps.Polygon.prototype.containsLatLng;
 
-  function populateUserSelect() {
-    var html = '<option value="-1">&#8212; select &#8212;</option>'
-    $.each(users, function(uIdx, user) {
-      html += '<option value="' + uIdx + '">' + user.name + '</option>';
-    });
-    $('#userSelect').html(html);
-  }
+  // function populateUserSelect() {
+    // var html = '<option value="-1">&#8212; select &#8212;</option>'
+    // $.each(users, function(uIdx, user) {
+      // html += '<option value="' + uIdx + '">' + user.name + '</option>';
+    // });
+    // $('#userSelect').html(html);
+  // }
 
-  function populateAddrSelect(uIdx) {
-    var html = '<option value="-1">&#8212; select &#8212;</option>';
-    if (uIdx > 0) {
-      $.each(users[uIdx].addresses, function(aIdx, addr) {
-        html += '<option value="' + aIdx + '">' + addr.tag + '</option>';
-      });
-    }
-    $('#addrSelect').html(html);
-  }
+  // function populateAddrSelect(uIdx) {
+    // var html = '<option value="-1">&#8212; select &#8212;</option>';
+    // if (uIdx > 0) {
+      // $.each(users[uIdx].addresses, function(aIdx, addr) {
+        // html += '<option value="' + aIdx + '">' + addr.tag + '</option>';
+      // });
+    // }
+    // $('#addrSelect').html(html);
+  // }
 
-  populateUserSelect();
-  populateAddrSelect(0);
+  // populateUserSelect();
+  // populateAddrSelect(0);
 
   $('#userSelect').change(function() {
     populateAddrSelect(parseInt($('#userSelect option:selected').val()));
