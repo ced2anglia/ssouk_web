@@ -10,6 +10,8 @@ class ItemForm(ModelForm):
         exclude = ('creation_date',
                    'user',
                    )
+    class Media:
+        js = ('inventory_math.js', )
     def __init__(self, user=None, *args, **kwargs):
         self.user = user
         super(ItemForm, self).__init__(*args, **kwargs)
