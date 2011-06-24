@@ -45,9 +45,10 @@ MEDIA_BUNDLES = (
         'js/map.js',
         # JS Google Maps Polygon code
         'js/maps.google.polygon.containsLatLng.js',
-        
         # Inventory
         'js/inventory_math.js',
+        
+        
     ),
 )
 
