@@ -6,6 +6,23 @@
 */
 
 $(document).ready(function() {
+
+// Inventory Math
+  var quantity, price;
+  
+  $('#id_quantity').keyup(function (){
+      quantity = parseInt($('#id_quantity').val());
+  });
+  
+  $('#id_price').keyup(function (){
+      price = parseInt($('#id_price').val());
+      if (quantity && price) {
+          $('#id_price_info').html(price/quantity + ' per item');
+      }
+  });
+// End Inventory Math
+
+
   var map;
   var cambridge = new google.maps.LatLng(52.208056, 0.1225);
   var mapDefaultOpts = {
