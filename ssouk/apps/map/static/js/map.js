@@ -6,6 +6,7 @@
 */
 
 $(document).ready(function() {
+
   var map;
   var cambridge = new google.maps.LatLng(52.208056, 0.1225);
   var mapDefaultOpts = {
@@ -24,9 +25,9 @@ $(document).ready(function() {
   var markerIcons = {
     base: 'http://google-maps-icons.googlecode.com/files/home.png',
     friend: 'http://google-maps-icons.googlecode.com/files/vegetarian.png',
-    polyFirst: 'img/mapIcons/pin_green_No1_alt2.png',
-    polyOther: 'img/mapIcons/pin_green.png',
-    polyLocked: 'img/mapIcons/pin_red.png'
+    polyFirst: media_url('img/mapIcons/pin_green_No1_alt2.png'),
+    polyOther: media_url('img/mapIcons/pin_green.png'),
+    polyLocked: media_url('img/mapIcons/pin_red.png')
   };
   var searchArea = {
     points: new google.maps.MVCArray(),

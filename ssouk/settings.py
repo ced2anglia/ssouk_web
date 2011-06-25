@@ -38,17 +38,14 @@ MEDIA_BUNDLES = (
                  
     # JS
     ('main.js',
-        #'js/jquery-1.5.2.min.js',
-        'js/jquery-1.6.min.js',
-        
+     {'filter': 'mediagenerator.filters.media_url.MediaURL'},
+        'js/jquery-1.6.min.js',        
         # Javascript for the map app
         'js/map.js',
         # JS Google Maps Polygon code
         'js/maps.google.polygon.containsLatLng.js',
         # Inventory
         'js/inventory_math.js',
-        
-        
     ),
 )
 
