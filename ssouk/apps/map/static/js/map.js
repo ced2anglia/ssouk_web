@@ -7,7 +7,7 @@
 
 $(document).ready(function() {
 
-=======
+// ****************************************
 // Inventory Math
   var quantity, price;
   
@@ -22,6 +22,8 @@ $(document).ready(function() {
       }
   });
 // End Inventory Math
+//*******************************************
+
 
   var map;
   var cambridge = new google.maps.LatLng(52.208056, 0.1225);
