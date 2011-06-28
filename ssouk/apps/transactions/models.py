@@ -1,19 +1,19 @@
 from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User 
-from apps.inventory import Item
+from apps.inventory.models import Item
+from apps.map.models import Location
 
 
 class Transaction(models.Model):
 
-    buyer = models.ForeignKey(User, related_name='item_creator_set')
-    seller = models.ForeignKey(Item.user)
+    buyer = models.ForeignKey(User, related_name='buyer')
+    seller = models.ForeignKey(User, related_name='seller')
     item = models.ForeignKey(Item)
-    location = models.ForeignKey(Item.location)
-    
+    location = models.ForeignKey(Location)
     meeting_time = models.DateTimeField(auto_now_add=True)
-    price = models.ForeignKey(Item.price)
-    notes = models.TextField(blank=True)
+    price = models.DecimalField(max_digits=20, decimal_places=2)
+    
     
     def __unicode__(self):
-        return self.pk, self.item__name
+        return "From %s to %s for %s" %(self.buyer, self.seller, self.price)
