@@ -16,8 +16,7 @@ class Location(models.Model):
     objects = models.GeoManager()
 
     def __unicode__(self):
-        s = '%s marker: %s, %s, area coords: %s' % (self.name, 
-                                                    self.marker.x, 
-                                                    self.marker.y, 
-                                                    self.area.coords)
-        return s
+        return self.name 
+    
+    # Acces to maker:         self.marker.x, self.marker.y 
+    # acess to area coords:   self.area.coords
