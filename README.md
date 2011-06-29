@@ -31,6 +31,10 @@ Installing Postgresql da on MAC
 
 Refer here: http://blog.apps.chicagotribune.com/2010/02/17/quick-install-pythonpostgis-geo-stack-on-snow-leopard/
 
+One liner for brew
+
+   curl -LsSf https://github.com/mxcl/homebrew/tarball/master | sudo /usr/bin/tar xvz -C/usr/local --strip 1
+
 
 Create the development user
 ---------------------------
