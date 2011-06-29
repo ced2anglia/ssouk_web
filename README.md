@@ -31,13 +31,41 @@ Installing Postgresql da on MAC
 
 Refer here: http://blog.apps.chicagotribune.com/2010/02/17/quick-install-pythonpostgis-geo-stack-on-snow-leopard/
 
-One liner for brew
+
+
+Get brew
 
    curl -LsSf https://github.com/mxcl/homebrew/tarball/master | sudo /usr/bin/tar xvz -C/usr/local --strip 1
 
 
-Create the development user
----------------------------
+- Installing database
+
+   sudo brew install postgis
+   sudo brew install gdal  --with-postgres
+   Go to `Create the development user for DB` to create the database, database user and database password.
+
+- Python
+   easy_install virtualenv
+   easy_install virtualenvwrapper
+   easy_install ipython
+
+   create two files in your home, named: .bashrc .bash_profile
+
+   .bashrc
+    
+    export WORKON_HOME=~/.virtualenvs
+    source /usr/local/bin/virtualenvwrapper.sh
+
+   .bash_profile
+
+   if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+   fi
+
+   Then move to: `Creating the ssouk_env environment`
+
+Create the development user for DB
+----------------------------------
 
 Ok, now we can create the user, the database and make sure we can connect
   
