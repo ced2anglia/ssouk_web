@@ -2,8 +2,8 @@
 Sustainable Souk Install 
 ========================
 
-Getting the gears: Ubuntu
-=========================
+Ubuntu Specific
+===============
 
 Installing Postgresql database 
 -------------------------------
@@ -100,48 +100,48 @@ Get brew and install it.
 
 Installing the database server with geo support
 
-   brew install postgis
-   brew install gdal  --with-postgres
+    brew install postgis
+    brew install gdal  --with-postgres
    
 Make your user the owner of the db
    
-   sudo -u frowland initdb /usr/local/var/postgres # change frowland to your username
+    sudo -u frowland initdb /usr/local/var/postgres # change frowland to your username
 
-   start the database
-   postgres -D /usr/local/var/postgres
+    start the database
+    postgres -D /usr/local/var/postgres
   
 Download https://docs.djangoproject.com/en/dev/_downloads/create_template_postgis-1.5.sh
 
-   bash path_to/create_template_postgis-1.5.sh
+    bash path_to/create_template_postgis-1.5.sh
 
 Create geouser, set up the goedatabase and change the password.
 
-   createuser geouser
-   createdb -O geouser -T template_postgis geodatabase
-   psql -d geodatabase -c "alter user geouser with password 'geopassword';"
-   
+    createuser geouser
+    createdb -O geouser -T template_postgis geodatabase
+    psql -d geodatabase -c "alter user geouser with password 'geopassword';"
+
 
 Python Install
 --------------
 
-   easy_install virtualenv
-   easy_install virtualenvwrapper
-   easy_install ipython
+    easy_install virtualenv
+    easy_install virtualenvwrapper
+    easy_install ipython
 
-   create two files in your home, named: .bashrc .bash_profile
+Create two files in your home, named: .bashrc .bash_profile
 
-   .bashrc
-    
+    .bashrc
+
     export WORKON_HOME=~/.virtualenvs
     source /usr/local/bin/virtualenvwrapper.sh
 
-   .bash_profile
+    .bash_profile
 
-   if [ -f ~/.bashrc ]; then
+    if [ -f ~/.bashrc ]; then
         . ~/.bashrc
-   fi
+    fi
 
-   Then move to: `Creating the ssouk_env environment`
+Then move to: `Creating the ssouk_env environment`
 
 Creating the ssouk_env environment
 ==============================
