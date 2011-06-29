@@ -56,7 +56,7 @@ Get brew
 
    createuser geouser
    createdb -O geouser -T template_postgis geodatabase
-   psql -c "alter user geouser with password 'geopassword';"
+   psql -d geodatabase -c "alter user geouser with password 'geopassword';"
    
 
 - Python
