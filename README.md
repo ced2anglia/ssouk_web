@@ -2,6 +2,11 @@
 Sustainable Souk Install 
 ========================
 
+In this document is written how to set up the system in an Ubuntu and a Mac.
+The last part `Creating the ssouk_env environment` is the same between the two 
+systems.
+
+
 Ubuntu Specific
 ===============
 
