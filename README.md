@@ -32,6 +32,9 @@ Installing Postgresql da on MAC
 Refer here: http://blog.apps.chicagotribune.com/2010/02/17/quick-install-pythonpostgis-geo-stack-on-snow-leopard/
 
 
+Set permissions on directory
+
+    sudo chown -R `whoami` /usr/local
 
 Get brew
 
@@ -40,9 +43,21 @@ Get brew
 
 - Installing database
 
-   sudo brew install postgis
-   sudo brew install gdal  --with-postgres
-   Go to `Create the development user for DB` to create the database, database user and database password.
+   brew install postgis
+   brew install gdal  --with-postgres
+   Make your user the owner of the db
+   sudo -u frowland initdb /usr/local/var/postgres   
+
+   start the database
+   postgres -D /usr/local/var/postgres
+   
+   download https://docs.djangoproject.com/en/dev/_downloads/create_template_postgis-1.5.sh
+   bash path_to/create_template_postgis-1.5.sh
+
+   createuser geouser
+   createdb -O geouser -T template_postgis geodatabase
+   psql -c "alter user geouser with password 'geopassword';"
+   
 
 - Python
    easy_install virtualenv
