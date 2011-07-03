@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
+{% load "uni_form_tags" %}
 
 {% block title %}{{ username }}'s Items Add Item{% endblock %}
 
 {% block content %}
 
 <div id='add_item_form'>
-	<form action="/inventory/{{ username }}/new" method="post">{% csrf_token %}
+	<form action="" method="post" class="uniForm">
 	    {{ form.non_field_errors }}
     <div class="fieldWrapper">
         {{ form.name.errors }}
