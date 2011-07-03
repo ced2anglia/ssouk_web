@@ -43,9 +43,9 @@ $(document).ready(function() {
   var markerIcons = {
     base: 'http://google-maps-icons.googlecode.com/files/home.png',
     friend: 'http://google-maps-icons.googlecode.com/files/vegetarian.png',
-    polyFirst: media_url('img/mapIcons/pin_green_No1_alt2.png'),
-    polyOther: media_url('img/mapIcons/pin_green.png'),
-    polyLocked: media_url('img/mapIcons/pin_red.png')
+    polyFirst: 'img/mapIcons/pin_green_No1_alt2.png',
+    polyOther: 'img/mapIcons/pin_green.png',
+    polyLocked:'img/mapIcons/pin_red.png'
   };
   var searchArea = {
     points: new google.maps.MVCArray(),

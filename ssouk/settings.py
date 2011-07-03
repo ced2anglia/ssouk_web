@@ -77,7 +77,6 @@ STATIC_URL = "/site_media/static/"
 # Additional directories which hold static files
 STATICFILES_DIRS = [
     os.path.join(PROJECT_ROOT, "static/"),
-    os.path.join(PROJECT_ROOT, "apps/inventory/static"),
 ]
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
