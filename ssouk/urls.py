@@ -22,3 +22,5 @@ urlpatterns = patterns('',
     (r'^map', include("apps.map.urls")),
     (r'^waypoints', include('apps.waypoints.urls')),
 )
+
+

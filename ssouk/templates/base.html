@@ -1,59 +1,64 @@
 <!doctype html>
-{% load media %}
-<html xmlns="http://www.w3.org/1999/xhtml"
-    dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}"
-    xml:lang="{% firstof LANGUAGE_CODE 'en' %}"
-    lang="{% firstof LANGUAGE_CODE 'en' %}">
-  <head>
-    <meta charset="utf-8">
-    <title>{% block title %}{% endblock %} - SSouk playground</title>
+{% load i18n %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>{% block page_title %}{% trans "Project Name" %}{% endblock %}</title>
+    
+    <meta name="description" content="{% block meta_description %}{% endblock %}" />
+    <meta name="author" content="{% block meta_author %}{% endblock %}" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
+    
+    <!-- FAVICON AND APPLE TOUCH
+    {# TODO: <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico" /> #}
+    {# TODO: <link rel="apple-touch-icon" href="{{ STATIC_URL }}images/apple-touch-icon.png" /> #}
+    -->
+    
+    <!-- CSS: implied media="all" -->
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
+    {% block css %}{% endblock %}
+    
+    <!-- preloading html5 js libs -->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/modernizr-2.0.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/respond.min.js"></script>
+    
+</head>
 
-    {% block css %}
-      {% include_media 'screen.css' %}
-    {% endblock %}
-
-    {% block preload_map_js %}
-    {% endblock %}
-	
-    {% block preload_js %}
-      {% include_media 'main.js' %} 
-    {% endblock %}
-
+<body class="{% block body_class %}{% endblock %}">
+{% block body %}
+    <div id="container">
+        <header>
+            
+        </header>
+        
+        <div id="main" role="main">
+            {% block content %}{% endblock %}
+        </div>
+        
+        <footer>
+            
+        </footer>
+    </div> <!-- end of #container -->
     
     
-    {% block extra-head %}{% endblock %}
-  </head>
-
-  <body id="index" class="bp container showgrid">
-    <div id="header">
-	    <h1 class="alt">Here goes the logo!</h1>
-	    <ul id="site-actions">
-	      <li><a href="#">Login</a></li>
-	      <li><a href="#">Register</a></li>
-	      <li><a href="#">About Us</a></li>
-	    </ul>      
-    </div>
-
-	<div id="content">
-        {% block content-header %}
-          {% if error %}<div class="error">{{ error }}</div>{% endif %}
-          {% if info %}<div class="info">{{ info }}</div>{% endif %}
-          {% if messages %}
-            {% for message in messages %}
-              <div class="info">{{ message }}</div>
-            {% endfor %}
-          {% endif %}
-        {% endblock %}
-
-        {% block content %}{% endblock %}
-    </div>
     
-
-    <div id="footer">
-        <p id="legalese">Copyright &copy; 2011. All Rights Reserved.</p>
-    </div>
-
-    {% block js %}
+    {% block gmaps_javascript_sensor %}
     {% endblock %}
-  </body>
+    {% block javascript_library %}
+    <script type="text/javascript" src="//http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript" >!window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.1.min.js"%3E%3C/script%3E'))</script>
+    {% endblock %}
+    {% block javascript %}{% endblock %}
+    <!--[if lt IE 7 ]>
+    <script src="{{ STATIC_URL }}js/dd_belatedpng.js"></script>
+    <script> DD_belatedPNG.fix('img, .png_bg');</script>
+    <![endif]-->
+{% endblock %}
+</body>
 </html>

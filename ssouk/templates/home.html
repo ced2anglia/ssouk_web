@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load media %}
 {% block title %}It works!{% endblock %}
 
 {% block content %}
@@ -15,5 +14,4 @@ the <a href="inventory">inventory</a> and the waypoints dummy app under
 <p>The admin is under <a href="admin">admin</a>.</p>
 
 <p>P.S.: All this will change rather quickly, so check the urls.py to see what is active and where.</p>
-<img src="{% media_url 'img/django.png' %}" alt="django" />
 {% endblock %}
