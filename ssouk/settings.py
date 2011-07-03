@@ -1,9 +1,12 @@
 # Django settings for ssouk_web project.
 
 import os
+import posixpath
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+SERVE_MEDIA = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -56,7 +59,7 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, "site_media", "media")
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, "site_media/", "media/")
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -65,7 +68,7 @@ MEDIA_URL = "/site_media/media/"
 
 # Absolute path to the directory that holds static files like app media.
 # Example: "/home/media/media.lawrence.com/apps/"
-STATIC_ROOT = os.path.join(PROJECT_ROOT, "site_media", "static")
+STATIC_ROOT = os.path.join(PROJECT_ROOT, "/site_static/", "static/")
 
 # URL that handles the static files like app media.
 # Example: "http://media.lawrence.com"
@@ -73,7 +76,8 @@ STATIC_URL = "/site_media/static/"
 
 # Additional directories which hold static files
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_ROOT, "static"),
+    os.path.join(PROJECT_ROOT, "static/"),
+    os.path.join(PROJECT_ROOT, "apps/inventory/static"),
 ]
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
@@ -86,7 +90,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_ROOT, 'static'),
+    os.path.join(PROJECT_ROOT, 'static/'),
 )
 
 
