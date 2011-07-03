@@ -26,7 +26,8 @@ def list(request):
     latest_item_list = Item.objects.order_by('-expire_date')[:]
         
     return render_to_response('index.html', 
-                              {'latest_item_list' : latest_item_list})
+                              {'latest_item_list' : latest_item_list},
+                              context_instance=RequestContext(request))
     
     
 def user_items(request, username, template='inventory/user_list.html'):
@@ -50,12 +51,13 @@ def user_items(request, username, template='inventory/user_list.html'):
                 data['same_user'] = False
         return render_to_response('inventory/user_list.html',
                                   data,
-                                  RequestContext(request)
+                                  context_instance=RequestContext(request)
                                   )
     else:
         # User does not exist.
         return render_to_response('inventory/user_does_not_exist.html', 
-                                  {'username' : username}, 
+                                  {'username' : username},
+                                  context_instance=RequestContext(request) 
                                   )
 @login_required
 @csrf_protect
