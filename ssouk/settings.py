@@ -52,25 +52,45 @@ USE_I18N = True
 USE_L10N = True
 
 
-PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media/')
-
-STATIC_ROOT = os.path.join(PROJECT_PATH, 'static/')
-
-#INTERNAL_IPS = ('127.0.0.1', )
+# Absolute path to the directory that holds media.
+# Example: "/home/media/media.lawrence.com/"
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, "site_media", "media")
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash if there is a path component (optional in other cases).
+# Examples: "http://media.lawrence.com", "http://example.com/media/"
+MEDIA_URL = "/site_media/media/"
+
+# Absolute path to the directory that holds static files like app media.
+# Example: "/home/media/media.lawrence.com/apps/"
+STATIC_ROOT = os.path.join(PROJECT_ROOT, "site_media", "static")
+
+# URL that handles the static files like app media.
+# Example: "http://media.lawrence.com"
+STATIC_URL = "/site_media/static/"
+
+# Additional directories which hold static files
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_ROOT, "static"),
+]
+
+# URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
-# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = '/media/' #TODO: on production (full URL to the media server)
+# Examples: "http://foo.com/media/", "/media/".
+ADMIN_MEDIA_PREFIX = posixpath.join(STATIC_URL, "admin/")
 
-# URL prefix for static files.
-# Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+# Additional locations of static files
+STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_ROOT, 'static'),
+)
 
-ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
+INTERNAL_IPS = ('127.0.0.1', )
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'id_fbqde55y5oev3ao(h^myql*%w*bb%o+hvxd0_t2c5%z550s'
