@@ -20,35 +20,6 @@ DATABASES = {
     }
 }
 
-
-MEDIA_BUNDLES = (
-    # CSS
-    ('screen.css',
-        #'sass/screen.sass'
-        'css/screen.css'
-     ),
-    ('print.css',
-       # 'sass/print.sass',
-        'css/print.css',
-     ),
-    ('ie.css',
-        #'sass/ie.sass'
-        'css/ie.css'
-    ),
-                 
-    # JS
-    ('main.js',
-     {'filter': 'mediagenerator.filters.media_url.MediaURL'},
-        'js/jquery-1.6.min.js',        
-        # Javascript for the map app
-        'js/map.js',
-        # JS Google Maps Polygon code
-        'js/maps.google.polygon.containsLatLng.js',
-        # Inventory
-        #'js/inventory_math.js',
-    ),
-)
-
 # Get project root folder
 _project_root = os.path.dirname(__file__)
 
@@ -80,37 +51,43 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-# Set media URL (important: don't forget the trailing slash!).
-# PRODUCTION_MEDIA_URL is used when running manage.py generatemedia
-MEDIA_DEV_MODE = DEBUG
-DEV_MEDIA_URL = '/devmedia/'
-PRODUCTION_MEDIA_URL = '/media/'
 
-# Configure yuicompressor if available
-YUICOMPRESSOR_PATH = os.path.join(
-    os.path.dirname(_project_root), 'yuicompressor.jar')
-if os.path.exists(YUICOMPRESSOR_PATH):
-    ROOT_MEDIA_FILTERS = {
-        'js': 'mediagenerator.filters.yuicompressor.YUICompressor',
-        'css': 'mediagenerator.filters.yuicompressor.YUICompressor',
-    }
-    
-ADMIN_MEDIA_PREFIX = '/media/admin/'
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
-    
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media/')
+
+STATIC_ROOT = os.path.join(PROJECT_PATH, 'static/')
+
+#INTERNAL_IPS = ('127.0.0.1', )
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash.
+# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
+MEDIA_URL = '/media/' #TODO: on production (full URL to the media server)
+
+# URL prefix for static files.
+# Example: "http://media.lawrence.com/static/"
+STATIC_URL = '/static/'
+
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'id_fbqde55y5oev3ao(h^myql*%w*bb%o+hvxd0_t2c5%z550s'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.auth',
-    'django.core.context_processors.request',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
 )
 
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
 
 MIDDLEWARE_CLASSES = (
-    'mediagenerator.middleware.MediaMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -120,19 +97,17 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'urls'
 
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.gis',
-    
-    # 3rd apps
-    'mediagenerator',
-    
     
     # Our apps
     'apps.inventory',
