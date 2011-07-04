@@ -61,7 +61,7 @@ def user_items(request, username, template='inventory/user_list.html'):
                                   )
 @login_required
 @csrf_protect
-def new(request, username, form_class=ItemForm, template_name="inventory/add_item.html"):
+def new(request, username, form_class=ItemForm, template_name="inventory/new_item.html"):
     "Add a new item to the inventory."
     if request.method == 'POST': # If the form has been submitted...
         form = form_class(request.user, request.POST)
