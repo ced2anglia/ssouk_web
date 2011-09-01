@@ -1,5 +1,6 @@
 <!doctype html>
 {% load i18n %}
+{% load static %}
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
@@ -7,7 +8,7 @@
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8" />
-    <title>{% block page_title %}{% trans "Project Name" %}{% endblock %}</title>
+    <title>{% block page_title %}{% trans "Sustainable Souk" %}{% endblock %}</title>
     
     <meta name="description" content="{% block meta_description %}{% endblock %}" />
     <meta name="author" content="{% block meta_author %}{% endblock %}" />
@@ -25,6 +26,12 @@
     <!-- preloading html5 js libs -->
     <script type="text/javascript" src="{{ STATIC_URL }}js/modernizr-2.0.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/respond.min.js"></script>
+    {% block gmaps_javascript_sensor %}
+    {% endblock %}
+    {% block javascript_library %}
+    <script type="text/javascript" src="//http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript" >!window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.1.min.js"%3E%3C/script%3E'))</script>
+    {% endblock %}
     
 </head>
 
@@ -46,12 +53,7 @@
     
     
     
-    {% block gmaps_javascript_sensor %}
-    {% endblock %}
-    {% block javascript_library %}
-    <script type="text/javascript" src="//http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-    <script type="text/javascript" >!window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.1.min.js"%3E%3C/script%3E'))</script>
-    {% endblock %}
+
     {% block javascript %}{% endblock %}
     <!--[if lt IE 7 ]>
     <script src="{{ STATIC_URL }}js/dd_belatedpng.js"></script>
