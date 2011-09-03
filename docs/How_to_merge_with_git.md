@@ -39,9 +39,7 @@ Opening a new topic branch
     git pull # get the latest 
     git checkout -b my_topic_branch # create a new branch
 	git push origin my_topic_branch # pushing the branch on the server.
-    # hack hack hack
-	git push origin my_topic_branch # pushing what have you done on the server, 
-									# for backup and communication reason!
+    # hacking time!
 
 Now when you ready to merge it back, or you want to have your code reviewed you open a Pull Request!
 (Point number 4 on this blog post http://scottchacon.com/2011/08/31/github-flow.html
@@ -61,7 +59,6 @@ More info on the rebase are here: http://learn.github.com/p/rebasing.html
 
 Git is cool, you'll love it soon.
 
-
 Deploy on godor infrastructure
 ==============================
 
@@ -70,3 +67,51 @@ We deploy on Gondor so far.
 https://gondor.io/
 
 *Write me!*
+
+
+Working with git
+================
+
+If you new to git, have a look around on this website:
+
+- http://help.github.com/
+- http://progit.org/
+- http://git-scm.com/
+
+
+Git prompt
+---------
+
+It's very useful to have a git prompt to always know what's going on and where you are.
+If you use bash, slap this into your .bashrc 
+
+	function parse_git_dirty {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+	}
+	function parse_git_branch {
+	  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(parse_git_dirty))/"
+	}
+	
+	export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
+	
+	#grey
+	PS1='\[\033[0;32m\]\u\[\033[1;32m\]@\[\033[0;32m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[1;30m\]$(parse_git_branch)\[\033[00m\]\$ '
+
+
+Quick Git intro
+------
+
+
+You already have _my topic branch_ and you are in that brranch. 
+So you're in the Hacking time!
+
+what you do usually is
+
+	Hack Hack Hack
+	$ git commit -am "I've done this and I'm explaining it on the commit message"
+    Hack Hack Hack
+	$ git commit -am "I've done something else and I'm writing it on this message!"
+    $ git push # This push your local thing, online so it's on the github server and it's back up and ppl know!
+
+Enjoy and thanks for reading so far :) 
+
