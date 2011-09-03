@@ -27,6 +27,8 @@ Note that for sure you will have the master branch, the remote master branch (re
 _named branches_ which are giving you the idea of what is going on the repo. 
 The more the name is specific the best is, so it's easier to know what people are working on.
 
+You can always see what is being working on checking this pages https://github.com/ssouk/ssouk_web/branches
+
 Creating a new named branch, exporting on the server
 ============================================
 
