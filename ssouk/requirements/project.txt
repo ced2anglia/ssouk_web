@@ -1,7 +1,8 @@
 Django==1.3
 Pillow==1.7.2
 distribute==0.6.15
-gondor==1.0b1.post9
+django-uni-form==0.8.0
+gondor==1.0
 ipython==0.10.2
 psycopg2==2.4.1
 simplejson==2.1.6
