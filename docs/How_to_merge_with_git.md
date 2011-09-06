@@ -46,6 +46,9 @@ Now when you ready to merge it back, or you want to have your code reviewed you 
 
 When ppl say it's good to be merged, do it!
 
+I suggest to use the github website to do the merge, otherwise you could 
+do it by hand, as suggested below (one of the way, take the way suits you best).
+
     git checkout master # Back to master
     git pull master # Get always the latest before rebasing.
     git checkout my_topic_branch # Back to my_topic_branch
