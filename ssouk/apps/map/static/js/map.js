@@ -88,17 +88,17 @@ $(document).ready(function() {
   // populateUserSelect();
   // populateAddrSelect(0);
 
-  $('#userSelect').change(function() {
-    populateAddrSelect(parseInt($('#userSelect option:selected').val()));
-    updateBaseMarker();
-    clearPoly();
-    updateDisplay(map.getBounds());
-  });
-  $('#addrSelect').change(function() {
-    updateBaseMarker();
-    clearPoly();
-    updateDisplay(map.getBounds());
-  });
+  // $('#userSelect').change(function() {
+    // populateAddrSelect(parseInt($('#userSelect option:selected').val()));
+    // updateBaseMarker();
+    // clearPoly();
+    // updateDisplay(map.getBounds());
+  // });
+  // $('#addrSelect').change(function() {
+    // updateBaseMarker();
+    // clearPoly();
+    // updateDisplay(map.getBounds());
+  // });
 
   $('#postCodeSubmit').click(function() {	
     var pc = $('#postCodeBox').val();
