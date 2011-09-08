@@ -9,18 +9,18 @@ $(document).ready(function() {
 
 // ****************************************
 // Inventory Math
-  var quantity, price;
-  
-  $('#id_quantity').keyup(function (){
-      quantity = parseInt($('#id_quantity').val());
-  });
-  
-  $('#id_price').keyup(function (){
-      price = parseInt($('#id_price').val());
-      if (quantity && price) {
-          $('#id_price_info').html(price/quantity + ' per item');
-      }
-  });
+  // var quantity, price;
+//   
+  // $('#id_quantity').keyup(function (){
+      // quantity = parseInt($('#id_quantity').val());
+  // });
+//   
+  // $('#id_price').keyup(function (){
+      // price = parseInt($('#id_price').val());
+      // if (quantity && price) {
+          // $('#id_price_info').html(price/quantity + ' per item');
+      // }
+  // });
 // End Inventory Math
 //*******************************************
 
@@ -40,12 +40,13 @@ $(document).ready(function() {
     addrIdx is the index in users[userIdx].addresses
   */
   var addrIdToMarker = {};
+  var site_media_static_url = '/site_media/static/' //defined in settings.py
   var markerIcons = {
     base: 'http://google-maps-icons.googlecode.com/files/home.png',
     friend: 'http://google-maps-icons.googlecode.com/files/vegetarian.png',
-    polyFirst: 'img/mapIcons/pin_green_No1_alt2.png',
-    polyOther: 'img/mapIcons/pin_green.png',
-    polyLocked:'img/mapIcons/pin_red.png'
+    polyFirst: site_media_static_url + 'img/mapIcons/pin_green_No1_alt2.png',
+    polyOther: site_media_static_url + 'img/mapIcons/pin_green.png',
+    polyLocked: site_media_static_url + 'img/mapIcons/pin_red.png'
   };
   var searchArea = {
     points: new google.maps.MVCArray(),
