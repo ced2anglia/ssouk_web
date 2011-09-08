@@ -7,13 +7,13 @@
     <div id="map"></div>
     <div id="controls">
       <div id="baseMarkerControls">
-        <h2>Set base marker</h2>
-        <div id="selects">
-          ...by database entries<br>
-          <select id="userSelect" class="baseSelect"></select> Name<br>
-          <select id="addrSelect" class="baseSelect"></select> Address
-        </div>
-        <br>
+        <h2>Items in the database</h2>
+        <ul>
+        {% for item in items %}
+			<li>{{ item.user }} {{ item.location }}</li>
+		{% endfor %}
+        </ul>
+        
         <div>
           ...by Cambridge postcode/address<br>
           <input type="text" id="postCodeBox" />

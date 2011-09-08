@@ -67,6 +67,17 @@ $(document).ready(function() {
   */
   google.maps.Polygon.prototype.contains = google.maps.Polygon.prototype.containsLatLng;
 
+
+  function activateLocation(location) {  
+    // "We should be able to print"
+    print location
+  }
+
+
+
+
+
+
   // function populateUserSelect() {
     // var html = '<option value="-1">&#8212; select &#8212;</option>'
     // $.each(users, function(uIdx, user) {
