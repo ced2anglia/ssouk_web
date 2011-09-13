@@ -68,10 +68,31 @@ $(document).ready(function() {
   google.maps.Polygon.prototype.contains = google.maps.Polygon.prototype.containsLatLng;
 
 
-  function activateLocation(location) {  
-    // "We should be able to print"
-    print location
-  }
+  function activateItems() {
+    // Add waypoint click handler
+    $('.waypoint').each(function () {
+        $(this).click(function() {
+            var waypoint = waypointByID[this.id];
+            var center = new google.maps.LatLng(waypoint.lat, waypoint.lng);
+            currentObject = $(this);
+            if (marker) marker.setMap();
+            marker = new google.maps.Marker({map: map, position: center, draggable: true});
+            google.maps.event.addListener(marker, 'dragend', function() {
+                var position = marker.getPosition();
+                waypoint.lat = position.lat();
+                waypoint.lng = position.lng();
+                currentObject.html(waypoint.name +
+                    ' (' + waypoint.lat +
+                    ', ' + waypoint.lng + ')');
+                $('#saveWaypoints').removeAttr('disabled');
+            });
+            map.panTo(center);
+        }).hover(
+            function () {this.className = this.className.replace('OFF', 'ON');},
+            function () {this.className = this.className.replace('ON', 'OFF');}
+        );
+    });
+}
 
 
 

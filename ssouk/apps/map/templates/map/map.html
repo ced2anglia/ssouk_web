@@ -6,15 +6,15 @@
 
     <div id="map"></div>
     <div id="controls">
-      <div id="baseMarkerControls">
+      <div id="itemList">
         <h2>Items in the database</h2>
         <ul>
         {% for item in items %}
-			<li>{{ item.user }} {{ item.location }}</li>
+			<li class='item'>{{ item.user }} {{ item.location }}</li>
 		{% endfor %}
         </ul>
         
-        <div>
+     <div>
           ...by Cambridge postcode/address<br>
           <input type="text" id="postCodeBox" />
           <input type="button" id="postCodeSubmit" value="Search" />
