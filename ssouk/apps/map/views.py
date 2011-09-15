@@ -10,4 +10,15 @@ def index(request):
                               { 'items' : items },
                               context_instance=RequestContext(request))
     
+def get_markers_on_map(request, map_bounderies):
+    """ Return the location of the items in the request
+    this should answer to an an AJAX request coming to an URL 
+    with the map coords.
+    """
+    # check if is AJAX
+    lat, long = map_bounderies
+    # search for the bounderies on the db
+    
+    # return the selected Item
+    
 
