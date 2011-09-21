@@ -23,10 +23,10 @@ def list(request):
     
     For now report all the items, with the maps on top for the template.
     """
-    latest_item_list = Item.objects.order_by('-expire_date')[:]
+    items = Item.objects.order_by('-expire_date')[:]
         
     return render_to_response('index.html', 
-                              {'latest_item_list' : latest_item_list},
+                              {'items' : items},
                               context_instance=RequestContext(request))
     
     
@@ -37,9 +37,9 @@ def user_items(request, username, template='inventory/user_list.html'):
     """
     
     user = User.objects.filter(username=username)
-    latest_item_list = Item.objects.filter(user__username=username
+    items = Item.objects.filter(user__username=username
                                                ).order_by('-expire_date')[:]
-    data = {'latest_item_list' : latest_item_list,
+    data = {'items' : items,
             'username' : username,
             }
     if user:    

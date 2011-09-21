@@ -1,8 +1,8 @@
 
 <div id="inventory-list">
-{% if latest_item_list %}
+{% if items %}
     <ul>
-    {% for item in latest_item_list %}
+    {% for item in items %}
         <li><a href={{ item.user }}/{{ item.pk }}>{{ item.name }}</a> {{ item.expire_date }} {{ item.price }} 
             {{ item.quantity }} -- <a href={{ item.user }}>{{ item.user }}</a></li>
     {% endfor %}

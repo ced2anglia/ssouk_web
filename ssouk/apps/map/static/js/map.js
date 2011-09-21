@@ -67,38 +67,6 @@ $(document).ready(function() {
   */
   google.maps.Polygon.prototype.contains = google.maps.Polygon.prototype.containsLatLng;
 
-
-  function activateItems() {
-    // Add waypoint click handler
-    $('.waypoint').each(function () {
-        $(this).click(function() {
-            var waypoint = waypointByID[this.id];
-            var center = new google.maps.LatLng(waypoint.lat, waypoint.lng);
-            currentObject = $(this);
-            if (marker) marker.setMap();
-            marker = new google.maps.Marker({map: map, position: center, draggable: true});
-            google.maps.event.addListener(marker, 'dragend', function() {
-                var position = marker.getPosition();
-                waypoint.lat = position.lat();
-                waypoint.lng = position.lng();
-                currentObject.html(waypoint.name +
-                    ' (' + waypoint.lat +
-                    ', ' + waypoint.lng + ')');
-                $('#saveWaypoints').removeAttr('disabled');
-            });
-            map.panTo(center);
-        }).hover(
-            function () {this.className = this.className.replace('OFF', 'ON');},
-            function () {this.className = this.className.replace('ON', 'OFF');}
-        );
-    });
-}
-
-
-
-
-
-
   // function populateUserSelect() {
     // var html = '<option value="-1">&#8212; select &#8212;</option>'
     // $.each(users, function(uIdx, user) {
@@ -132,18 +100,18 @@ $(document).ready(function() {
     // updateDisplay(map.getBounds());
   // });
 
-  $('#postCodeSubmit').click(function() {	
+  $('#postCodeSubmit').click(function() { 
     var pc = $('#postCodeBox').val();
     if (pc) {
       geocodeAddress('Cambridge ' + pc);
     }
   });
 
-  $('#geolocateButton').click(function() {	
+  $('#geolocateButton').click(function() {  
     geolocate();
   });
 
-  $('#clearDirections').click(function() {	
+  $('#clearDirections').click(function() {  
     directionsDisplay.setMap(null);
     infowindow.close();
   });
@@ -152,81 +120,121 @@ $(document).ready(function() {
     var mapDiv = document.getElementById('map');
     map = new google.maps.Map(mapDiv, mapDefaultOpts);
     google.maps.event.addListener(map, 'dragend', function() {
-      if (!searchArea.poly) {
         updateDisplay(map.getBounds());
-      }
     });
     google.maps.event.addListener(map, 'zoom_changed', function() {
-      if (!searchArea.poly) {
         updateDisplay(map.getBounds());
-      }
     });
   }
   initMap();
+
 
   /*
     bounds object needs to expose a 'contains' method that takes latLng as arg
     excludes is an object holding addrIds which not to update; the default is to
     exclude the base marker if any is active
   */
-  function updateDisplay(bounds, excludes) {
-    if (!excludes) {
-      excludes = {};
-      if (baseAddrId) {
-        excludes[baseAddrId] = true;
-      }
-    }
-    $.each(users, function(uIdx, user) {
-      $.each(user.addresses, function(aIdx, addr) {
-        var addrId = uIdx.toString() + '.' + aIdx.toString();
-        var addrLoc = new google.maps.LatLng(addr.lat, addr.lng);
-        /*
-          if user location is contained in search polygon and is not currently
-          being displayed, then add marker to register
-        */
-        if (bounds && bounds.contains(addrLoc)) {
-          if (!addrIdToMarker.hasOwnProperty(addrId) && !excludes.hasOwnProperty(addrId)) {
-            var m = new google.maps.Marker({
-              map: map,
-              position: addrLoc,
-              icon: markerIcons.friend,
-              title: users[uIdx].name + ' ' + users[uIdx].addresses[aIdx].tag
-            });
-            google.maps.event.addListener(m, 'click', function() {
-              if(baseMarker) {
-                directionsDisplay.setMap(map);
-                destPos = m.getPosition();
-                var req = {
-                  origin: baseMarker.getPosition(),
-                  destination: destPos,
-                  travelMode: google.maps.TravelMode.WALKING
-                };
-                directionsService.route(req, function(result, status) {
-                  if (status == google.maps.DirectionsStatus.OK) {
-                    directionsDisplay.setDirections(result);
-                    var route = result.routes[0];
-                    var infoContent = '<div style="float: left;"><center><img src="img/walk.png"></center></div>'
-                    infoContent += '<b>distance: ' + route.legs[0].distance.text + '</b><br>';
-                    infoContent += '<b>duration: ' + route.legs[0].duration.text + '</b>';
-                    infowindow.setContent(infoContent);
-                    infowindow.setPosition(destPos);
-                    infowindow.open(map); 
-                  }
-                });
-              }
-            });
-            addrIdToMarker[addrId] = m;
+  function updateDisplay(bounds) {
+    var message = bounds + " SW " + bounds.getSouthWest() + " NE " + 
+                  bounds.getNorthEast();
+    alert(message);
+    
+    //get the items from django
+    $.get("/map/get_markers_on_map", {
+        'map_bounds': bounds,
+    }, 
+        
+        function (data) {
+          alert("HI!")  
+          
+          if (data.isOk) {
+              alert('Hi!')
+              // getting the list out in JS world
+              var items = data.items
+  
+              // building the list
+              var loc_list = ''
+              
+              $.each(items, function(idx, item) {
+                  var html_item = '<li id=' + item.pk + '><a href=' + item.user + 
+                          '/' + item.pk + '>' + item.name + '</a></li>'; 
+                  inventory_list.push(html_item);
+                
+              });
+              var new_html = '<div id="inventory-list"><ul>' + inventory_list + 
+                              '</ul><div>';
+              // $('#inventory-list').replaceWith(new_html);
+              alert('new html:' + new_html);
+                
+          } else {
+              alert(data.message);
           }
-        /*
-          if user location is not contained in search bound, but is being displayed,
-          remove it from marker register
-        */
-        } else if (addrIdToMarker.hasOwnProperty(addrId)) {
-          addrIdToMarker[addrId].setMap(null);
-          delete addrIdToMarker[addrId];
-        }
-      });
-    });
+      }, 'json');
+    
+       
+ 
+    // $.each(items , function() {
+        // items.push('<li id="' + key + '">' + val + '</li>');
+      // });
+// 
+      // $('<ul/>', {
+        // 'class': 'my-new-list',
+        // html: items.join('')
+      // }).appendTo('body');
+    // });
+//   
+// 
+    // $.each(users, function(uIdx, user) {
+      // $.each(user.addresses, function(aIdx, addr) {
+        // var addrId = uIdx.toString() + '.' + aIdx.toString();
+        // var addrLoc = new google.maps.LatLng(addr.lat, addr.lng);
+        // /*
+          // if user location is contained in search polygon and is not currently
+          // being displayed, then add marker to register
+        // */
+        // if (bounds && bounds.contains(addrLoc)) {
+          // if (!addrIdToMarker.hasOwnProperty(addrId) && !excludes.hasOwnProperty(addrId)) {
+            // var m = new google.maps.Marker({
+              // map: map,
+              // position: addrLoc,
+              // icon: markerIcons.friend,
+              // title: users[uIdx].name + ' ' + users[uIdx].addresses[aIdx].tag
+            // });
+            // google.maps.event.addListener(m, 'click', function() {
+              // if(baseMarker) {
+                // directionsDisplay.setMap(map);
+                // destPos = m.getPosition();
+                // var req = {
+                  // origin: baseMarker.getPosition(),
+                  // destination: destPos,
+                  // travelMode: google.maps.TravelMode.WALKING
+                // };
+                // directionsService.route(req, function(result, status) {
+                  // if (status == google.maps.DirectionsStatus.OK) {
+                    // directionsDisplay.setDirections(result);
+                    // var route = result.routes[0];
+                    // var infoContent = '<div style="float: left;"><center><img src="img/walk.png"></center></div>'
+                    // infoContent += '<b>distance: ' + route.legs[0].distance.text + '</b><br>';
+                    // infoContent += '<b>duration: ' + route.legs[0].duration.text + '</b>';
+                    // infowindow.setContent(infoContent);
+                    // infowindow.setPosition(destPos);
+                    // infowindow.open(map); 
+                  // }
+                // });
+              // }
+            // });
+            // addrIdToMarker[addrId] = m;
+          // }
+        // /*
+          // if user location is not contained in search bound, but is being displayed,
+          // remove it from marker register
+        // */
+        // } else if (addrIdToMarker.hasOwnProperty(addrId)) {
+          // addrIdToMarker[addrId].setMap(null);
+          // delete addrIdToMarker[addrId];
+        // }
+      // });
+    // });
   }
 
   function updateBaseMarker() {

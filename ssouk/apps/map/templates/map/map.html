@@ -6,13 +6,8 @@
 
     <div id="map"></div>
     <div id="controls">
-      <div id="itemList">
-        <h2>Items in the database</h2>
-        <ul>
-        {% for item in items %}
-			<li class='item'>{{ item.user }} {{ item.location }}</li>
-		{% endfor %}
-        </ul>
+
+	{% include "inventory/list.snippet.html" %}
         
      <div>
           ...by Cambridge postcode/address<br>
