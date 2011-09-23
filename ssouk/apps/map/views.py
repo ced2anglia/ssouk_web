@@ -46,4 +46,12 @@ def get_markers_on_map(request):
                                               isOk=1,
                                               items=items)), 
                                               mimetype='application/json')
+def xhr_test(request):
+    logger.info("Hi from the xhr test")
+    if request.is_ajax():
+        message = "Hello AJAX"
+    else:
+        message = "Hello"
+    return HttpResponse(simplejson.dumps(dict(message=message)))
+
     

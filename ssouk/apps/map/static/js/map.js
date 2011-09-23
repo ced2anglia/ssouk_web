@@ -7,24 +7,6 @@
 
 $(document).ready(function() {
 
-// ****************************************
-// Inventory Math
-  // var quantity, price;
-//   
-  // $('#id_quantity').keyup(function (){
-      // quantity = parseInt($('#id_quantity').val());
-  // });
-//   
-  // $('#id_price').keyup(function (){
-      // price = parseInt($('#id_price').val());
-      // if (quantity && price) {
-          // $('#id_price_info').html(price/quantity + ' per item');
-      // }
-  // });
-// End Inventory Math
-//*******************************************
-
-
   var map;
   var cambridge = new google.maps.LatLng(52.208056, 0.1225);
   var mapDefaultOpts = {
@@ -33,13 +15,7 @@ $(document).ready(function() {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     draggableCursor: 'default'
   };
-  /*
-    the set of all currently displayed markers/addresses
-    addrId is userIdx + '.' + addrIdx
-    where userIdx is the corrsponding index in the users array and
-    addrIdx is the index in users[userIdx].addresses
-  */
-  var addrIdToMarker = {};
+
   var site_media_static_url = '/site_media/static/' //defined in settings.py
   var markerIcons = {
     base: 'http://google-maps-icons.googlecode.com/files/home.png',
@@ -66,39 +42,6 @@ $(document).ready(function() {
     in updateDisplay()
   */
   google.maps.Polygon.prototype.contains = google.maps.Polygon.prototype.containsLatLng;
-
-  // function populateUserSelect() {
-    // var html = '<option value="-1">&#8212; select &#8212;</option>'
-    // $.each(users, function(uIdx, user) {
-      // html += '<option value="' + uIdx + '">' + user.name + '</option>';
-    // });
-    // $('#userSelect').html(html);
-  // }
-
-  // function populateAddrSelect(uIdx) {
-    // var html = '<option value="-1">&#8212; select &#8212;</option>';
-    // if (uIdx > 0) {
-      // $.each(users[uIdx].addresses, function(aIdx, addr) {
-        // html += '<option value="' + aIdx + '">' + addr.tag + '</option>';
-      // });
-    // }
-    // $('#addrSelect').html(html);
-  // }
-
-  // populateUserSelect();
-  // populateAddrSelect(0);
-
-  // $('#userSelect').change(function() {
-    // populateAddrSelect(parseInt($('#userSelect option:selected').val()));
-    // updateBaseMarker();
-    // clearPoly();
-    // updateDisplay(map.getBounds());
-  // });
-  // $('#addrSelect').change(function() {
-    // updateBaseMarker();
-    // clearPoly();
-    // updateDisplay(map.getBounds());
-  // });
 
   $('#postCodeSubmit').click(function() { 
     var pc = $('#postCodeBox').val();
@@ -128,6 +71,15 @@ $(document).ready(function() {
   }
   initMap();
 
+  $('#xhr_get').mouseover(function() {
+      
+      $.get("/map/xhr_test", function(data) {
+        var message = data['message']
+        
+        alert(message + " data " + data);
+      $('#xhr_result').replaceWith(message)
+      });
+  });
 
   /*
     bounds object needs to expose a 'contains' method that takes latLng as arg

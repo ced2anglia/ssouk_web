@@ -29,8 +29,9 @@
     {% block gmaps_javascript_sensor %}
     {% endblock %}
     {% block javascript_library %}
-    <script type="text/javascript" src="//http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
     <script type="text/javascript" >!window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.1.min.js"%3E%3C/script%3E'))</script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/django_ajax_crsf_protection.js"></script>
     {% endblock %}
     
 </head>
