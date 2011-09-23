@@ -52,6 +52,7 @@ def xhr_test(request):
         message = "Hello AJAX"
     else:
         message = "Hello"
-    return HttpResponse(simplejson.dumps(dict(message=message)))
+    return HttpResponse(simplejson.dumps(dict(message=message)), 
+                        mimetype='application/json')
 
     
