@@ -2,13 +2,14 @@ from django.template import RequestContext
 from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render_to_response
 from apps.inventory.models import Item
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
 import simplejson
-# import the logging library
+from django.contrib.gis.geos import Polygon
 import logging
-
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
+
+from apps.map.models import Location
 
 
 def index(request):
@@ -24,28 +25,44 @@ def get_markers_on_map(request):
     this should answer to an an AJAX request coming to an URL 
     with the map coords.
     """
-    logger.info('Inside the markers view.')
-    
-    try:
-        bounds = request.GET.get('map_bounds')
-        w,s,e,n = b[0][0],b[0][1],b[1][0],b[1][1] #swapping 'cause the django admin
-                                                  #saves as log/lat instead, google 
-                                                  #return lat/log. This has to change.
-        poly = Polygon( [(s,w), (s,e), (n,e), (n,w), (s,w)] )
-        searched_locations = Location.objects.filter(marker__within=poly)
-        items = []
-        for loc in searched_location:
-            items.extend(loc.item_set.all())
+    if request.is_ajax():
         
-    except:
-        return HttpResponse(simplejson.dumps(dict(isOk=0, 
-                                                  message='Did not get proper \
-                                                  map boundaries')))
+        try:
+#            s = float(request.GET.get('s'))
+#            w = float(request.GET.get('w'))
+#            n = float(request.GET.get('n'))
+#            e = float(request.GET.get('e'))
+            # Swapping to deal with the Django Admin.
+            # As soon we implement our stuff we drop this thing. (and we save lat and long.
+            w = float(request.GET.get('s'))
+            s = float(request.GET.get('w'))
+            e = float(request.GET.get('n'))
+            n = float(request.GET.get('e'))
+        except:
+            return HttpResponse(simplejson.dumps(dict(isOk=0, 
+                                                      message='Did not get proper map boundaries')))
+        
+        print (type(s), s, w, n, e)
+        poly = Polygon( [(s,w), (s,e), (n,e), (n,w), (s,w)] )
+        print('Poly: %s' %poly)
+        try:
+            searched_locations = Location.objects.filter(marker__within=poly)
+            print ('Searched location' + searched_locations)
+            items = []
+            for loc in searched_location:
+                items.extend(loc.item_set.all())
+            print items
+        except:
+            logger.error("I was unable to search!")
+       
+        
+        return HttpResponse(simplejson.dumps(dict(isOk=1,
+                                                  items=items)), 
+                                                  mimetype='application/json')
+    else: 
+        
+        return HttpResponseBadRequest()
     
-    return HttpResponse(simplejson.dumps(dict(
-                                              isOk=1,
-                                              items=items)), 
-                                              mimetype='application/json')
 def xhr_test(request):
     
     if request.is_ajax():

@@ -93,31 +93,42 @@ $(document).ready(function() {
     // var message = bounds + " SW " + bounds.getSouthWest() + " NE " + 
                   // bounds.getNorthEast();
     // alert(message);
+    // s, w, n, e = bounds
+    
+    sw = bounds.getSouthWest()
+    ne = bounds.getNorthEast()
     
     //get the items from django
     $.get("/map/get_markers_on_map", {
-        'map_bounds': bounds,
+       's' : sw.lat(),
+       'w' : sw.lng(),
+       'n' : ne.lat(),
+       'e' : ne.lng() 
     }, 
         function (data) {
-          if (data.isOk) {
-              alert ("Hey, zzup?")
+         
+          if (data['isOk']) {
+ 
               // getting the list out in JS world
-              var items = data.items
-  
-              // building the list
-              var loc_list = ''
-              
-              $.each(items, function(idx, item) {
-                  var html_item = '<li id=' + item.pk + '><a href=' + item.user + 
-                          '/' + item.pk + '>' + item.name + '</a></li>'; 
-                  inventory_list.push(html_item);
+              var items = data['items']
+              if (items.length != 0) {
+                // building the list
+                var loc_list = ''
                 
-              });
-              var new_html = '<div id="inventory-list"><ul>' + inventory_list + 
-                              '</ul><div>';
-              $('#inventory-list').replaceWith(new_html);
-              alert('new html:' + new_html);
-                
+                $.each(items, function(idx, item) {
+                    var html_item = '<li id=' + item.pk + '><a href=' + item.user + 
+                            '/' + item.pk + '>' + item.name + '</a></li>'; 
+                    inventory_list.push(html_item);
+                  
+                });
+                var new_html = '<div id="inventory-list"><ul>' + inventory_list + 
+                                '</ul><div>';
+                $('#inventory-list').replaceWith(new_html);
+                alert('new html:' + new_html);
+              } else {
+                alert('items empty!!!')
+                $('#inventory-list').replaceWith("<p>No Items available at these latitude</p>");
+              }
           } else {
               alert(data.message);
           }
@@ -189,34 +200,34 @@ $(document).ready(function() {
     // });
   }
 
-  function updateBaseMarker() {
-    var uIdx = parseInt($('#userSelect option:selected').val());
-    var aIdx = parseInt($('#addrSelect option:selected').val());
-
-    if (uIdx === -1 || aIdx === -1) {
-      if (baseMarker) {
-        baseAddrId = null;
-        baseMarker.setMap(null);
-        baseMarker = null;
-      }
-    } else {
-      var addr = users[uIdx].addresses[aIdx];
-      baseAddrId = uIdx.toString() + '.' + aIdx.toString();
-      if (addrIdToMarker.hasOwnProperty(baseAddrId)) {
-        addrIdToMarker[baseAddrId].setMap(null);
-        delete addrIdToMarker[baseAddrId];
-      }
-      if (baseMarker) {
-        baseMarker.setMap(null);
-      }
-      baseMarker = new google.maps.Marker({
-        map: map,
-        position: new google.maps.LatLng(addr.lat, addr.lng),
-        icon: markerIcons.base
-      });
-      map.setCenter(baseMarker.getPosition());
-    }
-  }
+  // function updateBaseMarker() {
+    // var uIdx = parseInt($('#userSelect option:selected').val());
+    // var aIdx = parseInt($('#addrSelect option:selected').val());
+// 
+    // if (uIdx === -1 || aIdx === -1) {
+      // if (baseMarker) {
+        // baseAddrId = null;
+        // baseMarker.setMap(null);
+        // baseMarker = null;
+      // }
+    // } else {
+      // var addr = users[uIdx].addresses[aIdx];
+      // baseAddrId = uIdx.toString() + '.' + aIdx.toString();
+      // if (addrIdToMarker.hasOwnProperty(baseAddrId)) {
+        // addrIdToMarker[baseAddrId].setMap(null);
+        // delete addrIdToMarker[baseAddrId];
+      // }
+      // if (baseMarker) {
+        // baseMarker.setMap(null);
+      // }
+      // baseMarker = new google.maps.Marker({
+        // map: map,
+        // position: new google.maps.LatLng(addr.lat, addr.lng),
+        // icon: markerIcons.base
+      // });
+      // map.setCenter(baseMarker.getPosition());
+    // }
+  // }
 
   function geolocate() {
     try {
