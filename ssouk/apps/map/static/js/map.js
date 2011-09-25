@@ -73,12 +73,15 @@ $(document).ready(function() {
 
   $('#xhr_get').mouseover(function() {
       
-      $.get("/map/xhr_test", function(data) {
-        var message = data['message']
-        
-        alert(message + " data " + data);
-      $('#xhr_result').replaceWith(message)
-      });
+      $.get("/map/xhr_test", {
+        message: 'Hi from JS',
+        },
+        function(data) {
+          var message = data['message']
+          
+          alert(message);
+        $('#xhr_result').replaceWith(message)
+        });
   });
 
   /*
@@ -87,20 +90,17 @@ $(document).ready(function() {
     exclude the base marker if any is active
   */
   function updateDisplay(bounds) {
-    var message = bounds + " SW " + bounds.getSouthWest() + " NE " + 
-                  bounds.getNorthEast();
-    alert(message);
+    // var message = bounds + " SW " + bounds.getSouthWest() + " NE " + 
+                  // bounds.getNorthEast();
+    // alert(message);
     
     //get the items from django
     $.get("/map/get_markers_on_map", {
         'map_bounds': bounds,
     }, 
-        
         function (data) {
-          alert("HI!")  
-          
           if (data.isOk) {
-              alert('Hi!')
+              alert ("Hey, zzup?")
               // getting the list out in JS world
               var items = data.items
   
@@ -115,7 +115,7 @@ $(document).ready(function() {
               });
               var new_html = '<div id="inventory-list"><ul>' + inventory_list + 
                               '</ul><div>';
-              // $('#inventory-list').replaceWith(new_html);
+              $('#inventory-list').replaceWith(new_html);
               alert('new html:' + new_html);
                 
           } else {
