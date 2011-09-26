@@ -110,7 +110,7 @@ $(document).ready(function() {
               
               if (locations.length != 0) {
                 // building the list
-                var inventory_list = []
+                var inventory_list = ''
                 
                 $.each(locations, function(idx, location) {
                     $.each(location.items, function(idx2, item) {
@@ -118,7 +118,7 @@ $(document).ready(function() {
                                       item.username + '/' + item.pk + '> ' + 
                                       item.name + '</a> ' + item.username + ' ' + 
                                       item.price + ' ' + item.quantity + '</li>';
-                      inventory_list.push(html_item);
+                      inventory_list += html_item;
                       updateMarker(location.lat, location.lng)
                     })
                 });
