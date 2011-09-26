@@ -16,12 +16,12 @@ class ItemForm(ModelForm):
     @property
     def helper(self):
         # instantiate the form helper object
-        helper = helpers.FormHelper()
+        helper = FormHelper()
 
         # add in some input controls (a.k.a. buttons)
-        submit = helpers.Submit('submit','Submit')
+        submit = Submit('submit','Submit')
         helper.add_input(submit)
-        reset = helpers.Reset('reset','Reset')
+        reset = Reset('reset','Reset')
         helper.add_input(reset)
         
         helper.form_action = 'new-item'
