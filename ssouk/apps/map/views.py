@@ -3,13 +3,15 @@ from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render_to_response
 from apps.inventory.models import Item
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
-import simplejson
 from django.contrib.gis.geos import Polygon
+from django.core import serializers
+
 import logging
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
 from apps.map.models import Location
+
 
 
 def index(request):
@@ -45,22 +47,18 @@ def get_markers_on_map(request):
         print (type(s), s, w, n, e)
         poly = Polygon( [(s,w), (s,e), (n,e), (n,w), (s,w)] )
         print('Poly: %s' %poly)
-        try:
-            searched_locations = Location.objects.filter(marker__within=poly)
-            print ('Searched location' + searched_locations)
-            items = []
-            for loc in searched_location:
-                items.extend(loc.item_set.all())
-            print items
-        except:
-            logger.error("I was unable to search!")
-       
+        searched_locations = Location.objects.filter(marker__within=poly)
+        print ('Searched location %s' %searched_locations)
+        items = []
+        for loc in searched_locations:
+            items.extend(loc.item_set.all())
+        print "Items: %s" %items
+        data = {'items' : items}
+        json_serializer = serializers.get_serializer("json")()
         
-        return HttpResponse(simplejson.dumps(dict(isOk=1,
-                                                  items=items)), 
-                                                  mimetype='application/json')
+        return HttpResponse(json_serializer.serialize(items, ensure_ascii=False), 
+                            mimetype='application/json')    
     else: 
-        
         return HttpResponseBadRequest()
     
 def xhr_test(request):

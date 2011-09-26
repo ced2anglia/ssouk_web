@@ -105,33 +105,29 @@ $(document).ready(function() {
        'n' : ne.lat(),
        'e' : ne.lng() 
     }, 
-        function (data) {
-         
-          if (data['isOk']) {
- 
+        function (items) {
               // getting the list out in JS world
-              var items = data['items']
+              
               if (items.length != 0) {
                 // building the list
-                var loc_list = ''
+                var inventory_list = []
                 
                 $.each(items, function(idx, item) {
-                    var html_item = '<li id=' + item.pk + '><a href=' + item.user + 
-                            '/' + item.pk + '>' + item.name + '</a></li>'; 
+                    var html_item = '<li id=' + item.pk + '><a href=' + 
+                        item.fields.user + '/' + item.pk + '>' + 
+                        item.fields.name + '</a></li>'; 
                     inventory_list.push(html_item);
                   
                 });
                 var new_html = '<div id="inventory-list"><ul>' + inventory_list + 
                                 '</ul><div>';
+                
                 $('#inventory-list').replaceWith(new_html);
-                alert('new html:' + new_html);
+                
               } else {
                 alert('items empty!!!')
                 $('#inventory-list').replaceWith("<p>No Items available at these latitude</p>");
               }
-          } else {
-              alert(data.message);
-          }
       }, 'json');
     
        
