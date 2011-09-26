@@ -4,7 +4,9 @@ from django.shortcuts import render_to_response
 from apps.inventory.models import Item
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
 from django.contrib.gis.geos import Polygon
-from django.core import serializers
+import simplejson
+import datetime
+from decimal import Decimal
 
 import logging
 # Get an instance of a logger
@@ -49,14 +51,33 @@ def get_markers_on_map(request):
         print('Poly: %s' %poly)
         searched_locations = Location.objects.filter(marker__within=poly)
         print ('Searched location %s' %searched_locations)
-        items = []
-        for loc in searched_locations:
-            items.extend(loc.item_set.all())
-        print "Items: %s" %items
-        data = {'items' : items}
-        json_serializer = serializers.get_serializer("json")()
+        data = []
         
-        return HttpResponse(json_serializer.serialize(items, ensure_ascii=False), 
+        for loc in searched_locations:
+            items = loc.item_set.all()
+            items_list = []
+            for item in items:
+                item_data = { 
+                             'price' : str(item.price), 
+                             'quantity' : str(item.quantity),
+                             'date' : item.expire_date.isoformat(),
+                             'pk' : item.pk,
+                             'name' : str(item.name),
+                             'username' : str(loc.user.username)
+                            }
+                items_list.append(item_data)
+                                
+            loc_dict = {
+                        'lat' : loc.marker.get_y(), 
+                        'lng' : loc.marker.get_x(),
+                        'pk' : loc.pk,
+                        'items' : items_list
+                        }
+            data.append(loc_dict)
+                
+        print data
+        print simplejson.dumps(data)
+        return HttpResponse(simplejson.dumps(data), 
                             mimetype='application/json')    
     else: 
         return HttpResponseBadRequest()

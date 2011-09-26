@@ -105,19 +105,22 @@ $(document).ready(function() {
        'n' : ne.lat(),
        'e' : ne.lng() 
     }, 
-        function (items) {
+        function (locations) {
               // getting the list out in JS world
               
-              if (items.length != 0) {
+              if (locations.length != 0) {
                 // building the list
                 var inventory_list = []
                 
-                $.each(items, function(idx, item) {
-                    var html_item = '<li id=' + item.pk + '><a href=' + 
-                        item.fields.user + '/' + item.pk + '>' + 
-                        item.fields.name + '</a></li>'; 
-                    inventory_list.push(html_item);
-                  
+                $.each(locations, function(idx, location) {
+                    $.each(location.items, function(idx2, item) {
+                      var html_item = '<li id=' + location.pk + '><a href=' + 
+                                      item.username + '/' + item.pk + '> ' + 
+                                      item.name + '</a> ' + item.username + ' ' + 
+                                      item.price + ' ' + item.quantity + '</li>';
+                      inventory_list.push(html_item);
+                      updateMarker(location.lat, location.lng)
+                    })
                 });
                 var new_html = '<div id="inventory-list"><ul>' + inventory_list + 
                                 '</ul><div>';
@@ -125,24 +128,22 @@ $(document).ready(function() {
                 $('#inventory-list').replaceWith(new_html);
                 
               } else {
-                alert('items empty!!!')
-                $('#inventory-list').replaceWith("<p>No Items available at these latitude</p>");
+                
+                var html = '<div id="inventory-list"><p>No Items available at these latitude</p></div>'
+                $('#inventory-list').replaceWith(html);
               }
       }, 'json');
     
        
- 
-    // $.each(items , function() {
-        // items.push('<li id="' + key + '">' + val + '</li>');
-      // });
-// 
-      // $('<ul/>', {
-        // 'class': 'my-new-list',
-        // html: items.join('')
-      // }).appendTo('body');
-    // });
-//   
-// 
+ }
+  function updateMarker(lat, lng) {
+    baseMarker = new google.maps.Marker({
+    map: map,
+    position: new google.maps.LatLng(lat, lng),
+    icon: markerIcons.base
+   });
+
+  }
     // $.each(users, function(uIdx, user) {
       // $.each(user.addresses, function(aIdx, addr) {
         // var addrId = uIdx.toString() + '.' + aIdx.toString();
@@ -194,7 +195,7 @@ $(document).ready(function() {
         // }
       // });
     // });
-  }
+  // }
 
   // function updateBaseMarker() {
     // var uIdx = parseInt($('#userSelect option:selected').val());
