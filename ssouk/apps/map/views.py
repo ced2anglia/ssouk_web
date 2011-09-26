@@ -32,22 +32,16 @@ def get_markers_on_map(request):
     if request.is_ajax():
         
         try:
-#            s = float(request.GET.get('s'))
-#            w = float(request.GET.get('w'))
-#            n = float(request.GET.get('n'))
-#            e = float(request.GET.get('e'))
-            # Swapping to deal with the Django Admin.
-            # As soon we implement our stuff we drop this thing. (and we save lat and long.
-            w = float(request.GET.get('s'))
-            s = float(request.GET.get('w'))
-            e = float(request.GET.get('n'))
-            n = float(request.GET.get('e'))
+            sw_x = float(request.GET.get('sw_x'))
+            sw_y = float(request.GET.get('sw_y'))
+            ne_x = float(request.GET.get('ne_x'))
+            ne_y = float(request.GET.get('ne_y'))
         except:
             return HttpResponse(simplejson.dumps(dict(isOk=0, 
                                                       message='Did not get proper map boundaries')))
         
-        print (type(s), s, w, n, e)
-        poly = Polygon( [(s,w), (s,e), (n,e), (n,w), (s,w)] )
+        
+        poly = Polygon( [(sw_x,sw_y), (ne_x,sw_y), (ne_x,ne_y), (sw_x,ne_y), (sw_x,sw_y)] )
         print('Poly: %s' %poly)
         searched_locations = Location.objects.filter(marker__within=poly)
         print ('Searched location %s' %searched_locations)

@@ -85,33 +85,23 @@ $(document).ready(function() {
   });
 
   /*
-    bounds object needs to expose a 'contains' method that takes latLng as arg
-    excludes is an object holding addrIds which not to update; the default is to
-    exclude the base marker if any is active
+    
   */
   function updateDisplay(bounds) {
-    // var message = bounds + " SW " + bounds.getSouthWest() + " NE " + 
-                  // bounds.getNorthEast();
-    // alert(message);
-    // s, w, n, e = bounds
-    
     sw = bounds.getSouthWest()
     ne = bounds.getNorthEast()
     
     //get the items from django
     $.get("/map/get_markers_on_map", {
-       's' : sw.lat(),
-       'w' : sw.lng(),
-       'n' : ne.lat(),
-       'e' : ne.lng() 
+       'sw_y' : sw.lat(),
+       'sw_x' : sw.lng(),
+       'ne_y' : ne.lat(),
+       'ne_x' : ne.lng() 
     }, 
         function (locations) {
-              // getting the list out in JS world
-              
               if (locations.length != 0) {
                 // building the list
                 var inventory_list = ''
-                
                 $.each(locations, function(idx, location) {
                     $.each(location.items, function(idx2, item) {
                       var html_item = '<li id=' + location.pk + '><a href=' + 
@@ -124,17 +114,12 @@ $(document).ready(function() {
                 });
                 var new_html = '<div id="inventory-list"><ul>' + inventory_list + 
                                 '</ul><div>';
-                
                 $('#inventory-list').replaceWith(new_html);
-                
               } else {
-                
                 var html = '<div id="inventory-list"><p>No Items available at these latitude</p></div>'
                 $('#inventory-list').replaceWith(html);
               }
-      }, 'json');
-    
-       
+      }, 'json');   
  }
   function updateMarker(lat, lng) {
     baseMarker = new google.maps.Marker({
