@@ -70,19 +70,5 @@ def get_markers_on_map(request):
                             mimetype='application/json')    
     else: 
         return HttpResponseBadRequest()
-    
-def xhr_test(request):
-    
-    if request.is_ajax():
-        
-        try: 
-            message = request.GET.get('message')
-        except:
-            message = "Data not supplied :("
-        
-    else:
-        message = "Hello"
-    return HttpResponse(simplejson.dumps(dict(message=message)), 
-                        mimetype='application/json')
 
     

@@ -145,6 +145,7 @@ INSTALLED_APPS = (
     
     # Waypoints to see how to do it
     'apps.waypoints',
+    'apps.ajax_example',
     
 )
 
