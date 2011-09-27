@@ -70,6 +70,7 @@ $(document).ready(function() {
     });
   }
   initMap();
+  
 
   $('#xhr_get').mouseover(function() {
       

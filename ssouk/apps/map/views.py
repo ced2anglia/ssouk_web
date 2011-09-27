@@ -20,7 +20,7 @@ def index(request):
     
     items = Item.objects.order_by('name')
     
-    return render_to_response('map/map.html', 
+    return render_to_response('map/map.html',
                               { 'items' : items },
                               context_instance=RequestContext(request))
 @csrf_protect
@@ -42,11 +42,8 @@ def get_markers_on_map(request):
         
         
         poly = Polygon( [(sw_x,sw_y), (ne_x,sw_y), (ne_x,ne_y), (sw_x,ne_y), (sw_x,sw_y)] )
-        print('Poly: %s' %poly)
         searched_locations = Location.objects.filter(marker__within=poly)
-        print ('Searched location %s' %searched_locations)
         data = []
-        
         for loc in searched_locations:
             items = loc.item_set.all()
             items_list = []
@@ -68,9 +65,7 @@ def get_markers_on_map(request):
                         'items' : items_list
                         }
             data.append(loc_dict)
-                
-        print data
-        print simplejson.dumps(data)
+
         return HttpResponse(simplejson.dumps(data), 
                             mimetype='application/json')    
     else: 
