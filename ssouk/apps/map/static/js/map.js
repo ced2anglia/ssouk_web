@@ -49,16 +49,19 @@ SSOUK.map_handler = function() {
             'sw_x' : sw.lng(),
             'ne_y' : ne.lat(),
             'ne_x' : ne.lng()
-        }, function (locations) {
-            console.log("Locations returned: " + locations.lenght);    
-            if (locations.length != 0) {
-                $.each(locations, function(idx, location) {
-                    SSOUK.map_handler.updateMarker(location.lat(), location.lng());
-                    console.log("Location items: " + location.lat() 
-                    + " " + location.lng());
-                });
-            }
-        }, 'json');
+        }, function (html_response) {
+            
+            console.log("Locations returned: ");
+            console.log(html_response)
+            $('#inventory-list').replaceWith(html_response);
+            // if (locations.length != 0) {
+                // $.each(locations, function(idx, location) {
+                    // SSOUK.map_handler.updateMarker(location.lat(), location.lng());
+                    // console.log("Location items: " + location.lat() 
+                    // + " " + location.lng());
+                // });
+            // }
+        });
     }
     
     var updateMarker = function(lat, lng) {

@@ -122,9 +122,8 @@ def get_items_within_map(request):
             items.extend(loc.item_set.all())
             
         print items    
-        return render_to_response('index.html',
-                              {'items' : items,
-                               'myVar' : "ALOHA!!!"},
+        return render_to_response('inventory/list.snippet.html',
+                              {'items' : items},
                               context_instance=RequestContext(request))    
     else: 
         return HttpResponseBadRequest()
