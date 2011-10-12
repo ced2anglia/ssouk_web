@@ -6,7 +6,9 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext as _
+from django.contrib.gis.geos import Polygon
 
+from apps.map.models import Location
 from apps.inventory.models import Item
 from apps.inventory.forms import ItemForm
 
@@ -88,4 +90,42 @@ def new(request, username, form_class=ItemForm, template_name="inventory/new_ite
 def item_detail(request, username, item_id):
     item = get_object_or_404(Item, pk=item_id)
     return render_to_response('inventory/item_detail.html', {'item': item})
+
+@csrf_protect
+def get_items_within_map(request):
+    """ 
+    Return a queryset of items within the map location.
+    """
+    
+    if request.is_ajax():
+        
+        try:
+            sw_x = float(request.GET.get('sw_x'))
+            sw_y = float(request.GET.get('sw_y'))
+            ne_x = float(request.GET.get('ne_x'))
+            ne_y = float(request.GET.get('ne_y'))
+            
+        except:
+            msg = 'Did not get proper map boundaries'
+            return HttpResponse(simplejson.dumps(dict(isOk=0, 
+                                                      message=msg)))
+        # polygon for the search
+        poly = Polygon( [(sw_x,sw_y), (ne_x,sw_y), 
+                         (ne_x,ne_y), (sw_x,ne_y), 
+                         (sw_x,sw_y)] )
+        
+        searched_locations = Location.objects.filter(marker__within=poly)
+        
+        
+        items = []
+        for loc in searched_locations:
+            items.extend(loc.item_set.all())
+            
+        print items    
+        return render_to_response('index.html',
+                              {'items' : items,
+                               'myVar' : "ALOHA!!!"},
+                              context_instance=RequestContext(request))    
+    else: 
+        return HttpResponseBadRequest()
     

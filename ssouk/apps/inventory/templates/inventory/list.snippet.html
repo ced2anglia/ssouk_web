@@ -7,8 +7,12 @@
             {{ item.quantity }} -- <a href={{ item.user }}>{{ item.user }}</a> 
             {{ item.location.marker.x }} {{ item.location.marker.y }}</li>
     </ul>
+    
     <script type="text/javascript">
-    	updateMarker({{ item.location.marker.x }}, {{ item.location.marker.y }});
+    
+    	SSOUK.map_handler.updateMarker({{ item.location.marker.x }}, 
+			{{ item.location.marker.y }});
+    	
     </script>
     {% endfor %}
 {% else %}

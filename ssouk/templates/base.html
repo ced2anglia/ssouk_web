@@ -26,13 +26,18 @@
     <!-- preloading html5 js libs -->
     <script type="text/javascript" src="{{ STATIC_URL }}js/modernizr-2.0.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/respond.min.js"></script>
-    {% block gmaps_javascript_sensor %}
-    {% endblock %}
     {% block javascript_library %}
+    <!-- Jquery and friends -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
     <script type="text/javascript" >!window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.1.min.js"%3E%3C/script%3E'))</script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/django_ajax_crsf_protection.js"></script>
     {% endblock %}
+    <!-- google maps js -->
+    {% block gmaps_javascript_sensor %}
+    {% endblock %}
+    <!-- our js -->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/utils.js"></script>
+    {% block javascript %}{% endblock %}
     
 </head>
 
@@ -55,7 +60,7 @@
     
     
 
-    {% block javascript %}{% endblock %}
+
     <!--[if lt IE 7 ]>
     <script src="{{ STATIC_URL }}js/dd_belatedpng.js"></script>
     <script> DD_belatedPNG.fix('img, .png_bg');</script>
