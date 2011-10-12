@@ -23,7 +23,7 @@ SSOUK.map_handler = function() {
                 draggableCursor: 'default'
             };
             var mapDiv = document.getElementById('map_canvas');
-            var map = new google.maps.Map(mapDiv, mapDefaultOpts);
+            map = new google.maps.Map(mapDiv, mapDefaultOpts);
             
             // listeners
             google.maps.event.addListener(map, 'dragend', function() {
@@ -34,7 +34,7 @@ SSOUK.map_handler = function() {
             });
             
             // synch the map with the db
-            //self.updateDisplay(map.getBounds());
+            self.updateDisplay(map.getBounds());
         }
     }
     
@@ -50,17 +50,8 @@ SSOUK.map_handler = function() {
             'ne_y' : ne.lat(),
             'ne_x' : ne.lng()
         }, function (html_response) {
-            
-            console.log("Locations returned: ");
-            console.log(html_response)
             $('#inventory-list').replaceWith(html_response);
-            // if (locations.length != 0) {
-                // $.each(locations, function(idx, location) {
-                    // SSOUK.map_handler.updateMarker(location.lat(), location.lng());
-                    // console.log("Location items: " + location.lat() 
-                    // + " " + location.lng());
-                // });
-            // }
+
         });
     }
     

@@ -20,10 +20,7 @@ logger = logging.getLogger(__name__)
 
 def list(request):
     """View which shows all the items presented in the ssouk.
-    This is the gateway for the user, where she can select the map and 
-    see all the items relevant to the query.
     
-    For now report all the items, with the maps on top for the template.
     """
     items = Item.objects.order_by('-expire_date')[:]
         
@@ -107,8 +104,7 @@ def get_items_within_map(request):
             
         except:
             msg = 'Did not get proper map boundaries'
-            return HttpResponse(simplejson.dumps(dict(isOk=0, 
-                                                      message=msg)))
+            return HttpResponse(simplejson.dumps(dict(message=msg)))
         # polygon for the search
         poly = Polygon( [(sw_x,sw_y), (ne_x,sw_y), 
                          (ne_x,ne_y), (sw_x,ne_y), 
@@ -121,7 +117,7 @@ def get_items_within_map(request):
         for loc in searched_locations:
             items.extend(loc.item_set.all())
             
-        print items    
+        
         return render_to_response('inventory/list.snippet.html',
                               {'items' : items},
                               context_instance=RequestContext(request))    
