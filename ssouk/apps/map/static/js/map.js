@@ -13,12 +13,12 @@ SSOUK.map_handler = function() {
         
     // initialiazation 
     init = function() {
-        var self = this;
+        
         if (map === undefined) {
-            var cambridge = new google.maps.LatLng(52.208056, 0.1225);
+            var cambridge = new google.maps.LatLng(52.200056, 0.1225);
             var mapDefaultOpts = {
                 center: cambridge,
-                zoom: 15,
+                zoom: 14,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 draggableCursor: 'default'
             };
@@ -32,9 +32,6 @@ SSOUK.map_handler = function() {
             google.maps.event.addListener(map, 'zoom_changed', function() {
                 SSOUK.map_handler.updateDisplay(map.getBounds());
             });
-            
-            // synch the map with the db
-            self.updateDisplay(map.getBounds());
         }
     }
     
@@ -61,12 +58,13 @@ SSOUK.map_handler = function() {
             position: new google.maps.LatLng(lat, lng),
             icon: markerIcons.base
         });
+        console.log("Update Marker: " + lng +  " " + lat);
     }
     
     // public methods
     return {
         init : init,
         updateDisplay : updateDisplay,
-        updateMarker : updateMarker
+        updateMarker : updateMarker, 
     }
 }();
