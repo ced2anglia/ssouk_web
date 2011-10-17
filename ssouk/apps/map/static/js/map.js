@@ -56,6 +56,7 @@ SSOUK.map_handler = function() {
         baseMarker = new google.maps.Marker({
             map: map,
             position: new google.maps.LatLng(lat, lng),
+            animation: google.maps.Animation.DROP,
             icon: markerIcons.base
         });
         console.log("Update Marker: " + lng +  " " + lat);
