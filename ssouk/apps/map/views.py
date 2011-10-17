@@ -11,13 +11,4 @@ from decimal import Decimal
 import logging
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
-
-
-
-def index(request):
-    
-    items = Item.objects.order_by('name')
-    
-    return render_to_response('map/map.html',
-                              { 'items' : items },
-                              context_instance=RequestContext(request))    
+ 
