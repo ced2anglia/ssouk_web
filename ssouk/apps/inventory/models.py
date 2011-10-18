@@ -24,7 +24,7 @@ class Item(models.Model):
     creation_date = models.DateTimeField(auto_now_add=True)
     available_from = models.DateTimeField(auto_now_add=True)
     expire_date = models.DateTimeField(default=expiring_date)
-    quantity = models.CharField(max_length=50)
+    quantity = models.DecimalField(max_digits=20, decimal_places=2)
     quantity_type = models.CharField(max_length=4, choices=QUANTITY_TYPE)
     sell_individually = models.BooleanField()
     swappable = models.BooleanField()
