@@ -58,7 +58,7 @@ SSOUK.map_handler = function() {
             position: new google.maps.LatLng(lat, lng),
             icon: markerIcons.base
         });
-        console.log("Update Marker: " + lng +  " " + lat);
+        // console.log("Update Marker: " + lng +  " " + lat);
     }
     
     // public methods
