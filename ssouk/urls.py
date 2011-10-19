@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     (r'^inventory', include("apps.inventory.urls")),
     (r'^map', include("apps.map.urls")),
     (r'^waypoints', include('apps.waypoints.urls')),
+    (r'^ajax_example', include('apps.ajax_example.urls')),
 )
 
 

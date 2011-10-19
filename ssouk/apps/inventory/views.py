@@ -6,29 +6,18 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext as _
+from django.contrib.gis.geos import Polygon
 
+from apps.map.models import Location
 from apps.inventory.models import Item
 from apps.inventory.forms import ItemForm
+from util import search_items_within_poly
 
 # import the logging library
 import logging
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
-
-def list(request):
-    """View which shows all the items presented in the ssouk.
-    This is the gateway for the user, where she can select the map and 
-    see all the items relevant to the query.
-    
-    For now report all the items, with the maps on top for the template.
-    """
-    latest_item_list = Item.objects.order_by('-expire_date')[:]
-        
-    return render_to_response('index.html', 
-                              {'latest_item_list' : latest_item_list},
-                              context_instance=RequestContext(request))
-    
     
 def user_items(request, username, template='inventory/user_list.html'):
     """List all the items for the username 
@@ -37,9 +26,9 @@ def user_items(request, username, template='inventory/user_list.html'):
     """
     
     user = User.objects.filter(username=username)
-    latest_item_list = Item.objects.filter(user__username=username
+    items = Item.objects.filter(user__username=username
                                                ).order_by('-expire_date')[:]
-    data = {'latest_item_list' : latest_item_list,
+    data = {'items' : items,
             'username' : username,
             }
     if user:    
@@ -88,4 +77,59 @@ def new(request, username, form_class=ItemForm, template_name="inventory/new_ite
 def item_detail(request, username, item_id):
     item = get_object_or_404(Item, pk=item_id)
     return render_to_response('inventory/item_detail.html', {'item': item})
+
+
+#####
+# Map interaction views
+
+def list(request):
+    """
+    List the items within the default poly coords.    
+    """
+    
+#    Bear in mind this is not synchronized with the Javascript map (map/static/js/map.js) 
+#    at the beginning, so make sure those numbers and the centre of the map defined in the JS are the same.
+    default_poly_coords = [(0.08636528015131262, 52.18927042707768), 
+                           (0.15863471984857824, 52.18927042707768), 
+                           (0.15863471984857824, 52.21083895608358), 
+                           (0.08636528015131262, 52.21083895608358), 
+                           (0.08636528015131262, 52.18927042707768)]
+    
+    
+    items = search_items_within_poly(default_poly_coords)
+            
+    return render_to_response('index.html', 
+                              {'items' : items},
+                              context_instance=RequestContext(request))
+
+
+@csrf_protect
+def get_items_within_map(request):
+    """ 
+    Return a queryset of items within the map location.
+    """
+    
+    if request.is_ajax():
+        
+        try:
+            sw_x = float(request.GET.get('sw_x'))
+            sw_y = float(request.GET.get('sw_y'))
+            ne_x = float(request.GET.get('ne_x'))
+            ne_y = float(request.GET.get('ne_y'))
+            
+        except:
+            msg = 'Did not get proper map boundaries'
+            return HttpResponse(simplejson.dumps(dict(message=msg)))
+        # polygon for the search
+        poly_coords = [(sw_x,sw_y), (ne_x,sw_y), (ne_x,ne_y), 
+                       (sw_x,ne_y), (sw_x,sw_y)]
+        
+        print poly_coords
+        items = search_items_within_poly(poly_coords)
+        
+        return render_to_response('inventory/list.snippet.html',
+                              {'items' : items},
+                              context_instance=RequestContext(request))    
+    else: 
+        return HttpResponseBadRequest()
     

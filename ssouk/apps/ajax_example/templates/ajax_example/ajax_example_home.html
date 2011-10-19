@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Map{% endblock %}
+
+{% block content %}
+
+
+    	<p><span id='xhr_get'>Mouse over here and...</span></p>
+    	<p><span id='xhr_result'>... this text will be replaced</span></p>
+		<script type="text/javascript">
+		  $('#xhr_get').mouseover(function() {
+		      $.get("/ajax_example/xhr_test", {
+		        message: 'Hi from JS',
+		        },
+		        function(data) {
+		          
+		          alert(data.message);
+		          $('#xhr_result').replaceWith(data.message)
+		        });
+		        updateMarker(2,2)
+		  });
+		</script>
+
+{% endblock %}

@@ -1,10 +1,17 @@
 
 <div id="inventory-list">
-{% if latest_item_list %}
+{% if items %}
     <ul>
-    {% for item in latest_item_list %}
+    {% for item in items %}
         <li><a href={{ item.user }}/{{ item.pk }}>{{ item.name }}</a> {{ item.expire_date }} {{ item.price }} 
-            {{ item.quantity }} -- <a href={{ item.user }}>{{ item.user }}</a></li>
+            {{ item.quantity }} -- <a href={{ item.user }}>{{ item.user }}</a> 
+            {{ item.location.marker.x }} {{ item.location.marker.y }}</li>
+	    <script type="text/javascript">
+	    $(document).ready(function(){	
+	    	SSOUK.map_handler.updateMarker({{ item.location.marker.y }}, 
+	    								   {{ item.location.marker.x }});
+		});	
+	    </script>
     {% endfor %}
     </ul>
 {% else %}

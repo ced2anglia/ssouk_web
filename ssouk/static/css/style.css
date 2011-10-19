@@ -89,14 +89,14 @@ a:hover { color: #036; }
 
 
 /* MAP style */
-#map {
+#map_canvas {
   width: 50%;
   height: 400px;
-  border: 10px solid #555;
+  border: 5px solid #555;
   float: left;
 }
 
-#controls {
+#inventory-list {
   width: 40%;
   float: right;
 }
