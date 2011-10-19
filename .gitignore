@@ -6,3 +6,4 @@ _generated_media*
 .sass-cache
 # Different for each developer.
 .gondor
+.settings
