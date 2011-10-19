@@ -1,7 +1,8 @@
 from django.db import models
 from django.forms import ModelForm
 from apps.inventory.models import Item
-from uni_form.helpers import FormHelper, Submit, Reset
+from uni_form.helpers import FormHelper
+from uni_form.layout import Submit, Reset
 
 
 class ItemForm(ModelForm):
@@ -13,22 +14,15 @@ class ItemForm(ModelForm):
                    'user',
                    )
     
-    @property
-    def helper(self):
-        # instantiate the form helper object
-        helper = FormHelper()
-
-        # add in some input controls (a.k.a. buttons)
-        submit = Submit('submit','Submit')
-        helper.add_input(submit)
-        reset = Reset('reset','Reset')
-        helper.add_input(reset)
-        
-        helper.form_action = 'new-item'
-        helper.form_method = 'POST' # Only GET and POST are legal
-        return helper
-    
     def __init__(self, user=None, *args, **kwargs):
+        self.helper = FormHelper()
+        self.helper.form_id = 'id-new_item_form'
+        self.helper.form_class = 'blueForm'
+        self.helper.form_style = 'inline'
+        self.helper.form_method = 'post'
+        self.helper.form_action = 'new_item'
+        self.helper.add_input(Reset('reset','Reset'))
+        self.helper.add_input(Submit('submit','Submit'))
         self.user = user
         super(ItemForm, self).__init__(*args, **kwargs)
         

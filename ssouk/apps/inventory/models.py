@@ -1,3 +1,4 @@
+ # -*- coding: utf-8 -*-
 from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User
@@ -12,7 +13,7 @@ from util import expiring_date
 class Item(models.Model):
     QUANTITY_TYPE = (
                      ('Kg', 'Kilograms'),
-                     ('l', 'Liter'),
+                     ('L', 'Liter'),
                      ('item', 'Item')
                      )
 
@@ -29,7 +30,7 @@ class Item(models.Model):
     sell_individually = models.BooleanField()
     swappable = models.BooleanField()
     # Decimal to get the math right http://docs.python.org/library/decimal.html
-    price = models.DecimalField(max_digits=20, decimal_places=2)
+    price = models.DecimalField(max_digits=20, decimal_places=2, help_text='£')
     notes = models.TextField(blank=True)
     
     def __unicode__(self):
