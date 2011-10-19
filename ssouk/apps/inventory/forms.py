@@ -25,7 +25,7 @@ class ItemForm(ModelForm):
         self.user = user
         self.helper.layout = Layout(
             Fieldset(
-                'legend name',
+                '',
                 'name',
                 'category', 
                 'description',
