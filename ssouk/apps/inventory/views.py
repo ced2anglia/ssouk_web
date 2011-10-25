@@ -76,7 +76,10 @@ def new(request, username, form_class=ItemForm, template_name="inventory/new_ite
             
 def item_detail(request, username, item_id):
     item = get_object_or_404(Item, pk=item_id)
-    return render_to_response('inventory/item_detail.html', {'item': item})
+    return render_to_response('inventory/item_detail.html', 
+                              {'item': item},
+                              context_instance=RequestContext(request)
+                              )
 
 
 #####
