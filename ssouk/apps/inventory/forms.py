@@ -1,12 +1,13 @@
 from django.db import models
-from django.forms import ModelForm
+from django import forms
 from apps.inventory.models import Item
 from uni_form.helpers import FormHelper
 from uni_form.layout import Submit, Reset, Fieldset, Layout
 
 
-class ItemForm(ModelForm):
 
+class ItemForm(forms.ModelForm):
+    
     class Meta:
         model = Item
         exclude = ('creation_date',
