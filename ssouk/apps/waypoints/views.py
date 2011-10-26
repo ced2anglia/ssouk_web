@@ -12,7 +12,7 @@ import itertools
 import tempfile
 import os
 # Import custom modules
-from apps.waypoints.models import Waypoint
+from waypoints.models import Waypoint
 #from googlemaps import settings
 
 

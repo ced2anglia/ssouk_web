@@ -1,6 +1,6 @@
 from django.db import models
 from django.forms import ModelForm
-from apps.inventory.models import Item
+from inventory.models import Item
 from uni_form.helpers import FormHelper
 from uni_form.layout import Submit, Reset
 

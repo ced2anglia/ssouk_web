@@ -2,7 +2,7 @@
 from django.conf.urls.defaults import *
 
 
-urlpatterns = patterns('apps.waypoints.views',
+urlpatterns = patterns('waypoints.views',
     url(r'^$', 'index', name='waypoints-index'),
     url(r'^save$', 'save', name='waypoints-save'),
     url(r'^search$', 'search', name='waypoints-search'),

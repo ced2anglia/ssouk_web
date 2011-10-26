@@ -1,7 +1,7 @@
 from django.template import RequestContext
 from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render_to_response
-from apps.inventory.models import Item
+from inventory.models import Item
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
 from django.contrib.gis.geos import Polygon
 import simplejson
