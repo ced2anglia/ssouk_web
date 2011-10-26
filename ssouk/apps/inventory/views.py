@@ -8,9 +8,9 @@ from django.contrib.auth.models import User
 from django.utils.translation import ugettext as _
 from django.contrib.gis.geos import Polygon
 
-from apps.map.models import Location
-from apps.inventory.models import Item
-from apps.inventory.forms import ItemForm
+from maps.models import Location
+from inventory.models import Item
+from inventory.forms import ItemForm
 from util import search_items_within_poly
 
 # import the logging library
@@ -76,7 +76,10 @@ def new(request, username, form_class=ItemForm, template_name="inventory/new_ite
             
 def item_detail(request, username, item_id):
     item = get_object_or_404(Item, pk=item_id)
-    return render_to_response('inventory/item_detail.html', {'item': item})
+    return render_to_response('inventory/item_detail.html', 
+                              {'item': item},
+                              context_instance=RequestContext(request)
+                              )
 
 
 #####

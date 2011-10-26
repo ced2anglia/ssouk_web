@@ -1,4 +1,6 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf import settings
+from django.conf.urls.defaults import *
+from django.views.generic.simple import direct_to_template
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -12,16 +14,12 @@ urlpatterns = patterns('',
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
-    ('^$', 'django.views.generic.simple.direct_to_template',
-     {'template': 'home.html'}),
-    
-    (r'^admin/', include(admin.site.urls)),
-    
-    
-    (r'^inventory', include("apps.inventory.urls")),
-    (r'^map', include("apps.map.urls")),
-    (r'^waypoints', include('apps.waypoints.urls')),
-    (r'^ajax_example', include('apps.ajax_example.urls')),
+    url('^$', direct_to_template, {'template': 'home.html'}),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^inventory/', include("inventory.urls")),
+    url(r'^maps/', include("maps.urls")),
+    url(r'^waypoints/', include('waypoints.urls')),
+    #url(r'^ajax_example/', include('ajax_example.urls')),
 )
 
 

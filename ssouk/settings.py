@@ -1,7 +1,11 @@
 # Django settings for ssouk_web project.
 
-import os
+import os.path
 import posixpath
+import sys
+
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+sys.path.insert(0, os.path.join(PROJECT_ROOT, "apps"))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -23,8 +27,6 @@ DATABASES = {
     }
 }
 
-# Get project root folder
-PROJECT_ROOT = os.path.split(os.path.abspath(__file__))[0]
 
 #print _project_root
 # Set global media search paths
@@ -56,8 +58,6 @@ USE_I18N = True
 USE_L10N = True
 
 
-PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, "site_media/", "media/")
@@ -77,21 +77,13 @@ STATIC_URL = "/site_media/static/"
 
 # Additional directories which hold static files
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_ROOT, "static/"),
+    os.path.join(PROJECT_ROOT, "static"),
 ]
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
 ADMIN_MEDIA_PREFIX = posixpath.join(STATIC_URL, "admin/")
-
-# Additional locations of static files
-STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_ROOT, 'static/'),
-)
 
 
 INTERNAL_IPS = ('127.0.0.1', )
@@ -100,17 +92,10 @@ INTERNAL_IPS = ('127.0.0.1', )
 SECRET_KEY = 'id_fbqde55y5oev3ao(h^myql*%w*bb%o+hvxd0_t2c5%z550s'
 
 # List of callables that know how to import templates from various sources.
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.contrib.auth.context_processors.auth',
-    'django.contrib.messages.context_processors.messages',
-    'django.core.context_processors.request',
-)
-
-TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
+TEMPLATE_LOADERS = [
+    "django.template.loaders.filesystem.load_template_source",
+    "django.template.loaders.app_directories.load_template_source",
+]
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -121,8 +106,21 @@ MIDDLEWARE_CLASSES = (
 #    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'ssouk.urls'
 
+TEMPLATE_DIRS = [
+    os.path.join(PROJECT_ROOT, "templates"),
+]
+
+TEMPLATE_CONTEXT_PROCESSORS = [
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    'django.core.context_processors.static',
+    "django.core.context_processors.request",
+    "django.contrib.messages.context_processors.messages",
+]
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -138,14 +136,14 @@ INSTALLED_APPS = (
 #    'debug_toolbar', # handy fo debugging.
     
     # Our apps
-    'apps.inventory',
-    'apps.map',
-    'apps.category',
-    'apps.transactions',
-    
-    # Waypoints to see how to do it
-    'apps.waypoints',
-    'apps.ajax_example',
+    'inventory',
+    'maps',
+    'category',
+    'transactions',
+#    
+#    # Waypoints to see how to do it
+    'waypoints',
+    'ajax_example',
     
 )
 
