@@ -141,14 +141,14 @@ INSTALLED_APPS = (
     'debug_toolbar', # handy fo debugging.
     
     # Our apps
-#    'inventory',
-#    'maps',
-#    'category',
-#    'transactions',
+    'inventory',
+    'maps',
+    'category',
+    'transactions',
 #    
 #    # Waypoints to see how to do it
-#    'waypoints',
-#    'ajax_example',
+    'waypoints',
+    'ajax_example',
     
 )
 
