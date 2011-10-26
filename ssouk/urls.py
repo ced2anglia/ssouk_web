@@ -16,10 +16,10 @@ urlpatterns = patterns('',
 
     url('^$', direct_to_template, {'template': 'home.html'}),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^inventory', include("inventory.urls")),
-    url(r'^maps', include("maps.urls")),
-    url(r'^waypoints', include('waypoints.urls')),
-    #url(r'^ajax_example', include('ajax_example.urls')),
+    url(r'^inventory/', include("inventory.urls")),
+    url(r'^maps/', include("maps.urls")),
+    url(r'^waypoints/', include('waypoints.urls')),
+    #url(r'^ajax_example/', include('ajax_example.urls')),
 )
 
 
