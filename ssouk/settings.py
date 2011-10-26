@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Django settings for ssouk_web project.
 
 import os.path
@@ -21,18 +22,11 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE' : 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'geodatabase',
+        'NAME': 'geodatabase2',
         'USER': 'geouser',
         'PASSWORD': 'geopassword',
     }
 }
-
-
-#print _project_root
-# Set global media search paths
-GLOBAL_MEDIA_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -80,6 +74,13 @@ STATICFILES_DIRS = [
     os.path.join(PROJECT_ROOT, "static"),
 ]
 
+STATICFILES_FINDERS = [
+    "staticfiles.finders.FileSystemFinder",
+    "staticfiles.finders.AppDirectoriesFinder",
+    "staticfiles.finders.LegacyAppDirectoriesFinder",
+#    "compressor.finders.CompressorFinder",
+]
+
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
@@ -97,14 +98,18 @@ TEMPLATE_LOADERS = [
     "django.template.loaders.app_directories.load_template_source",
 ]
 
-MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
-)
+MIDDLEWARE_CLASSES = [
+    "django.middleware.common.CommonMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django_openid.consumer.SessionConsumer",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "pinax.apps.account.middleware.LocaleMiddleware",
+    "pagination.middleware.PaginationMiddleware",
+    "pinax.middleware.security.HideSensistiveFieldsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+]
 
 ROOT_URLCONF = 'ssouk.urls'
 
@@ -117,12 +122,20 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     "django.core.context_processors.debug",
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
-    'django.core.context_processors.static',
     "django.core.context_processors.request",
     "django.contrib.messages.context_processors.messages",
+    
+    "staticfiles.context_processors.static",
+    
+    "pinax.core.context_processors.pinax_settings",
+    
+    "pinax.apps.account.context_processors.account",
+    
+    "notification.context_processors.notification",
+    "announcements.context_processors.site_wide_announcements",
 ]
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -135,19 +148,42 @@ INSTALLED_APPS = (
     'uni_form',
     'debug_toolbar', # handy fo debugging.
     
-    # Our apps
-    'inventory',
-    'maps',
-    'category',
-    'transactions',
-#    
-#    # Waypoints to see how to do it
-    'waypoints',
-    'ajax_example',
+    "pinax.templatetags",
     
-)
+    # theme
+    "pinax_theme_bootstrap",
+    
+    # external
+    "notification", # must be first
+    "staticfiles",
+    "compressor",
+    "debug_toolbar",
+    "mailer",
+    "django_openid",
+    "timezones",
+    "emailconfirmation",
+    "announcements",
+    "pagination",
+    "idios",
+    "uni_form",
 
+    
+    # Pinax
+    "pinax.apps.account",
+    "pinax.apps.signup_codes",
+    "pinax.apps.analytics",
+    
+    # project
+    "about",
+    "profiles",
+    "maps",
+    "inventory",
+    "category"
+]
 
+FIXTURE_DIRS = [
+    os.path.join(PROJECT_ROOT, "fixtures"),
+]
 # Email
 # run "python -m smtpd -n -c DebuggingServer localhost:1025" to see outgoing
 # messages dumped to the terminal
@@ -155,47 +191,39 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 DEFAULT_FROM_EMAIL = 'do.not.reply@sustainablesouk.com'
 
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
-# A sample logging configuration. The only tangible logging
-# performed by this configuration is to send an email to
-# the site admins on every HTTP 500 error.
-# See http://docs.djangoproject.com/en/dev/topics/logging for
-# more details on how to customize your logging configuration.
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d \
-            %(thread)d %(message)s'
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'class': 'django.utils.log.AdminEmailHandler'
-        },
-         'console':{
-            'level':'DEBUG',
-            'class':'logging.StreamHandler',
-            'formatter': 'simple'
-        },
-    },
-    'loggers': {
-        'django.request': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-        'django': {
-            'handlers': ['console'],
-            'level': 'INFO',
-        }
-    }
+EMAIL_BACKEND = "mailer.backend.DbBackend"
+
+ABSOLUTE_URL_OVERRIDES = {
+    "auth.user": lambda o: "/profiles/profile/%s/" % o.username,
 }
+
+AUTH_PROFILE_MODULE = "profiles.Profile"
+NOTIFICATION_LANGUAGE_MODULE = "account.Account"
+
+ACCOUNT_OPEN_SIGNUP = True
+ACCOUNT_REQUIRED_EMAIL = False
+ACCOUNT_EMAIL_VERIFICATION = False
+ACCOUNT_EMAIL_AUTHENTICATION = False
+ACCOUNT_UNIQUE_EMAIL = EMAIL_CONFIRMATION_UNIQUE_EMAIL = False
+
+AUTHENTICATION_BACKENDS = [
+    "pinax.apps.account.auth_backends.AuthenticationBackend",
+]
+
+LOGIN_URL = "/account/login/" # @@@ any way this can be a url name?
+LOGIN_REDIRECT_URLNAME = "what_next"
+
+EMAIL_CONFIRMATION_DAYS = 2
+EMAIL_DEBUG = DEBUG
+
+DEBUG_TOOLBAR_CONFIG = {
+    "INTERCEPT_REDIRECTS": False,
+}
+
+# local_settings.py can be used to override environment-specific settings
+# like database and email that differ between development and production.
 try:
     from local_settings import *
     DATABASES["default"]["ENGINE"] = "django.contrib.gis.db.backends.postgis"
