@@ -3,7 +3,7 @@
 
 from datetime import datetime, timedelta
 from django.contrib.gis.geos import Polygon
-from apps.map.models import Location
+from maps.models import Location
 
 
 def expiring_date(available_from=None, days=5):

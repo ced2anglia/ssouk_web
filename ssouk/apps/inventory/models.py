@@ -2,8 +2,8 @@
 from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User
-from apps.map.models import Location
-from apps.category.models import Category 
+from maps.models import Location
+from category.models import Category 
 
 
 from util import expiring_date
