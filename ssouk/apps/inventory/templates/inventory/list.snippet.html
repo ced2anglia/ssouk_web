@@ -3,7 +3,7 @@
 {% if items %}
     <ul>
     {% for item in items %}
-        <li><img src={{ item.category.image.url }}> <a href={{ item.user }}/{{ item.pk }}>{{ item.name }}</a>  
+        <li><img src="{{ item.category.image.url }}"/> <a href={{ item.user }}/{{ item.pk }}>{{ item.name }}</a>  
         	<a href={{ item.user }}>{{ item.user }}</a> </li>
 	    <script type="text/javascript">
 	    $(document).ready(function(){	
