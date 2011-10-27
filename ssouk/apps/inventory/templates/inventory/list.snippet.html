@@ -3,9 +3,8 @@
 {% if items %}
     <ul>
     {% for item in items %}
-        <li><a href={{ item.user }}/{{ item.pk }}>{{ item.name }}</a> {{ item.expire_date }} {{ item.price }} 
-            {{ item.quantity }} -- <a href={{ item.user }}>{{ item.user }}</a> 
-            {{ item.location.marker.x }} {{ item.location.marker.y }}</li>
+        <li><img src={{ item.category.image.url }}> <a href={{ item.user }}/{{ item.pk }}>{{ item.name }}</a>  
+        	<a href={{ item.user }}>{{ item.user }}</a> </li>
 	    <script type="text/javascript">
 	    $(document).ready(function(){	
 	    	SSOUK.map_handler.updateMarker({{ item.location.marker.y }}, 
