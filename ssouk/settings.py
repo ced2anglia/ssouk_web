@@ -166,6 +166,7 @@ INSTALLED_APPS = [
     "pagination",
     "idios",
     "uni_form",
+    "south",
 
     
     # Pinax
