@@ -14,7 +14,7 @@ CATEGORY_TYPE = (
 # Create your models here.
 class Category(models.Model):
     name =  models.CharField(max_length=10)
-    image = models.ImageField(blank=True, upload_to='category')
+    image = models.ImageField(blank=True, upload_to='category', height_field=16, width_field=16)
     
     def __unicode__(self):
         return self.name
