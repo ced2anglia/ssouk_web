@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     'django.contrib.gis',
     'uni_form',
     'debug_toolbar', # handy fo debugging.
+    "south",
     
     # Our apps
     'inventory',
