@@ -3,7 +3,7 @@
         "pk": 1,
         "model": "category.category",
         "fields": {
-            "image": "",
+            "image": "/media/vegetables.png",
             "name": "Vegetables"
         }
     },
@@ -11,7 +11,7 @@
         "pk": 2,
         "model": "category.category",
         "fields": {
-            "image": "",
+            "image": "/media/fruits.png",
             "name": "Fruits"
         }
     },
@@ -19,7 +19,7 @@
         "pk": 3,
         "model": "category.category",
         "fields": {
-            "image": "",
+            "image": "/media/meat.png",
             "name": "Meat"
         }
     },
@@ -27,7 +27,7 @@
         "pk": 4,
         "model": "category.category",
         "fields": {
-            "image": "",
+            "image": "/media/fish.png",
             "name": "Fish"
         }
     },
@@ -35,7 +35,7 @@
         "pk": 5,
         "model": "category.category",
         "fields": {
-            "image": "",
+            "image": "/media/dairy.png",
             "name": "Dairy"
         }
     },
@@ -43,7 +43,7 @@
         "pk": 6,
         "model": "category.category",
         "fields": {
-            "image": "",
+            "image": "/media/beverages.png",
             "name": "Beverages"
         }
     },
@@ -51,7 +51,7 @@
         "pk": 7,
         "model": "category.category",
         "fields": {
-            "image": "",
+            "image": "/media/garden.png",
             "name": "Garden"
         }
     },
@@ -59,8 +59,9 @@
         "pk": 8,
         "model": "category.category",
         "fields": {
-            "image": "",
+            "image": "/media/other.png",
             "name": "Other"
         }
     }
 ]
+
