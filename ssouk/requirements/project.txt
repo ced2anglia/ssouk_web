@@ -6,6 +6,7 @@
 # Put project-specific requirements here.
 # See http://pip-installer.org/requirement-format.html for more information.
 Pillow==1.7.2
+South==0.7.3
 distribute==0.6.15
 django-uni-form==0.9.0
 gondor==1.0
