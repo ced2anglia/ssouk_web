@@ -8,8 +8,11 @@
 {% block body_class %}home{% endblock %}
 
 {% block body %}
-{% include "map/map_min.html" %}
-{% include "inventory/list.snippet.html" %}
+<div class="row">
+	{% include "map/map_min.html" %}
+	{% include "inventory/list.snippet.html" %}
+</div>
+
 {% endblock %}
 
 {% block extra_body %}
