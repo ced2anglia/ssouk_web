@@ -6,9 +6,33 @@
 
 <h1>{{ username }}'s Items on the ssouk</h1>
 
+{% include "map/map_min.html" %}
 
-{% include "inventory/list.snippet.html" %}
-
+<div id="inventory--user-list" class="span8">
+	
+{% if items %}
+    <ul>
+    {% for item in items %}
+        <li>
+        	<div class="span2"></div>
+        	<img src="{{ item.category.image.url }}" alt="{{ item.category.image.name }}"/> 
+        	<div class="span2"><a href={{ item.user }}/{{ item.pk }}>{{ item.name }}</a></div>
+        	<div class="span1">{{ item.quantity }}</div>
+        	<div class="span1">{{ item.quantity_type }}</div>
+        	<div class="span1">{{ item.price }}</div>
+        	
+        	
+	    <script type="text/javascript">
+	    $(document).ready(function(){	
+	    	SSOUK.map_handler.updateMarker({{ item.location.marker.y }}, 
+	    								   {{ item.location.marker.x }});
+		});	
+	    </script>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No item available in the SustainableSouk..</p>
+{% endif %}
 {% if same_user %}
 	<a href={{username}}/new>Add Item</a>
 {% endif %}

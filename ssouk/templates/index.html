@@ -9,12 +9,11 @@
 
 {% block body %}
 <div class="row">
-	<div class="span-one-third">MAN </div> 
-	<div class="span-one-third offset-one-third">MAP PLACEHOLDER</div> 
-	<div class="span-one-third offset-two-third">LIST placeholder</div>
+	<div class="span3">MAN </div>
+	{% include "map/map_min.html" %}
+	{% include "inventory/list.snippet.html" %} 
 </div>
-{% include "map/map_min.html" %}
-{% include "inventory/list.snippet.html" %}
+
 
 {% endblock %}
 

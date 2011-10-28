@@ -1,8 +1,9 @@
 
-<div id="inventory-list">
+<div id="inventory-list" class="span-one-third">
 {% if items %}
     <ul>
     {% for item in items %}
+    	
         <li><img src="{{ item.category.image.url }}" alt="{{ item.category.image.name }}"/> <a href={{ item.user }}/{{ item.pk }}>{{ item.name }}</a>  
         	<a href={{ item.user }}>{{ item.user }}</a> </li>
 	    <script type="text/javascript">
