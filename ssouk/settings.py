@@ -145,9 +145,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.gis',
-    'uni_form',
-    'debug_toolbar', # handy fo debugging.
-    "south",
+    'django.contrib.humanize',
     
     "pinax.templatetags",
     
