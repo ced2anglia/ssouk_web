@@ -1,13 +1,23 @@
-This directory is used to store static assets for your project. User media files
-(FileFields/ImageFields) are not stored here.
+How to compile the less into *.css
+------- 
 
-The convention for this directory is:
+Everything is done in the less file (http://lesscss.org/)
+Don't edit the css, 'cause they are rewritten.
 
- * css/ — stores CSS files
- * js/ — stores Javascript files
- * img/ — stores image files
- 
-This directory is accessed at /site_media/static/ in runserver when SERVE_MEDIA
-is True. It is built with build_static for production environments.
+On the ssouk root just write
 
-See http://pinaxproject.com/docs/dev/media.html for more information.
+	make watch
+
+and then go to edit any of the less file.
+We have our custom ad-hoc properties in the `ssouk.less`
+
+Our color schema has to go in the `variables.less`
+
+Check the docs for bootstrap http://twitter.github.com/bootstrap/
+
+To compile it you need to have the `lessc` compiler installed, or use the JS.
+I installed node and compile it like that.
+
+http://twitter.github.com/bootstrap/#less
+
+Have fun and make it pretty.
