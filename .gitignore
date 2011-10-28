@@ -4,7 +4,7 @@ _generated_media*
 .project
 .pydevproject*
 .sass-cache
-ssouk/site_media/media
+ssouk/site_media
 # Different for each developer.
 .gondor
 .settings
