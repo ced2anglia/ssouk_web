@@ -1,11 +1,22 @@
 
-<div id="inventory-list" class="span-one-third">
+<div id="inventory-list">
 {% if items %}
-    <ul>
+    <ul class="unstyled">
     {% for item in items %}
-    	
-        <li><img src="{{ item.category.image.url }}" alt="{{ item.category.image.name }}"/> <a href={{ item.user }}/{{ item.pk }}>{{ item.name }}</a>  
-        	<a href={{ item.user }}>{{ item.user }}</a> </li>
+    	<div class="row">
+	        <li>
+	        	<div class="span1">
+	        		<img src="{{ item.category.image.url }}" alt="{{ item.category.image.name }}"/>
+	        	</div>
+	        	<div class="span1"> 
+	        		<a href={{ item.user }}/{{ item.pk }}>{{ item.name }}</a>
+	        	</div>
+	        	<div class="span1">
+	        		<a href={{ item.user }}>{{ item.user }}</a>	
+	        	</div>  
+	        	 
+	        </li>
+        </div>
 	    <script type="text/javascript">
 	    $(document).ready(function(){	
 	    	SSOUK.map_handler.updateMarker({{ item.location.marker.y }}, 

@@ -9,9 +9,13 @@
 
 {% block body %}
 <div class="row">
-	<div class="span3">MAN </div>
-	{% include "map/map_min.html" %}
-	{% include "inventory/list.snippet.html" %} 
+	<div id="doll" class="span2">MAN </div>
+	<div class="span8">
+		{% include "map/map_min.html" %}
+	</div>
+	<div class="span6">	
+	{% include "inventory/list.snippet.html" %}
+	</div> 
 </div>
 
 
