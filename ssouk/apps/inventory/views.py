@@ -101,7 +101,7 @@ def list(request):
     
     items = search_items_within_poly(default_poly_coords)
             
-    return render_to_response('index.html', 
+    return render_to_response('general_customer_page.html', 
                               {'items' : items},
                               context_instance=RequestContext(request))
 
