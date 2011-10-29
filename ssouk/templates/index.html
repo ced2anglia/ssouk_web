@@ -8,8 +8,23 @@
 {% block body_class %}home{% endblock %}
 
 {% block body %}
-{% include "map/map_min.html" %}
-{% include "inventory/list.snippet.html" %}
+<div class="row">
+	{% include "map/map_min.html" %}
+	{% include "inventory/list.snippet.html" %}
+</div>
+<div class="row">
+	<div class="span6">
+		This is the first bit, has a span6 so it's 6 columns wide
+	</div>
+	<div class="span5">
+		This is the second bit, it has class span5, so it is 5 columns wide
+	</div>
+	<div class="span5">
+		This is the third bit, it has class span5 so it is 5 columns wide.
+		In total there 16 columns.
+	</div>
+</div>
+ 
 {% endblock %}
 
 {% block extra_body %}
