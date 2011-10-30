@@ -32,7 +32,7 @@ def user_items(request, username, template='inventory/user_list.html'):
     markers = []
     for item in items:
         markers.append(item.location.marker)
-    markers = set(markers)
+    
     
     center_obj = calculate_center(markers)
     data = {'items' : items,

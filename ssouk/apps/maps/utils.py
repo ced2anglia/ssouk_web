@@ -39,8 +39,9 @@ def search_items_within_poly(poly_coords):
 def calculate_center(markers):
     "Calculate the center of different locations"
     if len(markers) == 1:
-        loc = markers[0]
-        return (marker.x, marker.y)
+        marker = markers[0]
+        center = {"x" : marker.x, "y" : marker.y}
+        return  center
     elif len(markers) > 2:
         markers_x = []
         markers_y = []
