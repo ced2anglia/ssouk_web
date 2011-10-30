@@ -41,12 +41,7 @@
 				        	<div class="span2">{{ item.quantity }}</div>
 				        	<div class="span1">{{ item.quantity_type }}</div>
 				        	<div class="span1">{{ item.price }}</div>
-					    <script type="text/javascript">
-					    $(document).ready(function(){	
-					    	SSOUK.map_handler.updateMarker({{ item.location.marker.y }}, 
-					    								   {{ item.location.marker.x }});
-						});
-					    </script>
+					    
 					</div>
 			    {% endfor %}
 			    </ul>
