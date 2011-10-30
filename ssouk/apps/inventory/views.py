@@ -11,7 +11,7 @@ from django.contrib.gis.geos import Polygon
 from maps.models import Location
 from inventory.models import Item
 from inventory.forms import ItemForm
-from utils import search_items_within_poly
+from maps.utils import search_items_within_poly
 
 # import the logging library
 import logging
