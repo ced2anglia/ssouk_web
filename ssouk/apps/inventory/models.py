@@ -6,7 +6,7 @@ from maps.models import Location
 from category.models import Category 
 
 
-from util import expiring_date
+from utils import expiring_date
 
 
 # Each Item in the market

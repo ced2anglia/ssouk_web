@@ -1,4 +1,4 @@
-# All the util function for the inventory app
+# All the utils function for the inventory app
 
 
 from datetime import datetime, timedelta
