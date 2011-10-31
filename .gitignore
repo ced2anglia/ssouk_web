@@ -5,7 +5,7 @@ _generated_media*
 .pydevproject*
 .sass-cache
 ssouk/site_media
-ssouk/apps/*/migrations
+
 # Different for each developer.
 .gondor
 .settings
