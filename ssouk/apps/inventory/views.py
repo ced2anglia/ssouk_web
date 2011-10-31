@@ -74,7 +74,10 @@ def new(request, username, form_class=ItemForm, template_name="inventory/new_ite
         
     else:
         # A dynamically loaded form
-        form = form_class(initial={'user' : request.user}) 
+        form = form_class(initial={'user' : request.user})
+        # Restricted to the location which belongs to the user
+        form.fields['location'].queryset = Location.objects.filter(user=request.user.id)
+         
             
     return render_to_response(template_name,
                               { "form": form, 
