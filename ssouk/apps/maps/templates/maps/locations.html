@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<h1>{{ username }}'s Location on the ssouk</h1>
+<h1>{{ username }}'s locations</h1>
 
 <div class="row">
 
@@ -21,33 +21,34 @@
 
 	<div class="span8">
 		<div class="row">
-			<h2>Your locations</h2>
-			{% if locations %}
-			<div id="location-user">
-			    <ul class="unstyled">
-			    {% for location in locations %}
-			    	<div class="row">
-				        <li>
-				        	<div class="span1">
-				        		<img src="http://placehold.it/30x30" alt="marker"/>		
-				        	</div> 
-				        	<div class="span2">{{ location.name }}</div>
-				        	<div class="span2"><a class="btn" href="edit/{{ location.pk }}">edit</a></div>
-							<script type="text/javascript">
-								$(document).ready(function(){	
-					    		SSOUK.map_handler.updateMarker({{ location.marker.y }}, 
-					    								   {{ location.marker.x }});
-							});
-					    	</script>
-			    {% endfor %}
-			    	</div>
-			    </ul>
-		   </div>
-		{% else %}
-			<div> 
-			    <p>No location yet. <a href="add">add one</a></p>
-		   </div>
+			
+		{% if locations %}
+		<div id="location-user">
+		    <ul class="unstyled">
+		    {% for location in locations %}
+		    	<div class="row">
+			        <li>
+			        	<div class="span1">
+			        		<img src="http://placehold.it/30x30" alt="marker"/>		
+			        	</div> 
+			        	<div class="span2">{{ location.name }}</div>
+			        	<div class="span2"><a class="btn" href="edit/{{ location.pk }}">edit</a></div>
+						<script type="text/javascript">
+							$(document).ready(function(){	
+				    		SSOUK.map_handler.updateMarker({{ location.marker.y }}, 
+				    								   {{ location.marker.x }});
+						});
+				    	</script>
+		    {% endfor %}
+		    	</div>
+		    </ul>
+		</div>
 		{% endif %}
+			
+			<div class="row"> 
+			    <p><a class="offset3 primary btn" href="add">add</a></p>
+		   </div>
+		
 			
 		</div>
 	</div>
