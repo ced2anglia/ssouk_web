@@ -6,7 +6,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
- * Date: Fri Oct 28 14:49:19 BST 2011
+ * Date: Sat Oct 29 11:16:19 BST 2011
  */
 /* Reset.less
  * Props to Eric Meyer (meyerweb.com) for his CSS reset file. We're using an adapted version here	that cuts out some of the reset HTML elements we will never need here (i.e., dfn, samp, etc).
@@ -2365,11 +2365,3 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
  * SSouk custom file, where all our mods are inserted.
  * Always write the less, never wirte the css directly
  */
-/* MAP style */
-#map_canvas {
-  width: 580px;
-  height: 400px;
-}
-#inventory-list {
-  width: 820px;
-}

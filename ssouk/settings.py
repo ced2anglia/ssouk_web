@@ -145,9 +145,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.gis',
-    'uni_form',
-    'debug_toolbar', # handy fo debugging.
-    "south",
+    'django.contrib.humanize',
     
     "pinax.templatetags",
     
@@ -215,7 +213,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 LOGIN_URL = "/account/login/" # @@@ any way this can be a url name?
-LOGIN_REDIRECT_URLNAME = "what_next"
+LOGIN_REDIRECT_URLNAME = "general_customer"
 
 EMAIL_CONFIRMATION_DAYS = 2
 EMAIL_DEBUG = DEBUG

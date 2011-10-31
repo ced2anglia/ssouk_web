@@ -6,7 +6,7 @@ from maps.models import Location
 from category.models import Category 
 
 
-from util import expiring_date
+from utils import expiring_date
 
 
 # Each Item in the market
@@ -32,6 +32,7 @@ class Item(models.Model):
     # Decimal to get the math right http://docs.python.org/library/decimal.html
     price = models.DecimalField(max_digits=20, decimal_places=2, help_text='£')
     notes = models.TextField(blank=True)
+    selected = models.BooleanField()
     
     def __unicode__(self):
         return self.name

@@ -11,7 +11,8 @@ from django.contrib.gis.geos import Polygon
 from maps.models import Location
 from inventory.models import Item
 from inventory.forms import ItemForm
-from util import search_items_within_poly
+from maps.utils import search_items_within_poly, calculate_center 
+from maps.utils import DEFAULT_CENTER_OBJ, DEFAULT_POLY_COORDS
 
 # import the logging library
 import logging
@@ -28,8 +29,15 @@ def user_items(request, username, template='inventory/user_list.html'):
     user = User.objects.filter(username=username)
     items = Item.objects.filter(user__username=username
                                                ).order_by('-expire_date')[:]
+    markers = []
+    for item in items:
+        markers.append(item.location.marker)
+    
+    
+    center_obj = calculate_center(markers)
     data = {'items' : items,
             'username' : username,
+            'center' : center_obj
             }
     if user:    
         if request.user.is_authenticated():
@@ -89,20 +97,14 @@ def list(request):
     """
     List the items within the default poly coords.    
     """
+    # 
+
     
-#    Bear in mind this is not synchronized with the Javascript map (map/static/js/map.js) 
-#    at the beginning, so make sure those numbers and the centre of the map defined in the JS are the same.
-    default_poly_coords = [(0.08636528015131262, 52.18927042707768), 
-                           (0.15863471984857824, 52.18927042707768), 
-                           (0.15863471984857824, 52.21083895608358), 
-                           (0.08636528015131262, 52.21083895608358), 
-                           (0.08636528015131262, 52.18927042707768)]
-    
-    
-    items = search_items_within_poly(default_poly_coords)
+    items = search_items_within_poly(DEFAULT_POLY_COORDS)
             
-    return render_to_response('index.html', 
-                              {'items' : items},
+    return render_to_response('inventory/general_customer_page.html', 
+                              {'items' : items, 
+                               'center' : DEFAULT_CENTER_OBJ},
                               context_instance=RequestContext(request))
 
 

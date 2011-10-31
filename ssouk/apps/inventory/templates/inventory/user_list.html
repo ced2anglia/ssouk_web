@@ -6,11 +6,61 @@
 
 <h1>{{ username }}'s Items on the ssouk</h1>
 
+<div class="row">
 
-{% include "inventory/list.snippet.html" %}
+	<div class="span6">
+		{% include "map/map_min.html" %}
+		<style type="text/css">
+		#map_canvas{
+			height: 230px;
+			width: 330px; 
+		}
+		</style>
+		
+		<div id="profile_desc" class="span2">
+			<p>User Description</p>
+		</div>
+	</div>		
 
-{% if same_user %}
-	<a href={{username}}/new>Add Item</a>
-{% endif %}
+
+	<div class="span10">
+		<div class="row">
+			<div id="inventory-user-list">
+			{% if items %}
+			    <ul class="unstyled">
+			    {% for item in items %}
+			    	<div class="row">
+				        <li>
+				        	<div class="span1">
+				        		<img src="{{ item.category.image.url }}" alt="{{ item.category.image.name }}"/>		
+				        	</div> 
+				        	<div class="span2"><a href={{ item.user }}/{{ item.pk }}>{{ item.name }}</a></div>
+				        	<div class="span2">{{ item.quantity }}</div>
+				        	<div class="span1">{{ item.quantity_type }}</div>
+				        	<div class="span1">{{ item.price }}</div>
+				        	<div class="span1">{{ item.selected }}</div>
+							<script type="text/javascript">
+								$(document).ready(function(){	
+					    		SSOUK.map_handler.updateMarker({{ item.location.marker.y }}, 
+					    								   {{ item.location.marker.x }});
+							});
+					    	</script>
+			    {% endfor %}
+			    </ul>
+		{% else %}
+		    <p>No item available in the SustainableSouk..</p>
+		{% endif %}
+			</div>
+		</div>
+		<div class="row">
+			<div class="span2 offset6">
+				{% if same_user %}
+		       		<a href={{username}}/new>Add Item</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+
 
 {% endblock %}

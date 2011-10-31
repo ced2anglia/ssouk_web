@@ -12,12 +12,12 @@ SSOUK.map_handler = function() {
     var map = undefined;
         
     // initialiazation 
-    init = function() {
+    init = function(center_x, center_y) {
         
         if (map === undefined) {
-            var cambridge = new google.maps.LatLng(52.200056, 0.1225);
+            var center_map = new google.maps.LatLng(center_y, center_x);
             var mapDefaultOpts = {
-                center: cambridge,
+                center: center_map,
                 zoom: 14,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 draggableCursor: 'default'
