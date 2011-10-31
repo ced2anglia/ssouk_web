@@ -10,7 +10,7 @@ class Location(models.Model):
         https://secure.wikimedia.org/wikipedia/en/wiki/WGS84
     """
 
-    user = models.ForeignKey(User, related_name='location_creator_set') 
+    user = models.ForeignKey(User, related_name='location_set') 
     name = models.CharField(max_length=32)
     marker = models.PointField(srid=4326) # the marker
     area = models.PolygonField(srid=4326, blank=True) #the area of delivery
@@ -18,6 +18,9 @@ class Location(models.Model):
 
     def __unicode__(self):
         return self.name 
+    
+    class Meta:
+        unique_together = ("user", "name")
     
     # Acces to maker:         self.marker.x, self.marker.y 
     # acess to area coords:   self.area.coords
