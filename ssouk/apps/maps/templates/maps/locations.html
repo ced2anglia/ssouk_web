@@ -22,8 +22,8 @@
 	<div class="span8">
 		<div class="row">
 			<h2>Your locations</h2>
+			{% if locations %}
 			<div id="location-user">
-			{% if location %}
 			    <ul class="unstyled">
 			    {% for location in locations %}
 			    	<div class="row">
@@ -32,7 +32,7 @@
 				        		<img src="http://placehold.it/30x30" alt="marker"/>		
 				        	</div> 
 				        	<div class="span2">{{ location.name }}</div>
-				        	<div class="span2"><a class="btn" href="edit">edit</a></div>
+				        	<div class="span2"><a class="btn" href="edit/{{ location.pk }}">edit</a></div>
 							<script type="text/javascript">
 								$(document).ready(function(){	
 					    		SSOUK.map_handler.updateMarker({{ location.marker.y }}, 
@@ -40,22 +40,23 @@
 							});
 					    	</script>
 			    {% endfor %}
+			    	</div>
 			    </ul>
+		   </div>
 		{% else %}
-			<div 
-		    <p>No item available in the SustainableSouk..</p>
+			<div> 
+			    <p>No location yet. <a href="add">add one</a></p>
+		   </div>
 		{% endif %}
-			</div>
-		</div>
-		<div class="row">
-			<div class="span2 offset6">
-				{% if same_user %}
-		       		<a href={{username}}/new>Add Item</a>
-				{% endif %}
-			</div>
+			
 		</div>
 	</div>
 </div>
 
 
+{% endblock %}
+
+{% block extra_body %}
+	{% block gmaps_javascript_sensor %}
+	{% endblock %}
 {% endblock %}

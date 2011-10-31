@@ -2,7 +2,7 @@ from django.template import RequestContext
 from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
-
+from utils import calculate_center
 
 import logging
 # Get an instance of a logger
@@ -16,6 +16,8 @@ def list(request, username, template='maps/locations.html'):
                 
                 locations_obj = request.user.location_set.all()
                 data['locations'] = locations_obj
+                data['username'] = username
+                data['center'] = calculate_center(locations_obj)
                 return render_to_response(template,
                               data,
                               context_instance=RequestContext(request)

@@ -29,12 +29,12 @@ def user_items(request, username, template='inventory/user_list.html'):
     user = User.objects.filter(username=username)
     items = Item.objects.filter(user__username=username
                                                ).order_by('-expire_date')[:]
-    markers = []
+    locations = []
     for item in items:
-        markers.append(item.location.marker)
+        locations.append(item.location)
     
     
-    center_obj = calculate_center(markers)
+    center_obj = calculate_center(locations)
     data = {'items' : items,
             'username' : username,
             'center' : center_obj
