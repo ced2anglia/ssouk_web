@@ -1,6 +1,9 @@
 {% extends "site_base.html" %}
 {% load uni_form_tags %}
 
+{% block extra_head %}
+	{{ form.media }}
+{% endblock %}
 {% block title %}Add Location{% endblock %}
 
 {% block body %}
@@ -8,17 +11,6 @@
 <h1>New location</h1>
 
 <div class="row">
-
-	<div class="span8">
-		{% include "maps/map_min.html" %}
-		<style type="text/css">
-		#map_canvas{
-			height: 400px;
-			width: 450px; 
-		}
-		</style>
-	</div>		
-
 
 	<div class="span8">
 		<div class="row">

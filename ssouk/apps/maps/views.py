@@ -38,7 +38,6 @@ def add(request, form_class=LocationForm, template='maps/add_location.html'):
             logger.info('Saving the item in the db.')
             location = form.save(commit=False)
             location.user = request.user
-            location.marker.set_x()
             location.save()
             request.user.message_set.create(
                     message=_("%(name)s has been saved.") %{'name': location.name})
