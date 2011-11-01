@@ -5,7 +5,9 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadReque
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 
-from utils import calculate_center
+from utils import calculate_center, DEFAULT_CENTER_OBJ
+from forms import LocationForm
+
 
 
 import logging
@@ -26,10 +28,32 @@ def list(request, template='maps/locations.html'):
                   context_instance=RequestContext(request)
                   )
 
+@csrf_protect
 @login_required    
-def add(request):
-    pass
-    
+def add(request, form_class=LocationForm, template='maps/add_location.html'):
+    center_obj = DEFAULT_CENTER_OBJ
+    if request.method == 'POST': # If the form has been submitted...
+        form = form_class(request.user, request.POST)
+        if form.is_valid():
+            logger.info('Saving the item in the db.')
+            location = form.save(commit=False)
+            location.user = request.user
+            location.marker.set_x()
+            location.save()
+            request.user.message_set.create(
+                    message=_("%(name)s has been saved.") %{'name': location.name})
+            return HttpResponseRedirect(reverse('locations_list'))
+        
+    else:
+        # A dynamically loaded form
+        form = form_class(initial={'user' : request.user})
+
+    return render_to_response(template,
+                              { "form": form, 
+                                "center": center_obj
+                               },
+                              context_instance=RequestContext(request))
+
 @login_required    
 def edit(request, location_id):
     pass
