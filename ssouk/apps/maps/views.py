@@ -28,6 +28,11 @@ def list(request, template='maps/locations.html'):
 
 @login_required    
 def add(request):
-    data = {}
+    pass
+    
+@login_required    
+def edit(request, location_id):
+    pass
+        
     
     

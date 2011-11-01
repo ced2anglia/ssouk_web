@@ -32,7 +32,7 @@
 			        		<img src="http://placehold.it/30x30" alt="marker"/>		
 			        	</div> 
 			        	<div class="span2">{{ location.name }}</div>
-			        	<div class="span2"><a class="btn" href="edit/{{ location.pk }}">edit</a></div>
+			        	<div class="span2"><a class="btn" href=" {% url edit_location location.pk %}">edit</a></div>
 						<script type="text/javascript">
 							$(document).ready(function(){	
 				    		SSOUK.map_handler.updateMarker({{ location.marker.y }}, 
@@ -46,7 +46,7 @@
 		{% endif %}
 			
 			<div class="row"> 
-			    <p><a class="offset3 primary btn" href="add">add</a></p>
+			    <p><a class="offset3 primary btn" href="{% url add_location %}">add</a></p>
 		   </div>
 		
 			
