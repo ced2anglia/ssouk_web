@@ -8,6 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from utils import calculate_center, DEFAULT_CENTER_OBJ
 from forms import LocationForm
+from models import Location
 
 
 
@@ -37,7 +38,7 @@ def add(request, form_class=LocationForm, template='maps/add_location.html'):
     if request.method == 'POST': # If the form has been submitted...
         form = form_class(request.user, request.POST)
         if form.is_valid():
-            logger.info('Saving the item in the db.')
+            
             location = form.save(commit=False)
             location.user = request.user
             location.save()
@@ -56,8 +57,30 @@ def add(request, form_class=LocationForm, template='maps/add_location.html'):
                               context_instance=RequestContext(request))
 
 @login_required    
-def edit(request, location_id):
-    pass
+def edit(request, location_id, form_class=LocationForm, template='maps/add_location.html'):
+    
+    location = Location.objects.get(id__exact=location_id)
+    center_obj = {"x" : location.marker.x, "y" : location.marker.y}
+    if request.method == 'POST': # If the form has been submitted...
+        form = form_class(request.user, request.POST)
+        if form.is_valid():
+            
+            location = form.save(commit=False)
+            location.user = request.user
+            location.save()
+            request.user.message_set.create(
+                    message=_("%(name)s has been saved.") %{'name': location.name})
+            return HttpResponseRedirect(reverse('locations_list'))
+        
+    else:
+        # A dynamically loaded form
+        form = form_class(initial={'user' : request.user})
+
+    return render_to_response(template,
+                              { "form": form, 
+                                "center": center_obj
+                               },
+                              context_instance=RequestContext(request))
         
     
     
