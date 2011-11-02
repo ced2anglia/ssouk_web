@@ -65,6 +65,7 @@ def edit(request, location_pk, form_class=LocationForm, template='maps/add_locat
     location = Location.objects.get(pk=location_pk)
     if request.method == 'POST': # If the form has been submitted...
         form = form_class(request.POST, instance=location)
+        
         if form.is_valid():
             location = form.save(commit=False)
             request.user.message_set.create(
