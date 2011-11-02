@@ -47,8 +47,8 @@ def calculate_center(locations):
         markers_x = []
         markers_y = []
         for location in locations:
-            markers_x.append(locations.marker.x)
-            markers_y.append(locations.marker.y)
+            markers_x.append(location.marker.x)
+            markers_y.append(location.marker.y)
             
         center_x = _calc_middle_point(markers_x)
         center_y = _calc_middle_point(markers_y)

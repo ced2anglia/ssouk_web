@@ -13,7 +13,7 @@ class Location(models.Model):
     user = models.ForeignKey(User, related_name='location_set') 
     name = models.CharField(max_length=32)
     marker = models.PointField(srid=4326) # the marker
-    #area = models.PolygonField(srid=4326, blank=True) #the area of delivery
+    area = models.PolygonField(srid=4326, blank=True, null=True) #the area of delivery
     objects = models.GeoManager()
 
     def __unicode__(self):

@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
+from django.utils.translation import ugettext_lazy as _
 
 from utils import calculate_center, DEFAULT_CENTER_OBJ
 from forms import LocationForm
@@ -19,6 +20,7 @@ def list(request, template='maps/locations.html'):
     
     data = {}
     locations_obj = request.user.location_set.all()
+    
     data['locations'] = locations_obj
     data['username'] = request.user.username
     data['center'] = calculate_center(locations_obj)
