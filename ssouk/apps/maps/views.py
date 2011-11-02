@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadReque
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.gis.geos import Point
 
 from utils import calculate_center, DEFAULT_CENTER_OBJ
 from forms import LocationForm
@@ -48,7 +49,10 @@ def add(request, form_class=LocationForm, template='maps/add_location.html'):
         
     else:
         # A dynamically loaded form
-        form = form_class(initial={'user' : request.user})
+        location = Location()
+        location.marker = Point(center_obj['x'], center_obj['y'])
+        form = form_class(initial={'user' : request.user,
+                                   'marker' : location.marker})
 
     return render_to_response(template,
                               { "form": form, 
@@ -57,9 +61,9 @@ def add(request, form_class=LocationForm, template='maps/add_location.html'):
                               context_instance=RequestContext(request))
 
 @login_required    
-def edit(request, location_id, form_class=LocationForm, template='maps/add_location.html'):
+def edit(request, location_pk, form_class=LocationForm, template='maps/add_location.html'):
     
-    location = Location.objects.get(id__exact=location_id)
+    location = Location.objects.get(pk=location_pk)
     center_obj = {"x" : location.marker.x, "y" : location.marker.y}
     if request.method == 'POST': # If the form has been submitted...
         form = form_class(request.user, request.POST)
@@ -74,12 +78,12 @@ def edit(request, location_id, form_class=LocationForm, template='maps/add_locat
         
     else:
         # A dynamically loaded form
-        form = form_class(initial={'user' : request.user})
+        form = form_class(initial={'user' : request.user, 
+                                   'name' : location.name,
+                                   'marker' : location.marker} )
 
     return render_to_response(template,
-                              { "form": form, 
-                                "center": center_obj
-                               },
+                              { "form": form,},
                               context_instance=RequestContext(request))
         
     

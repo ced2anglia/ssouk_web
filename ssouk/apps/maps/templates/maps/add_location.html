@@ -8,15 +8,6 @@
 
 {% block body %}
 
-{% comment %}
-	{% include "floppyforms/gis/openlayers.html" %}
-	{% block options %}
-		{{ block.super }}
-		options['default_lon'] = center.x
-		options['default_lat'] = center.y
-	{% endblock %}
-{% endcomment %}
-
 <h1>New location</h1>
 
 <div class="row">
