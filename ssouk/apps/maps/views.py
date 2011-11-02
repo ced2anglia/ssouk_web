@@ -50,13 +50,12 @@ def add(request, form_class=LocationForm, template='maps/add_location.html'):
     else:
         # A dynamically loaded form
         location = Location()
-        location.marker = Point(center_obj['x'], center_obj['y'])
+        location.marker = Point(DEFAULT_CENTER_OBJ['x'], DEFAULT_CENTER_OBJ['y'])
         form = form_class(initial={'user' : request.user,
                                    'marker' : location.marker})
-
+        
     return render_to_response(template,
                               { "form": form, 
-                                "center": center_obj
                                },
                               context_instance=RequestContext(request))
 
@@ -64,14 +63,10 @@ def add(request, form_class=LocationForm, template='maps/add_location.html'):
 def edit(request, location_pk, form_class=LocationForm, template='maps/add_location.html'):
     
     location = Location.objects.get(pk=location_pk)
-    center_obj = {"x" : location.marker.x, "y" : location.marker.y}
     if request.method == 'POST': # If the form has been submitted...
-        form = form_class(request.user, request.POST)
+        form = form_class(request.POST, instance=location)
         if form.is_valid():
-            
             location = form.save(commit=False)
-            location.user = request.user
-            location.save()
             request.user.message_set.create(
                     message=_("%(name)s has been saved.") %{'name': location.name})
             return HttpResponseRedirect(reverse('locations_list'))
@@ -86,5 +81,8 @@ def edit(request, location_pk, form_class=LocationForm, template='maps/add_locat
                               { "form": form,},
                               context_instance=RequestContext(request))
         
-    
-    
+@login_required
+def delete(request, location_pk):
+    location = Location.objects.get(pk=location_pk)
+    location.delete()
+    return HttpResponseRedirect(reverse('locations_list'))
