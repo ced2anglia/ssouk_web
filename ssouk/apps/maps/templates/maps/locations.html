@@ -1,0 +1,77 @@
+{% extends "site_base.html" %}
+
+{% block title %}{{ username }}'s Items{% endblock %}
+
+{% block body %}
+
+<h1>{{ username }}'s locations</h1>
+
+<div class="row">
+
+	<div class="span8">
+		{% include "maps/map_min.html" %}
+		<style type="text/css">
+		#map_canvas{
+			height: 400px;
+			width: 450px; 
+		}
+		</style>
+	</div>		
+
+
+	<div class="span8">
+		<div class="row">
+			
+		{% if locations %}
+		<div id="location-user">
+		    <ul class="unstyled">
+		    {% for location in locations %}
+		    	<div class="row">
+			        <li>
+			        	<div class="span1">
+			        		<img src="http://placehold.it/30x30" alt="marker"/>		
+			        	</div> 
+			        	<div class="span2">{{ location.name }}</div>
+			        	<div class="span2"><a class="btn" href=" {% url edit_location location.pk %}">edit</a></div>
+			        	
+			        	<div class="span2">
+			        		
+			        		{% if location.item_set.all.count == 0 %}
+			        			
+			        		<a class="btn danger" 
+			        			href=" {% url delete_location location.pk %}"
+			        			title="There is no going back!">delete</a>
+			        		{% else %}	
+		        			<a class="btn disabled danger" 
+		        			href=" {% url delete_location location.pk %}"
+		        			title="Items are associated with this location.">delete</a>
+			        	{% endif %}
+			        	</div>
+						<script type="text/javascript">
+							$(document).ready(function(){	
+				    		SSOUK.map_handler.updateMarker({{ location.marker.y }}, 
+				    								   {{ location.marker.x }});
+						});
+				    	</script>
+		    {% endfor %}
+		    	</div>
+		    </ul>
+		</div>
+		{% endif %}
+			
+			<div class="row"> 
+			    <a class="span1 offset5 primary btn" href="{% url add_location %}">add</a>
+		   </div>
+		
+			
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
+
+{% block extra_body %}
+	{% block gmaps_javascript_sensor %}
+	{% endblock %}
+{% endblock %}

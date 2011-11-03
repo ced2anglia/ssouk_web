@@ -36,18 +36,19 @@ def search_items_within_poly(poly_coords):
     return items
 
 
-def calculate_center(markers):
+def calculate_center(locations):
     "Calculate the center of different locations"
-    if len(markers) == 1:
-        marker = markers[0]
+    if len(locations) == 1:
+        
+        marker = locations[0].marker
         center = {"x" : marker.x, "y" : marker.y}
         return  center
-    elif len(markers) > 2:
+    elif len(locations) > 2:
         markers_x = []
         markers_y = []
-        for marker in markers:
-            markers_x.append(marker.x)
-            markers_y.append(marker.y)
+        for location in locations:
+            markers_x.append(location.marker.x)
+            markers_y.append(location.marker.y)
             
         center_x = _calc_middle_point(markers_x)
         center_y = _calc_middle_point(markers_y)

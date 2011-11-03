@@ -166,6 +166,7 @@ INSTALLED_APPS = [
     "idios",
     "uni_form",
     "south",
+    "floppyforms",
 
     
     # Pinax
