@@ -27,10 +27,27 @@ class LocationForm(ModelForm):
         self.helper = FormHelper()
         self.helper.form_id = 'saveLocation'
         self.helper.form_class = '' 
-        self.helper.form_style = 'inline'
         self.helper.form_method = 'post'
-        self.helper.form_action = 'add_location'
         self.helper.add_input(Reset('reset','Reset'))
         self.helper.add_input(Submit('submit','Submit'))
         self.user = user
         super(LocationForm, self).__init__(*args, **kwargs)
+
+class AddLocationForm(LocationForm):
+    def __init__(self, *args, **kwargs):
+        super(AddLocationForm, self).__init__(*args, **kwargs)
+        self.helper.form_action = 'add_location'
+    
+        
+    
+class EditLocationForm(LocationForm):
+    def __init__(self, *args, **kwargs):
+        super(EditLocationForm, self).__init__(*args, **kwargs)
+        self.helper.form_action = '' #Got it from the location instance
+        
+        
+    
+    
+    
+    
+    
