@@ -27,10 +27,10 @@
 		<div class="row">
 			<div id="inventory-user-list">
 			{% if items %}
-			    <ul class="unstyled">
+			    
 			    {% for item in items %}
 			    	<div class="row">
-				        <li>
+				
 				        	<div class="span1">
 				        		<img src="{{ item.category.image.url }}" alt="{{ item.category.image.name }}"/>		
 				        	</div> 
@@ -45,8 +45,9 @@
 					    								   {{ item.location.marker.x }});
 							});
 					    	</script>
+					</div>
 			    {% endfor %}
-			    </ul>
+			    
 		{% else %}
 		    <p>No item available in the SustainableSouk..</p>
 		{% endif %}
@@ -55,7 +56,7 @@
 		<div class="row">
 			<div class="span2 offset6">
 				{% if same_user %}
-		       		<a href={{username}}/new>Add Item</a>
+		       		<a class="btn" href={{username}}/new>Add Item</a>
 				{% endif %}
 			</div>
 		</div>

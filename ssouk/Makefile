@@ -1,4 +1,4 @@
-VERSION=1.3.0
+VERSION=1.4.0
 DATE=`date`
 BOOTSTRAP = ./static/css/bootstrap.css
 BOOTSTRAP_MIN = ./static/css/bootstrap.min.css

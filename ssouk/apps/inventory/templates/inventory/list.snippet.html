@@ -1,10 +1,10 @@
 
 <div id="inventory-list">
 {% if items %}
-    <ul class="unstyled">
+    
     {% for item in items %}
     	<div class="row">
-	        <li>
+	
 	        	<div class="span1">
 	        		<img src="{{ item.category.image.url }}" alt="{{ item.category.image.name }}"/>
 	        	</div>
@@ -15,7 +15,7 @@
 	        		<a href={{ item.user }}>{{ item.user }}</a>	
 	        	</div>  
 	        	 
-	        </li>
+	
         </div>
 	    <script type="text/javascript">
 	    $(document).ready(function(){	
@@ -24,7 +24,7 @@
 		});	
 	    </script>
     {% endfor %}
-    </ul>
+    
 {% else %}
     <p>No item available in the SustainableSouk..</p>
 {% endif %}

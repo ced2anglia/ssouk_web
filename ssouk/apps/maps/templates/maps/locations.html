@@ -20,14 +20,12 @@
 
 
 	<div class="span8">
-		<div class="row">
-			
 		{% if locations %}
 		<div id="location-user">
-		    <ul class="unstyled">
+		    
 		    {% for location in locations %}
 		    	<div class="row">
-			        <li>
+			        
 			        	<div class="span1">
 			        		<img src="http://placehold.it/30x30" alt="marker"/>		
 			        	</div> 
@@ -46,17 +44,16 @@
 		        			href=" {% url delete_location location.pk %}"
 		        			title="Items are associated with this location.">delete</a>
 			        	{% endif %}
-			        	</div>
+ 			        	</div>
 						<script type="text/javascript">
 							$(document).ready(function(){	
 				    		SSOUK.map_handler.updateMarker({{ location.marker.y }}, 
 				    								   {{ location.marker.x }});
 						});
 				    	</script>
+				  </div>
 		    {% endfor %}
 		    	</div>
-		    </ul>
-		</div>
 		{% endif %}
 			
 			<div class="row"> 
