@@ -8,7 +8,7 @@ import floppyforms
 class GMapPointWidget(floppyforms.gis.PointWidget, floppyforms.gis.BaseGMapWidget):
     class Media:
         js = (
-            'OpenLayers.js',
+            'js/OpenLayers.js',
             )
 
 class LocationForm(ModelForm):
