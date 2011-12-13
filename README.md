@@ -15,6 +15,8 @@ Installing Postgresql database
 
 We will use postgresql as our database backend, therefore we need to install it
 
+For Ubuntu 10.10
+
 More info here, https://docs.djangoproject.com/en/dev/ref/contrib/gis/install/#creating-a-spatial-database-template-for-postgis,
 however we this is the way to do it on an Ubuntu (10.10).
 
@@ -30,6 +32,14 @@ otherwise there is ascript that can do it for you
     wget https://docs.djangoproject.com/en/dev/_downloads/create_template_postgis-debian.sh
     sudo -u postgres sh create_template_postgis-debian.sh
 
+
+For Ubuntu 11.10
+
+    sudo apt-get install binutils gdal-bin postgresql-9.1-postgis \
+         postgresql-server-dev-9.1
+    wget https://docs.djangoproject.com/en/dev/_downloads/create_template_postgis-1.5.sh
+
+
 Create the development user for DB on Ubuntu
 --------------------------------------------
 
@@ -44,13 +54,7 @@ We need be able to connect, even if our user is the one running the process..
 This is for local development, so no worries (on a MAC I have no idea were is it!)
 
 
-Now change the line on this file /etc/postgresql/8.4/main/pg_hba.conf
-
-From 
-
-    local   all         all                               ident
-    
-To 
+Add the line on this file /etc/postgresql/9.1/main/pg_hba.conf
 
     local   all         all                               md5
 
