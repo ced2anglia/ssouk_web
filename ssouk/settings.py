@@ -167,12 +167,13 @@ INSTALLED_APPS = [
     "uni_form",
     "south",
     "floppyforms",
+    "metron",
 
     
     # Pinax
     "pinax.apps.account",
     "pinax.apps.signup_codes",
-    "pinax.apps.analytics",
+    "pinax.apps.waitinglist",
     
     # project
     "about",
