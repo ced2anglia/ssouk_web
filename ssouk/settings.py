@@ -173,7 +173,7 @@ INSTALLED_APPS = [
     # Pinax
     "pinax.apps.account",
     "pinax.apps.signup_codes",
-    "pinax.apps.waitinglist",
+    #"pinax.apps.waitinglist",
     
     # project
     "about",
@@ -204,7 +204,7 @@ ABSOLUTE_URL_OVERRIDES = {
 AUTH_PROFILE_MODULE = "profiles.Profile"
 NOTIFICATION_LANGUAGE_MODULE = "account.Account"
 
-ACCOUNT_OPEN_SIGNUP = True
+ACCOUNT_OPEN_SIGNUP = False
 ACCOUNT_REQUIRED_EMAIL = False
 ACCOUNT_EMAIL_VERIFICATION = False
 ACCOUNT_EMAIL_AUTHENTICATION = False
