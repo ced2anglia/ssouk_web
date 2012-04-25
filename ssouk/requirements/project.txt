@@ -12,12 +12,12 @@ South==0.7.3
 distribute==0.6.24
 django-announcements==0.1.2
 django-appconf==0.4.1
-django-floppyforms==0.4.7
-django-notification==0.2
+#django-floppyforms==0.4.7
+ -e git+https://github.com/ssouk/django-notification.git#egg=django-notification
 django-pagination==1.0.7
-django-uni-form==0.9.0
+#django-uni-form==0.9.0
 gondor==1.0
--e git+http://github.com/eldarion/idios.git@7b4a22ce74b8629abe52534200b95fc994c5e52b#egg=idios-dev
+-e git+http://github.com/eldarion/idios.git#egg=idios-dev
 ipython
 psycopg2==2.4.1
 simplejson==2.1.6

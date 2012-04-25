@@ -94,8 +94,8 @@ SECRET_KEY = 'id_fbqde55y5oev3ao(h^myql*%w*bb%o+hvxd0_t2c5%z550s'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = [
-    "django.template.loaders.filesystem.load_template_source",
-    "django.template.loaders.app_directories.load_template_source",
+    "django.template.loaders.filesystem.Loader",
+    "django.template.loaders.app_directories.Loader",
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -164,9 +164,9 @@ INSTALLED_APPS = [
     "announcements",
     "pagination",
     "idios",
-    "uni_form",
+    #"uni_form",
     "south",
-    "floppyforms",
+    #"floppyforms",
     "metron",
 
     
