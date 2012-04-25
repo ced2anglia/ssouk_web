@@ -1,0 +1,41 @@
+<!-- Leaflet Map -->
+<link rel="stylesheet" href="{{ STATIC_URL }}css/leaflet-0.3.1.css" />
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="{{ STATIC }}css/leaflet.ie-0.3.1.css" />
+<![endif]-->
+
+<script src="{{ STATIC_URL }}js/leaflet-0.3.1.js"></script>
+<!-- /Leaflet Map -->
+<div id="map" style="height: 400px"></div>
+
+<script type="text/javascript">
+
+var MapHandler = Backbone.Model.extend({
+    
+    defaults: {
+        y : 52.20005469158063,
+        x : 0.12249999999994543,
+        zoom: 13,
+    },
+    
+    initialize: function() {
+        
+        console.log("Stariting Map Handler");
+        var map = new L.Map('map');
+        var mapquestUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
+        subDomains = ['otile1','otile2','otile3','otile4'],
+        mapquestAttrib = 'Data, imagery and map information provided by <a href="http://open.mapquest.co.uk" \ target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors.';
+        
+        var mapquest = new L.TileLayer(mapquestUrl, {maxZoom: 18, attribution: mapquestAttrib, subdomains: subDomains});
+        
+        // add the CloudMade layer to the map set the view to a given center and zoom
+        
+        map.addLayer(mapquest).setView(new L.LatLng(this.get('y'), this.get('x')), this.get('zoom'));
+        console.log(this.get('y'), this.get('x'), this.get('zoom'))
+    }
+});
+
+var mapHandler = new MapHandler;
+</script>
+{{ items }}
+{{ center.x }}
