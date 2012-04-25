@@ -10,11 +10,12 @@ from pinax.apps.account.openid_consumer import PinaxConsumer
 # API with tastypie
 from tastypie.api import Api
 
-from api import ItemResource, UserResource
+from api import ItemResource, UserResource, LocationResource
 
 v1_api = Api(api_name='v1')
 v1_api.register(ItemResource())
 v1_api.register(UserResource())
+v1_api.register(LocationResource())
 
 print v1_api
 

@@ -1,6 +1,7 @@
 from tastypie.resources import ModelResource
 from inventory.models import Item
 from django.contrib.auth.models import User
+from maps.models import Location
 from tastypie import fields
 from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
 from tastypie.authentication import BasicAuthentication
@@ -32,4 +33,17 @@ class ItemResource(ModelResource):
         }
         #authentication = BasicAuthentication()
         #authorization = DjangoAuthorization()
-        
+
+class LocationResource(ModelResource):
+    user = fields.ForeignKey(UserResource, 'user')
+    
+    class Meta:
+        queryset = Location.objects.all()
+        resource = "location"
+        filtering = {
+            'user': ALL_WITH_RELATIONS,
+            'name': ALL,
+            'marker': ['exact', 'lt', 'lte', 'gte', 'gt', 'within'],
+        }
+        #authentication = BasicAuthentication()
+        #authorization = DjangoAuthorization()        
