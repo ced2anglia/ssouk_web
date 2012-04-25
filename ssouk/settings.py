@@ -164,10 +164,9 @@ INSTALLED_APPS = [
     "announcements",
     "pagination",
     "idios",
-    #"uni_form",
     "south",
-    #"floppyforms",
     "metron",
+    "tastypie",
 
     
     # Pinax
@@ -180,7 +179,8 @@ INSTALLED_APPS = [
     "profiles",
     "maps",
     "inventory",
-    "category"
+    "category",
+    
 ]
 
 FIXTURE_DIRS = [

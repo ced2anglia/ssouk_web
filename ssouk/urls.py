@@ -7,6 +7,16 @@ admin.autodiscover()
 
 from pinax.apps.account.openid_consumer import PinaxConsumer
 
+# API with tastypie
+from tastypie.api import Api
+
+from api import ItemResource, UserResource
+
+v1_api = Api(api_name='v1')
+v1_api.register(ItemResource())
+v1_api.register(UserResource())
+
+print v1_api
 
 handler500 = "pinax.views.server_error"
 
@@ -25,6 +35,7 @@ urlpatterns = patterns("",
     url(r"^announcements/", include("announcements.urls")),
     url(r'^inventory/', include("inventory.urls")),
     url(r'^maps/', include("maps.urls")),
+    url(r'^api/', include(v1_api.urls)),
 )
 
 
