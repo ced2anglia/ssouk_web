@@ -136,7 +136,7 @@ def get_items_within_map(request):
         print poly_coords
         items = search_items_within_poly(poly_coords)
         
-        return render_to_response('inventory/list.snippet.html',
+        return render_to_response('inventory/_list_items.html',
                               {'items' : items},
                               context_instance=RequestContext(request))    
     else: 
