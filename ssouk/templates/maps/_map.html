@@ -1,0 +1,21 @@
+<!-- Leaflet Map -->
+<link rel="stylesheet" href="{{ STATIC_URL }}dist/leaflet.css" />
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="{{ STATIC }}css/leaflet.ie.css" />
+<![endif]-->
+
+<script src="{{ STATIC_URL }}dist/leaflet.js"></script>
+<!-- our script -->
+<script src="{{ STATIC_URL }}js/map-leaflet.js"></script>     
+<!-- /Leaflet Map -->
+
+
+<div id="map_canvas" style="height: 400px"></div>
+
+<script type="text/javascript">
+    $(document).ready(function(){   
+        SSOUK.map_handler.init({{ center.x }}, {{ center.y }});
+    });
+</script>
+{{ items }}
+{{ center.x }}
