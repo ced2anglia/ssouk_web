@@ -9,3 +9,4 @@ ssouk/site_media
 # Different for each developer.
 .gondor
 .settings
+ssouk/site_static/
