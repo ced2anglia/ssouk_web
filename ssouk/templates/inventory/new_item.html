@@ -22,7 +22,17 @@
                             height: 450px;
                         } 
                        </style>
-    		          {% if locations %}
+    		          
+    		          {% if map_center %}
+    		          <script type="text/javascript">
+                           $(document).ready(function(){
+                            var center_latlng = new L.LatLng({{ map_center.y }}, {{ map_center.x }}); 
+                                                    
+                            SSOUK.map_handler.map.panTo(center_latlng);       
+    		              });
+		              </script>
+		              {% endif %}
+		              {% if locations %}
     		              {% for loc in locations %}
     		              
                            <script type="text/javascript">

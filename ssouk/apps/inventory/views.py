@@ -60,6 +60,7 @@ def user_items(request, username, template='inventory/user_list.html'):
 @csrf_protect
 def new(request, username, form_class=ItemForm, template_name="inventory/new_item.html"):
     "Add a new item to the inventory."
+    map_center = None
     if request.method == 'POST': # If the form has been submitted...
         form = form_class(request.user, request.POST)
         if form.is_valid():
@@ -76,13 +77,14 @@ def new(request, username, form_class=ItemForm, template_name="inventory/new_ite
         # A dynamically loaded form
         form = form_class(initial={'user' : request.user})
         # Restricted to the location which belongs to the user
-        form.fields['location'].queryset = Location.objects.filter(user=request.user.id)
-         
-            
+        locations = Location.objects.filter(user=request.user.id)
+        form.fields['location'].queryset = locations
+        map_center = calculate_center(locations)
     return render_to_response(template_name,
                               { "form": form, 
                                 "username": username,
-                                "locations" : Location.objects.filter(user=request.user.id)
+                                "locations" : Location.objects.filter(user=request.user.id),
+                                "map_center": map_center
                                 },
                               context_instance=RequestContext(request))
             
