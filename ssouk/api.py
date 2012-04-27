@@ -16,8 +16,8 @@ class UserResource(ModelResource):
         filtering = {
             'username': ALL,
         }
-        #authentication = BasicAuthentication()
-        #authorization = DjangoAuthorization()
+        authentication = BasicAuthentication()
+        authorization = DjangoAuthorization()
         
 
 class ItemResource(ModelResource):
@@ -31,8 +31,8 @@ class ItemResource(ModelResource):
             'name': ALL,
             'expire_date': ['exact', 'lt', 'lte', 'gte', 'gt'],
         }
-        #authentication = BasicAuthentication()
-        #authorization = DjangoAuthorization()
+        authentication = BasicAuthentication()
+        authorization = DjangoAuthorization()
 
 class LocationResource(ModelResource):
     user = fields.ForeignKey(UserResource, 'user')
@@ -45,5 +45,5 @@ class LocationResource(ModelResource):
             'name': ALL,
             'marker': ['exact', 'lt', 'lte', 'gte', 'gt', 'within'],
         }
-        #authentication = BasicAuthentication()
-        #authorization = DjangoAuthorization()        
+        authentication = BasicAuthentication()
+        authorization = DjangoAuthorization()        
