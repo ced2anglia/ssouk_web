@@ -1,0 +1,64 @@
+{% extends "site_base.html" %}
+
+{% block title %}{{ username }}'s Items{% endblock %}
+
+{% block body %}
+
+<h1>{{ username }}'s Items on the ssouk</h1>
+
+<div class="row-fluid">
+    <div class="span12">
+        <div class="row-fluid">
+        	<div class="span4">
+        		{% include "maps/_map.html" %}
+        		<style type="text/css">
+        		#map_canvas{
+        			height: 230px;
+        		}
+        		</style>
+    		
+        		<div id="profile_desc" class="span2">
+        			<p>User Description</p>
+        		</div>
+        	</div>
+        
+            <div class="span8">
+                <div id="inventory-user-list">
+                {% if items %}
+                    {% for item in items %}
+                        <div class="row">
+                    
+                                <div class="span1">
+                                    <img src="{{ item.category.image.url }}" alt="{{ item.category.image.name }}"/>     
+                                </div> 
+                                <div class="span2"><a href={{ item.user }}/{{ item.pk }}>{{ item.name }}</a></div>
+                                <div class="span2">{{ item.quantity }}</div>
+                                <div class="span1">{{ item.quantity_type }}</div>
+                                <div class="span1">{{ item.price }}</div>
+                                <div class="span1">{{ item.selected }}</div>
+                                <script type="text/javascript">
+                                    $(document).ready(function(){   
+                                    SSOUK.map_handler.updateMarker({{ item.location.marker.y }}, 
+                                                               {{ item.location.marker.x }});
+                                });
+                                </script>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No item available in the SustainableSouk..</p>
+                {% endif %}
+                </div>
+                <div class="row"> 
+                    <div class="offset7">
+                        {% if same_user %}
+                            <a class="btn btn-primary btn-small" href={{username}}/new>Add Item</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

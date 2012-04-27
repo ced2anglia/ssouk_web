@@ -11,12 +11,17 @@
 <div class="row">
 	
 	<div class="span6">
-	    {% include "maps/_map.html" %}
+		{% include "maps/_map.html" %}
+      <style type="text/css">
+        #map_canvas{
+            height: 450px;
+        }
+        </style>
 	</div>
 	
 	
 	<div class="span6">	
-	{% include "inventory/list.snippet.html" %}
+	   {% include "inventory/_list_items.html" %}
 	</div> 
 </div>
 
@@ -24,6 +29,5 @@
 {% endblock %}
 
 {% block extra_body %}
-	{% block gmaps_javascript_sensor %}
-	{% endblock %}
+
 {% endblock %}

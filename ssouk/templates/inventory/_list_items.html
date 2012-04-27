@@ -1,0 +1,29 @@
+
+<div id="inventory-list">
+{% if items %}
+    
+    {% for item in items %}
+        <div class="row">
+    
+                <div class="span1">
+                    <img src="{{ item.category.image.url }}" alt="{{ item.category.image.name }}"/>
+                </div>
+                <div class="span1"> 
+                    <a href={{ item.user }}/{{ item.pk }}>{{ item.name }}</a>
+                </div>
+                <div class="span1">
+                    <a href={{ item.user }}>{{ item.user }}</a> 
+                </div>  
+        </div>
+         <script type="text/javascript">
+        $(document).ready(function(){   
+            SSOUK.map_handler.updateMarker({{ item.location.marker.y }}, 
+                                           {{ item.location.marker.x }});
+        }); 
+        </script>
+    {% endfor %}
+    
+{% else %}
+    <p>No item available in the SustainableSouk..</p>
+{% endif %}
+</div>
