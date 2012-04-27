@@ -82,6 +82,7 @@ def new(request, username, form_class=ItemForm, template_name="inventory/new_ite
     return render_to_response(template_name,
                               { "form": form, 
                                 "username": username,
+                                "locations" : Location.objects.filter(user=request.user.id)
                                 },
                               context_instance=RequestContext(request))
             

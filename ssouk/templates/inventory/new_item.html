@@ -9,10 +9,37 @@
 
 
 		{% block body %}
+		<div class="row-fluid">
 		  <div class="span12">
-		    {% crispy form form.helper %}
-		  </div>
-		  {{ form.as_p }}
+		      <div class="row-fluid">
+    		      <div class="span6">
+                      {% crispy form form.helper %}
+                  </div>
+    		      <div class="span6">
+                    {% include "maps/_map.html" %}
+                      <style type="text/css">
+                        #map_canvas{
+                            height: 450px;
+                        } 
+                       </style>
+    		          {% if locations %}
+    		              {% for loc in locations %}
+    		              
+                           <script type="text/javascript">
+                           $(document).ready(function(){   
+                            SSOUK.map_handler.updateMarker({{ loc.marker.y }}, 
+                                                           {{ loc.marker.x }},
+                                                           "{{ loc.name }}");
+                                                           
+                            }); 
+                            </script>
+    		              {% endfor %}
+    		           {% endif %}
+    		      </div>
+    		      
+    		  </div>
+		 </div>
+		</div>
 		{% endblock %}
 
 </div>

@@ -3,7 +3,7 @@ SSOUK.namespace('SSOUK.map_handler');
 
 SSOUK.map_handler = function() {
     
-    init = function(center_x, center_y) {
+    init = function() {
         var y =  52.20005469158063,
             x = 0.12249999999994543,
             zoom = 13;
@@ -22,11 +22,14 @@ SSOUK.map_handler = function() {
         SSOUK.map_handler.map = map;
    }
    
-    updateMarker = function(lat, lng) {
+    updateMarker = function(lat, lng, popup_text) {
         
         var marker = new L.Marker(new L.LatLng(lat, lng));
+        marker.bindPopup(popup_text);
         map = SSOUK.map_handler.map;
         map.addLayer(marker);
+        
+        
     }
 
    updateDisplay =  function(e) {
