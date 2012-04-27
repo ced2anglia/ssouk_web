@@ -17,8 +17,6 @@ v1_api.register(ItemResource())
 v1_api.register(UserResource())
 v1_api.register(LocationResource())
 
-print v1_api
-
 handler500 = "pinax.views.server_error"
 
 
