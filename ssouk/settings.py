@@ -184,6 +184,8 @@ INSTALLED_APPS = [
     
 ]
 
+SERIALIZATION_MODULES = { 'geojson' : 'maps.geojson_serializer' }
+
 FIXTURE_DIRS = [
     os.path.join(PROJECT_ROOT, "fixtures"),
 ]

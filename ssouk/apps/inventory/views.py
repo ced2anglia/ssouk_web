@@ -14,6 +14,9 @@ from inventory.forms import ItemForm
 from maps.utils import search_items_within_poly, calculate_center 
 from maps.utils import DEFAULT_CENTER_OBJ, DEFAULT_POLY_COORDS
 
+from django.core import serializers
+
+
 # import the logging library
 import logging
 # Get an instance of a logger
@@ -61,6 +64,7 @@ def user_items(request, username, template='inventory/user_list.html'):
 def new(request, username, form_class=ItemForm, template_name="inventory/new_item.html"):
     "Add a new item to the inventory."
     map_center = None
+    locations = None
     if request.method == 'POST': # If the form has been submitted...
         form = form_class(request.user, request.POST)
         if form.is_valid():
@@ -80,10 +84,13 @@ def new(request, username, form_class=ItemForm, template_name="inventory/new_ite
         locations = Location.objects.filter(user=request.user.id)
         form.fields['location'].queryset = locations
         map_center = calculate_center(locations)
+        serialezed_locations = serializers.serialize("geojson", locations)
+        
     return render_to_response(template_name,
                               { "form": form, 
                                 "username": username,
-                                "locations" : Location.objects.filter(user=request.user.id),
+                                "locations" : locations,
+                                "serialed_locations" : serialezed_locations,
                                 "map_center": map_center
                                 },
                               context_instance=RequestContext(request))

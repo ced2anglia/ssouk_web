@@ -27,12 +27,29 @@
     		          <script type="text/javascript">
                            $(document).ready(function(){
                             var center_latlng = new L.LatLng({{ map_center.y }}, {{ map_center.x }}); 
-                                                    
-                            SSOUK.map_handler.map.panTo(center_latlng);       
+                            SSOUK.map_handler.map.panTo(center_latlng);
     		              });
 		              </script>
 		              {% endif %}
 		              {% if locations %}
+		              
+                       <script type="text/javascript">
+                           $(document).ready(function(){
+                               var ser_locs = $.parseJSON( '{{ serialed_locations|safe }}');
+                               $("#id_location").change( function() {
+                                    var selected = $('#id_location :selected').text();
+                                    for (var i=0; i < ser_locs.length; i++) {
+                                          if (ser_locs[i].fields.name === selected) {
+                                              var point = ser_locs[i].fields.marker;
+                                              var center_location = new L.LatLng(point.coordinates[1], point.coordinates[0]);
+                                              SSOUK.map_handler.map.panTo(center_location);
+                                          }
+                                    };
+                               });
+                          });
+                      </script>
+
+		              
     		              {% for loc in locations %}
     		              
                            <script type="text/javascript">
