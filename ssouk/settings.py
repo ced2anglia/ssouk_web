@@ -167,7 +167,7 @@ INSTALLED_APPS = [
     "south",
     "metron",
     "tastypie",
-    "django-crispy-forms",
+    "crispy_forms",
 
     
     # Pinax
