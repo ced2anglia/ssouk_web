@@ -32,7 +32,16 @@
 		              </script>
 		              {% endif %}
 		              {% if locations %}
-		              
+                          {% for loc in locations %}
+                               <script type="text/javascript">
+                               $(document).ready(function(){   
+                                SSOUK.map_handler.updateMarker({{ loc.marker.y }}, 
+                                                               {{ loc.marker.x }},
+                                                               "{{ loc.name }}",
+                                                               {{ loc.pk }});                     
+                                }); 
+                                </script>
+                          {% endfor %}
                        <script type="text/javascript">
                            $(document).ready(function(){
                                var ser_locs = $.parseJSON( '{{ serialed_locations|safe }}');
@@ -43,6 +52,8 @@
                                               var point = ser_locs[i].fields.marker;
                                               var center_location = new L.LatLng(point.coordinates[1], point.coordinates[0]);
                                               SSOUK.map_handler.map.panTo(center_location);
+                                              var pk = ser_locs[i].pk
+                                              SSOUK.map_handler.markers[pk].openPopup();
                                           }
                                     };
                                });
@@ -50,17 +61,7 @@
                       </script>
 
 		              
-    		              {% for loc in locations %}
-    		              
-                           <script type="text/javascript">
-                           $(document).ready(function(){   
-                            SSOUK.map_handler.updateMarker({{ loc.marker.y }}, 
-                                                           {{ loc.marker.x }},
-                                                           "{{ loc.name }}");
-                                                           
-                            }); 
-                            </script>
-    		              {% endfor %}
+
     		           {% endif %}
     		      </div>
     		      

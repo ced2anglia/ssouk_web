@@ -7,6 +7,7 @@ SSOUK.map_handler = function() {
         var y =  52.20005469158063,
             x = 0.12249999999994543,
             zoom = 13;
+        var markers = {};
             
         var map = new L.Map('map_canvas');
         var mapquestUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
@@ -19,16 +20,18 @@ SSOUK.map_handler = function() {
         
         map.on('dragend', SSOUK.map_handler.updateDisplay);
         map.on('zoomend', SSOUK.map_handler.updateDisplay);
+        
         SSOUK.map_handler.map = map;
+        SSOUK.map_handler.markers = markers;
    }
    
-    updateMarker = function(lat, lng, popup_text) {
+    updateMarker = function(lat, lng, popup_text, pk) {
         
         var marker = new L.Marker(new L.LatLng(lat, lng));
         marker.bindPopup(popup_text);
         map = SSOUK.map_handler.map;
         map.addLayer(marker);
-        
+        SSOUK.map_handler.markers[pk] = marker;
         
     }
 
