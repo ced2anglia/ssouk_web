@@ -1,17 +1,23 @@
 {% extends "site_base.html" %}
-{% load uni_form_tags %}
+{% load bootstrap_tag %}
 
 {% block title %}{{ username }}'s Items Add Item{% endblock %}
 
 {% block extra_head %}
-
-<script src="{{ STATIC_URL }}uni_form/uni-form.jquery.js" type="text/javascript"></script>
 <script src="{{ STATIC_URL }}js/inventory_math.js" type="text/javascript"></script>
 {% endblock %}
 
 
 		{% block body %}
-		    {% uni_form form form.helper %}
+		    <form>
+		        <legend>Add a new Item</legend>
+	            {% csrf_token %}
+                {{ form|as_bootstrap }}
+                <div class="form-actions">
+                    <a href="#back" class="btn">Go back</a>
+                    <button type="submit" class="btn btn-primary">Add Item</button>
+                </div>
+		    </form>
 		{% endblock %}
 
 </div>
