@@ -8,17 +8,18 @@
 {% block body_class %}home{% endblock %}
 
 {% block body %}
+    <style media="screen" type="text/css">
+    body {
+        text-align: center;
+    }
+    </style>
     
-    <h1>{% trans "Welcome to SustainableSouk" %}</h1>
-    
-    <p>
-        The <a href="{% url general_customer %}">general customer page</a> is where the user will 
-        go after being authenticated, of the classic 
-        <a href="https://github.com/ssouk/ssouk_web/blob/master/design/bene_mockups/landing_page.png">landing page</a>. 
-        
-    </p>
-    
-    
+    <div class="row-fluid">
+        <div class="span12">
+    <iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dGEtQnV1eEdKWEhwSDNTREFmVjI3TEE6MQ" 
+    width="760" height="900" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        </div> 
+    </div>
     
     <hr />
     {% if user.is_authenticated %}
