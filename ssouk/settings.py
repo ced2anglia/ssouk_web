@@ -227,6 +227,25 @@ DEBUG_TOOLBAR_CONFIG = {
     "INTERCEPT_REDIRECTS": False,
 }
 
+
+
+
+
+METRON_SETTINGS = {
+    "mixpanel": {
+        "1": "", # production
+        "2": "", # beta
+    },
+    "google": {
+        "1": "UA-31296431-1", # production
+        "2": "", # beta
+    },
+    "gauges": {
+        "1": "",
+    }
+}
+
+
 # local_settings.py can be used to override environment-specific settings
 # like database and email that differ between development and production.
 try:

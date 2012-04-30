@@ -40,8 +40,6 @@ from models import Location
 #    def __init__(self, *args, **kwargs):
 #        super(EditLocationForm, self).__init__(*args, **kwargs)
 #        self.helper.form_action = '' #Got it from the location instance
-#        
-#        
     
     
     
