@@ -26,7 +26,7 @@
                 <div id="inventory-user-list">
                 {% if items %}
                     {% for item in items %}
-                        <div class="row">
+                        <div class="row-fluid">
                     
                                 <div class="span1">
                                     <img src="{{ item.category.image.url }}" alt="{{ item.category.image.name }}"/>     
@@ -49,7 +49,7 @@
                     <p>No item available in the SustainableSouk..</p>
                 {% endif %}
                 </div>
-                <div class="row"> 
+                <div class="row-fluid"> 
                     <div class="offset7">
                         {% if same_user %}
                             <a class="btn btn-primary btn-small" href={{username}}/new>Add Item</a>

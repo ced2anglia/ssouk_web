@@ -6,7 +6,7 @@
 
 <h1>{{ username }}'s locations</h1>
 
-<div class="row">
+<div class="row-fluid">
 
 	<div class="span8">
 		{% include "maps/map_min.html" %}
@@ -24,7 +24,7 @@
 		<div id="location-user">
 		    
 		    {% for location in locations %}
-		    	<div class="row">
+		    	<div class="row-fluid">
 			        
 			        	<div class="span1">
 			        		<img src="http://placehold.it/30x30" alt="marker"/>		
@@ -56,7 +56,7 @@
 		    	</div>
 		{% endif %}
 			
-			<div class="row"> 
+			<div class="row-fluid"> 
 			    <a class="span1 offset5 primary btn" href="{% url add_location %}">add</a>
 		   </div>
 		
