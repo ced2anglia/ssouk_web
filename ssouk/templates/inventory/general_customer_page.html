@@ -9,20 +9,21 @@
 
 {% block body %}
 <div class="row-fluid">
-	
-	<div class="span6">
-		{% include "maps/_map.html" %}
-      <style type="text/css">
-        #map_canvas{
-            height: 450px;
-        }
-        </style>
-	</div>
-	
-	
-	<div class="span6">	
-	   {% include "inventory/_list_items.html" %}
-	</div> 
+	<div class="span12">
+    	<div class="span6">
+    		{% include "maps/_map.html" %}
+          <style type="text/css">
+            #map_canvas{
+                height: 450px;
+            }
+            </style>
+    	</div>
+    	
+    	
+    	<div class="span6">	
+    	   {% include "inventory/_list_items.html" %}
+    	</div>
+    </div> 
 </div>
 
 

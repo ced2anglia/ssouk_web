@@ -5,13 +5,13 @@
     {% for item in items %}
         <div class="row-fluid">
     
-                <div class="span1">
+                <div class="span2">
                     <img src="{{ item.category.image.url }}" alt="{{ item.category.image.name }}"/>
                 </div>
-                <div class="span1"> 
+                <div class="span2"> 
                     <a href={{ item.user }}/{{ item.pk }}>{{ item.name }}</a>
                 </div>
-                <div class="span1">
+                <div class="span2">
                     <a href={{ item.user }}>{{ item.user }}</a> 
                 </div>  
         </div>
