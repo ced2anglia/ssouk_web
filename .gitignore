@@ -10,3 +10,4 @@ ssouk/site_media
 .gondor
 .settings
 ssouk/site_static/
+ssouk/server_private_settings.txt

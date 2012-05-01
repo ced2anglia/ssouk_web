@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Django settings for ssouk_web project.
-
+import os
 import os.path
 import posixpath
 import sys
@@ -14,7 +14,7 @@ TEMPLATE_DEBUG = DEBUG
 SERVE_MEDIA = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+          os.environ["ADMINS_SSOUK"], # ('Your Name', 'your_email@example.com'),
 )
 
 MANAGERS = ADMINS
@@ -88,9 +88,6 @@ ADMIN_MEDIA_PREFIX = posixpath.join(STATIC_URL, "admin/")
 
 
 INTERNAL_IPS = ('127.0.0.1', )
-
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = 'id_fbqde55y5oev3ao(h^myql*%w*bb%o+hvxd0_t2c5%z550s'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = [
@@ -189,12 +186,7 @@ SERIALIZATION_MODULES = { 'geojson' : 'maps.geojson_serializer' }
 FIXTURE_DIRS = [
     os.path.join(PROJECT_ROOT, "fixtures"),
 ]
-# Email
-# run "python -m smtpd -n -c DebuggingServer localhost:1025" to see outgoing
-# messages dumped to the terminal
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
-DEFAULT_FROM_EMAIL = 'do.not.reply@sustainablesouk.com'
+
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
@@ -229,22 +221,20 @@ DEBUG_TOOLBAR_CONFIG = {
 
 
 
+# Email
+# run "python -m smtpd -n -c DebuggingServer localhost:1025" to see outgoing
+# messages dumped to the terminal
+#EMAIL_HOST = 'localhost'
+#EMAIL_PORT = 1025
+#DEFAULT_FROM_EMAIL = 'do.not.reply@sustainablesouk.com'
 
-
-METRON_SETTINGS = {
-    "mixpanel": {
-        "1": "", # production
-        "2": "", # beta
-    },
-    "google": {
-        "1": "UA-31296431-1", # production
-        "2": "", # beta
-    },
-    "gauges": {
-        "1": "",
-    }
-}
-
+# Variables got from the enviroment
+SECRET_KEY = os.environ["SECRET_KEY"]
+EMAIL_HOST = os.environ["EMAIL_HOST"]
+EMAIL_PORT = int(os.environ["EMAIL_PORT"])
+EMAIL_HOST_USER = os.environ["EMAIL_HOST_USER"]
+EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
+EMAIL_USE_TLS = True
 
 # local_settings.py can be used to override environment-specific settings
 # like database and email that differ between development and production.
