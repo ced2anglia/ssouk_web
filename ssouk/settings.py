@@ -269,7 +269,7 @@ ADMINS = ast.literal_eval(os.environ["ADMINS_SSOUK"]) # ('Your Name', 'your_emai
 MANAGERS = ADMINS
 
 # Sentry
-SENTRY_DNS = os.environ["SENTRY_DNS"]
+SENTRY_DSN = os.environ["SENTRY_DSN"]
 
 
 
