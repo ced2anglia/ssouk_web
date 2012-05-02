@@ -266,7 +266,10 @@ EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
 import ast
 ADMINS = ast.literal_eval(os.environ["ADMINS_SSOUK"]) # ('Your Name', 'your_email@example.com'),
 
-
 MANAGERS = ADMINS
+
+# Sentry
+SENTRY_DNS = os.environ["SENTRY_DNS"]
+
 
 
