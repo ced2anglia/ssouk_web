@@ -11,3 +11,4 @@ ssouk/site_media
 .settings
 ssouk/site_static/
 ssouk/server_private_settings.txt
+ssouk/local_settings.py
