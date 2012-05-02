@@ -13,12 +13,6 @@ TEMPLATE_DEBUG = DEBUG
 
 SERVE_MEDIA = DEBUG
 
-ADMINS = (
-          os.environ["ADMINS_SSOUK"], # ('Your Name', 'your_email@example.com'),
-)
-
-MANAGERS = ADMINS
-
 DATABASES = {
     'default': {
         'ENGINE' : 'django.contrib.gis.db.backends.postgis',
@@ -219,14 +213,20 @@ DEBUG_TOOLBAR_CONFIG = {
     "INTERCEPT_REDIRECTS": False,
 }
 
-
+# local_settings.py can be used to override environment-specific settings
+# like database and email that differ between development and production.
+try:
+    from local_settings import *
+    DATABASES["default"]["ENGINE"] = "django.contrib.gis.db.backends.postgis"
+except ImportError:
+    pass
 
 # Email
 # run "python -m smtpd -n -c DebuggingServer localhost:1025" to see outgoing
 # messages dumped to the terminal
 #EMAIL_HOST = 'localhost'
 #EMAIL_PORT = 1025
-#DEFAULT_FROM_EMAIL = 'do.not.reply@sustainablesouk.com'
+DEFAULT_FROM_EMAIL = 'do.not.reply@sustainablesouk.com'
 
 # Variables got from the enviroment
 SECRET_KEY = os.environ["SECRET_KEY"]
@@ -235,11 +235,10 @@ EMAIL_PORT = int(os.environ["EMAIL_PORT"])
 EMAIL_HOST_USER = os.environ["EMAIL_HOST_USER"]
 EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
 EMAIL_USE_TLS = True
+ADMINS = (
+          os.environ["ADMINS_SSOUK"], # ('Your Name', 'your_email@example.com'),
+)
 
-# local_settings.py can be used to override environment-specific settings
-# like database and email that differ between development and production.
-try:
-    from local_settings import *
-    DATABASES["default"]["ENGINE"] = "django.contrib.gis.db.backends.postgis"
-except ImportError:
-    pass
+MANAGERS = ADMINS
+
+

@@ -172,6 +172,14 @@ Clone the ssouk
 Install all the stuff you need with
 
     pip install --requirement requirements/project.txt
+    
+Copy the `local_settings_ex.py` to `local_settings.py`
+
+    cp local_settings_ex.py local_settings.py
+
+Local Settings contains infor that are different per developer and it's not 
+committed to the repo. The server configuration in production is achieved using 
+the enviroment variables and they have been set already.
 
 Synch the tables in the database
 
