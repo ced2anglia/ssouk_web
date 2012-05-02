@@ -261,9 +261,10 @@ EMAIL_PORT = int(os.environ["EMAIL_PORT"])
 EMAIL_HOST_USER = os.environ["EMAIL_HOST_USER"]
 EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
 
-ADMINS = (
-          os.environ["ADMINS_SSOUK"], # ('Your Name', 'your_email@example.com'),
-)
+# Konfu parsing for Admins
+import ast
+ADMINS = ast.literal_eval(os.environ["ADMINS_SSOUK"]) # ('Your Name', 'your_email@example.com'),
+
 
 MANAGERS = ADMINS
 
