@@ -63,8 +63,9 @@ def user_items(request, username, template='inventory/user_list.html'):
 @csrf_protect
 def new(request, username, form_class=ItemForm, template_name="inventory/new_item.html"):
     "Add a new item to the inventory."
-    map_center = None
-    locations = None
+    locations = Location.objects.filter(user=request.user.id)
+    map_center = calculate_center(locations)
+    serialezed_locations = serializers.serialize("geojson", locations)
     if request.method == 'POST': # If the form has been submitted...
         form = form_class(request.user, request.POST)
         if form.is_valid():
@@ -81,10 +82,9 @@ def new(request, username, form_class=ItemForm, template_name="inventory/new_ite
         # A dynamically loaded form
         form = form_class(initial={'user' : request.user})
         # Restricted to the location which belongs to the user
-        locations = Location.objects.filter(user=request.user.id)
+        
         form.fields['location'].queryset = locations
-        map_center = calculate_center(locations)
-        serialezed_locations = serializers.serialize("geojson", locations)
+
         
     return render_to_response(template_name,
                               { "form": form, 
