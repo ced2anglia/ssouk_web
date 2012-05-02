@@ -159,6 +159,7 @@ INSTALLED_APPS = [
     "metron",
     "tastypie",
     "crispy_forms",
+    "raven.contrib.django",
 
     
     # Pinax
