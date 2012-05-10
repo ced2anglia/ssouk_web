@@ -12,3 +12,4 @@ ssouk/site_media
 ssouk/site_static/
 ssouk/server_private_settings.txt
 ssouk/local_settings.py
+ssouk/heroku_private_settings.txt
