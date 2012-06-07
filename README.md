@@ -104,7 +104,7 @@ Set permissions on directory `/usr/local`
 
 Get brew and install it.
 
-   curl -LsSf https://github.com/mxcl/homebrew/tarball/master | sudo /usr/bin/tar xvz -C/usr/local --strip 1
+    curl -LsSf https://github.com/mxcl/homebrew/tarball/master | sudo /usr/bin/tar xvz -C/usr/local --strip 1
 
 
 Installing the database server with geo support
