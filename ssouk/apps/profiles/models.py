@@ -7,8 +7,6 @@ from idios.models import ProfileBase
 class Profile(ProfileBase):
     name = models.CharField(_("name"), max_length=50, null=True, blank=True)
     
-    "avatar" 
-    
     university = (
         ('Cambridge', 'Cambridge'),
         ('Bedforshire', 'Bedforshire'),
