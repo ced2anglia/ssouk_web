@@ -24,6 +24,7 @@ class ItemForm(ModelForm):
         #self.helper.help_text_inline = True
         self.helper.layout = Layout(
                 Field('name'),
+                Field('university'),
                 Field('category'),
                 Field('description'),
                 Field('location'),
